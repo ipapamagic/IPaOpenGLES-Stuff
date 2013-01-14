@@ -1,0 +1,361 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6E393DB016A3D2E100EE2218 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E393DAF16A3D2E100EE2218 /* QuartzCore.framework */; };
+		6E67FE6A16A3054800E94CFE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E67FE6916A3054800E94CFE /* UIKit.framework */; };
+		6E67FE6C16A3054800E94CFE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E67FE6B16A3054800E94CFE /* Foundation.framework */; };
+		6E67FE6E16A3054800E94CFE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E67FE6D16A3054800E94CFE /* CoreGraphics.framework */; };
+		6E67FE7016A3054800E94CFE /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E67FE6F16A3054800E94CFE /* GLKit.framework */; };
+		6E67FE7216A3054800E94CFE /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E67FE7116A3054800E94CFE /* OpenGLES.framework */; };
+		6E67FE7816A3054800E94CFE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6E67FE7616A3054800E94CFE /* InfoPlist.strings */; };
+		6E67FE7A16A3054800E94CFE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E67FE7916A3054800E94CFE /* main.m */; };
+		6E67FE7E16A3054800E94CFE /* IPaAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E67FE7D16A3054800E94CFE /* IPaAppDelegate.m */; };
+		6E67FE8016A3054800E94CFE /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E67FE7F16A3054800E94CFE /* Default.png */; };
+		6E67FE8216A3054800E94CFE /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E67FE8116A3054800E94CFE /* Default@2x.png */; };
+		6E67FE8416A3054800E94CFE /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E67FE8316A3054800E94CFE /* Default-568h@2x.png */; };
+		6E67FE8716A3054800E94CFE /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E67FE8516A3054800E94CFE /* MainStoryboard.storyboard */; };
+		6E67FE8916A3054800E94CFE /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 6E67FE8816A3054800E94CFE /* Shader.fsh */; };
+		6E67FE8B16A3054800E94CFE /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 6E67FE8A16A3054800E94CFE /* Shader.vsh */; };
+		6E67FE8E16A3054800E94CFE /* IPaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E67FE8D16A3054800E94CFE /* IPaViewController.m */; };
+		6E67FE9616A3057800E94CFE /* SampleIPaGLRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E67FE9516A3057800E94CFE /* SampleIPaGLRenderer.m */; };
+		6E67FEA116A3087800E94CFE /* texture.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E67FE9D16A3087800E94CFE /* texture.png */; };
+		6E67FEA216A3087800E94CFE /* texture2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E67FE9E16A3087800E94CFE /* texture2.png */; };
+		6E67FEA316A3087800E94CFE /* uvcube2.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 6E67FE9F16A3087800E94CFE /* uvcube2.mtl */; };
+		6E67FEA416A3087800E94CFE /* uvcube2.obj in Resources */ = {isa = PBXBuildFile; fileRef = 6E67FEA016A3087800E94CFE /* uvcube2.obj */; };
+		6E67FEAD16A30E9D00E94CFE /* libIPaGLObject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E67FEAB16A30E9D00E94CFE /* libIPaGLObject.a */; };
+		6E67FEAE16A30E9D00E94CFE /* libIPaWavefrontObjLoader.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E67FEAC16A30E9D00E94CFE /* libIPaWavefrontObjLoader.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6E393DAF16A3D2E100EE2218 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		6E67FE6516A3054800E94CFE /* IPaGLObjectSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IPaGLObjectSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E67FE6916A3054800E94CFE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		6E67FE6B16A3054800E94CFE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		6E67FE6D16A3054800E94CFE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		6E67FE6F16A3054800E94CFE /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		6E67FE7116A3054800E94CFE /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		6E67FE7516A3054800E94CFE /* IPaGLObjectSample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IPaGLObjectSample-Info.plist"; sourceTree = "<group>"; };
+		6E67FE7716A3054800E94CFE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6E67FE7916A3054800E94CFE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6E67FE7B16A3054800E94CFE /* IPaGLObjectSample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IPaGLObjectSample-Prefix.pch"; sourceTree = "<group>"; };
+		6E67FE7C16A3054800E94CFE /* IPaAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IPaAppDelegate.h; sourceTree = "<group>"; };
+		6E67FE7D16A3054800E94CFE /* IPaAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IPaAppDelegate.m; sourceTree = "<group>"; };
+		6E67FE7F16A3054800E94CFE /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		6E67FE8116A3054800E94CFE /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		6E67FE8316A3054800E94CFE /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		6E67FE8616A3054800E94CFE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		6E67FE8816A3054800E94CFE /* Shader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.fsh; path = Shaders/Shader.fsh; sourceTree = "<group>"; };
+		6E67FE8A16A3054800E94CFE /* Shader.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.vsh; path = Shaders/Shader.vsh; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
+		6E67FE8C16A3054800E94CFE /* IPaViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IPaViewController.h; sourceTree = "<group>"; };
+		6E67FE8D16A3054800E94CFE /* IPaViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IPaViewController.m; sourceTree = "<group>"; };
+		6E67FE9416A3057800E94CFE /* SampleIPaGLRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleIPaGLRenderer.h; sourceTree = "<group>"; };
+		6E67FE9516A3057800E94CFE /* SampleIPaGLRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleIPaGLRenderer.m; sourceTree = "<group>"; };
+		6E67FE9D16A3087800E94CFE /* texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = texture.png; sourceTree = "<group>"; };
+		6E67FE9E16A3087800E94CFE /* texture2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = texture2.png; sourceTree = "<group>"; };
+		6E67FE9F16A3087800E94CFE /* uvcube2.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = uvcube2.mtl; sourceTree = "<group>"; };
+		6E67FEA016A3087800E94CFE /* uvcube2.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = uvcube2.obj; sourceTree = "<group>"; };
+		6E67FEAB16A30E9D00E94CFE /* libIPaGLObject.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libIPaGLObject.a; path = "../../../../../../../Library/Developer/Xcode/DerivedData/IPaOpenGLES-Stuff-cmbitjfbndfsgcbrcagdubzujarj/Build/Products/Debug-iphoneos/libIPaGLObject.a"; sourceTree = "<group>"; };
+		6E67FEAC16A30E9D00E94CFE /* libIPaWavefrontObjLoader.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libIPaWavefrontObjLoader.a; path = "../../../../../../../Library/Developer/Xcode/DerivedData/IPaOpenGLES-Stuff-cmbitjfbndfsgcbrcagdubzujarj/Build/Products/Debug-iphoneos/libIPaWavefrontObjLoader.a"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6E67FE6216A3054800E94CFE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E393DB016A3D2E100EE2218 /* QuartzCore.framework in Frameworks */,
+				6E67FEAD16A30E9D00E94CFE /* libIPaGLObject.a in Frameworks */,
+				6E67FEAE16A30E9D00E94CFE /* libIPaWavefrontObjLoader.a in Frameworks */,
+				6E67FE6A16A3054800E94CFE /* UIKit.framework in Frameworks */,
+				6E67FE6C16A3054800E94CFE /* Foundation.framework in Frameworks */,
+				6E67FE6E16A3054800E94CFE /* CoreGraphics.framework in Frameworks */,
+				6E67FE7016A3054800E94CFE /* GLKit.framework in Frameworks */,
+				6E67FE7216A3054800E94CFE /* OpenGLES.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6E67FE5A16A3054800E94CFE = {
+			isa = PBXGroup;
+			children = (
+				6E67FE7316A3054800E94CFE /* IPaGLObjectSample */,
+				6E67FE6816A3054800E94CFE /* Frameworks */,
+				6E67FE6616A3054800E94CFE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6E67FE6616A3054800E94CFE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6E67FE6516A3054800E94CFE /* IPaGLObjectSample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6E67FE6816A3054800E94CFE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6E393DAF16A3D2E100EE2218 /* QuartzCore.framework */,
+				6E67FEAB16A30E9D00E94CFE /* libIPaGLObject.a */,
+				6E67FEAC16A30E9D00E94CFE /* libIPaWavefrontObjLoader.a */,
+				6E67FE6916A3054800E94CFE /* UIKit.framework */,
+				6E67FE6B16A3054800E94CFE /* Foundation.framework */,
+				6E67FE6D16A3054800E94CFE /* CoreGraphics.framework */,
+				6E67FE6F16A3054800E94CFE /* GLKit.framework */,
+				6E67FE7116A3054800E94CFE /* OpenGLES.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6E67FE7316A3054800E94CFE /* IPaGLObjectSample */ = {
+			isa = PBXGroup;
+			children = (
+				6E67FE7C16A3054800E94CFE /* IPaAppDelegate.h */,
+				6E67FE7D16A3054800E94CFE /* IPaAppDelegate.m */,
+				6E67FE8516A3054800E94CFE /* MainStoryboard.storyboard */,
+				6E67FE8816A3054800E94CFE /* Shader.fsh */,
+				6E67FE8A16A3054800E94CFE /* Shader.vsh */,
+				6E67FE9D16A3087800E94CFE /* texture.png */,
+				6E67FE9E16A3087800E94CFE /* texture2.png */,
+				6E67FE9F16A3087800E94CFE /* uvcube2.mtl */,
+				6E67FEA016A3087800E94CFE /* uvcube2.obj */,
+				6E67FE8C16A3054800E94CFE /* IPaViewController.h */,
+				6E67FE8D16A3054800E94CFE /* IPaViewController.m */,
+				6E67FE9416A3057800E94CFE /* SampleIPaGLRenderer.h */,
+				6E67FE9516A3057800E94CFE /* SampleIPaGLRenderer.m */,
+				6E67FE7416A3054800E94CFE /* Supporting Files */,
+			);
+			path = IPaGLObjectSample;
+			sourceTree = "<group>";
+		};
+		6E67FE7416A3054800E94CFE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6E67FE7516A3054800E94CFE /* IPaGLObjectSample-Info.plist */,
+				6E67FE7616A3054800E94CFE /* InfoPlist.strings */,
+				6E67FE7916A3054800E94CFE /* main.m */,
+				6E67FE7B16A3054800E94CFE /* IPaGLObjectSample-Prefix.pch */,
+				6E67FE7F16A3054800E94CFE /* Default.png */,
+				6E67FE8116A3054800E94CFE /* Default@2x.png */,
+				6E67FE8316A3054800E94CFE /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6E67FE6416A3054800E94CFE /* IPaGLObjectSample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E67FE9116A3054800E94CFE /* Build configuration list for PBXNativeTarget "IPaGLObjectSample" */;
+			buildPhases = (
+				6E67FE6116A3054800E94CFE /* Sources */,
+				6E67FE6216A3054800E94CFE /* Frameworks */,
+				6E67FE6316A3054800E94CFE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IPaGLObjectSample;
+			productName = IPaGLObjectSample;
+			productReference = 6E67FE6516A3054800E94CFE /* IPaGLObjectSample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6E67FE5C16A3054800E94CFE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = IPa;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = IPaPa;
+			};
+			buildConfigurationList = 6E67FE5F16A3054800E94CFE /* Build configuration list for PBXProject "IPaGLObjectSample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 6E67FE5A16A3054800E94CFE;
+			productRefGroup = 6E67FE6616A3054800E94CFE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6E67FE6416A3054800E94CFE /* IPaGLObjectSample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6E67FE6316A3054800E94CFE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E67FE7816A3054800E94CFE /* InfoPlist.strings in Resources */,
+				6E67FE8016A3054800E94CFE /* Default.png in Resources */,
+				6E67FE8216A3054800E94CFE /* Default@2x.png in Resources */,
+				6E67FE8416A3054800E94CFE /* Default-568h@2x.png in Resources */,
+				6E67FE8716A3054800E94CFE /* MainStoryboard.storyboard in Resources */,
+				6E67FE8916A3054800E94CFE /* Shader.fsh in Resources */,
+				6E67FE8B16A3054800E94CFE /* Shader.vsh in Resources */,
+				6E67FEA116A3087800E94CFE /* texture.png in Resources */,
+				6E67FEA216A3087800E94CFE /* texture2.png in Resources */,
+				6E67FEA316A3087800E94CFE /* uvcube2.mtl in Resources */,
+				6E67FEA416A3087800E94CFE /* uvcube2.obj in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6E67FE6116A3054800E94CFE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E67FE7A16A3054800E94CFE /* main.m in Sources */,
+				6E67FE7E16A3054800E94CFE /* IPaAppDelegate.m in Sources */,
+				6E67FE8E16A3054800E94CFE /* IPaViewController.m in Sources */,
+				6E67FE9616A3057800E94CFE /* SampleIPaGLRenderer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6E67FE7616A3054800E94CFE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6E67FE7716A3054800E94CFE /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		6E67FE8516A3054800E94CFE /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6E67FE8616A3054800E94CFE /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6E67FE8F16A3054800E94CFE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		6E67FE9016A3054800E94CFE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6E67FE9216A3054800E94CFE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "IPaGLObjectSample/IPaGLObjectSample-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/../IPaGLObject/IPaGLObject/\"/**",
+					"\"$(SRCROOT)/../IPaWavefrontObjLoader/IPaWavefrontObjLoader/\"/**",
+				);
+				INFOPLIST_FILE = "IPaGLObjectSample/IPaGLObjectSample-Info.plist";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		6E67FE9316A3054800E94CFE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "IPaGLObjectSample/IPaGLObjectSample-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/../IPaGLObject/IPaGLObject/\"/**",
+					"\"$(SRCROOT)/../IPaWavefrontObjLoader/IPaWavefrontObjLoader/\"/**",
+				);
+				INFOPLIST_FILE = "IPaGLObjectSample/IPaGLObjectSample-Info.plist";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6E67FE5F16A3054800E94CFE /* Build configuration list for PBXProject "IPaGLObjectSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E67FE8F16A3054800E94CFE /* Debug */,
+				6E67FE9016A3054800E94CFE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6E67FE9116A3054800E94CFE /* Build configuration list for PBXNativeTarget "IPaGLObjectSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6E67FE9216A3054800E94CFE /* Debug */,
+				6E67FE9316A3054800E94CFE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6E67FE5C16A3054800E94CFE /* Project object */;
+}
