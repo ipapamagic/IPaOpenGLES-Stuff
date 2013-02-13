@@ -22,6 +22,19 @@
     GLuint vertexBuffer;
 
 }
+-(void)dealloc
+{
+    if (vertexBuffer) {
+        glDeleteBuffers(1, &vertexBuffer);
+    }
+    if (vertexArray) {
+        glDeleteVertexArraysOES(1, &vertexArray);
+    }
+    if (self.vertexAttributes) {
+        free(self.vertexAttributes);
+    }
+    self.groups = nil;
+}
 -(void)createBuffer
 {
     glGenVertexArraysOES(1, &vertexArray);

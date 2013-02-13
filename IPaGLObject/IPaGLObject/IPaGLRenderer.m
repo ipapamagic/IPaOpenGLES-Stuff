@@ -14,6 +14,7 @@
 -(void)renderObject:(IPaGLObject*)object
 {
     [self prepareToDraw];
+    [object bindBuffer];
     for (IPaGLRenderGroup* group in object.groups) {
         [self renderGroup:group];
     }
@@ -21,7 +22,7 @@
 -(void)renderGroup:(IPaGLRenderGroup*)group
 {
     [self prepareToRenderGroup:group];
-
+    [group bindBuffer];
     glDrawElements(GL_TRIANGLES, group.indexNumber, GL_UNSIGNED_SHORT, 0);
 }
 -(void)prepareToRenderGroup:(IPaGLRenderGroup *)group
@@ -254,23 +255,38 @@
     IPaGLMaterial *material = group.material;
     UIColor *color = material.diffuse;
     CGFloat r,g,b,a;
-    [color getRed:&r green:&g blue:&b alpha:&a];
+    if (color == nil) {
+        r = g = b = a = 0;
+    }
+    else {
+        [color getRed:&r green:&g blue:&b alpha:&a];
+    }
     self.effect.light0.diffuseColor = GLKVector4Make(r,g,b,a);
     color = material.specular;
-    [color getRed:&r green:&g blue:&b alpha:&a];
+    if (color == nil) {
+        r = g = b = a = 0;
+    }
+    else {
+        [color getRed:&r green:&g blue:&b alpha:&a];
+    }
     self.effect.light0.specularColor = GLKVector4Make(r,g,b,a);
     color = material.ambient;
-    [color getRed:&r green:&g blue:&b alpha:&a];
+    if (color == nil) {
+        r = g = b = a = 0;
+    }
+    else {
+        [color getRed:&r green:&g blue:&b alpha:&a];
+    }
     self.effect.light0.ambientColor = GLKVector4Make(r,g,b,a);
     self.effect.light0.linearAttenuation = material.shininess;
     if (material.textureInfo != nil) {
         self.effect.texture2d0.name = material.textureInfo.name;
-        self.effect.constantColor = GLKVector4Make(0.0, 0.0, 0.0, 1);
-        self.effect.texture2d0.enabled = YES;
-        self.effect.texture2d0.envMode = GLKTextureEnvModeDecal;
+//        self.effect.constantColor = GLKVector4Make(0.0, 0.0, 0.0, 1);
+        self.effect.texture2d0.enabled = GL_TRUE;
+//        self.effect.texture2d0.envMode = GLKTextureEnvModeDecal;
     }
     else {
-        self.effect.texture2d0.enabled = NO;
+        self.effect.texture2d0.enabled = GL_FALSE;
     }
 
 }
