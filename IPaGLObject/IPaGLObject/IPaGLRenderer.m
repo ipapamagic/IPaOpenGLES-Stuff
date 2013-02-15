@@ -13,8 +13,10 @@
 @implementation IPaGLRenderer
 -(void)renderObject:(IPaGLObject*)object
 {
-    [self prepareToDraw];
+    //bind Buffer should do before prepareToDraw
     [object bindBuffer];
+    [self prepareToDraw];
+
     for (IPaGLRenderGroup* group in object.groups) {
         [self renderGroup:group];
     }
