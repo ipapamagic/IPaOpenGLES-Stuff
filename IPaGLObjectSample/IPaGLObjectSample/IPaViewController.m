@@ -123,7 +123,7 @@
     modelViewMatrix = GLKMatrix4Rotate(modelViewMatrix, rotation, 1.0f, 1.0f, 1.0f);
     modelViewMatrix = GLKMatrix4Multiply(baseModelViewMatrix, modelViewMatrix);
     modelViewMatrixForGLKit = modelViewMatrix;
-//    glkRenderer.effect.transform.modelviewMatrix = modelViewMatrix;
+
     
     // Compute the model view matrix for the object rendered with ES2
     modelViewMatrix = GLKMatrix4MakeTranslation(0.0f, 0.0f, 1.5f);
@@ -162,19 +162,16 @@
     shaderRenderer.rotation = rotation;
     
     glkRenderer.effect.transform.modelviewMatrix = modelViewMatrixForGLKit;
+   
+    
     [object bindBuffer];
-    
     double CurrentTime = CACurrentMediaTime();
-    
     for (IPaGLRenderGroup *group in object.groups) {
-        [group bindBuffer];
-
         [shaderRenderer prepareToDraw];
         [shaderRenderer renderGroup:group];
         [glkRenderer prepareToDraw];        
         [glkRenderer renderGroup:group];
     }
-    
     double finishedTime = CACurrentMediaTime();
     
 //    NSLog(@"render by group take %f",finishedTime - CurrentTime);
@@ -183,18 +180,10 @@
     shaderRenderer.modelViewProjectionMatrix = modelViewProjectionMatrix2;
     shaderRenderer.normalMatrix = normalMatrix2;
     shaderRenderer.rotation = rotation;
-    
     glkRenderer.effect.transform.modelviewMatrix = modelViewMatrixForGLKit2;
-    
-    
     CurrentTime = CACurrentMediaTime();
-    
-    [shaderRenderer prepareToDraw];
     [shaderRenderer renderObject:object];
-    
-    [glkRenderer prepareToDraw];
     [glkRenderer renderObject:object];
-    
     finishedTime = CACurrentMediaTime();  
     
 //    NSLog(@"render by object take %f",finishedTime - CurrentTime);

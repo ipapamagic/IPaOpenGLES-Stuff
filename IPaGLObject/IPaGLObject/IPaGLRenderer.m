@@ -23,8 +23,8 @@
 }
 -(void)renderGroup:(IPaGLRenderGroup*)group
 {
-    [self prepareToRenderGroup:group];
     [group bindBuffer];
+    [self prepareToRenderGroup:group];
     glDrawElements(GL_TRIANGLES, group.indexNumber, GL_UNSIGNED_SHORT, 0);
 }
 -(void)prepareToRenderGroup:(IPaGLRenderGroup *)group
@@ -249,7 +249,7 @@
 }
 -(void)prepareToDraw
 {
-    [self.effect prepareToDraw];
+
     
 }
 -(void)prepareToRenderGroup:(IPaGLRenderGroup*)group
@@ -290,6 +290,8 @@
     else {
         self.effect.texture2d0.enabled = GL_FALSE;
     }
-
+    
+    //need to do prepareToDraw after set texture
+    [self.effect prepareToDraw];
 }
 @end
