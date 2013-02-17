@@ -34,12 +34,12 @@
     
     GLKMatrix4 modelViewProjectionMatrix;
     GLKMatrix3 normalMatrix;
-    GLKMatrix4 modelViewProjectionMatrix2;
-    GLKMatrix3 normalMatrix2;
+//    GLKMatrix4 modelViewProjectionMatrix2;
+//    GLKMatrix3 normalMatrix2;
     
     
     GLKMatrix4 modelViewMatrixForGLKit;
-    GLKMatrix4 modelViewMatrixForGLKit2;
+//    GLKMatrix4 modelViewMatrixForGLKit2;
     float rotation;
 }
 - (void)viewDidLoad
@@ -123,7 +123,7 @@
     modelViewMatrix = GLKMatrix4Rotate(modelViewMatrix, rotation, 1.0f, 1.0f, 1.0f);
     modelViewMatrix = GLKMatrix4Multiply(baseModelViewMatrix, modelViewMatrix);
     modelViewMatrixForGLKit = modelViewMatrix;
-
+ 
     
     // Compute the model view matrix for the object rendered with ES2
     modelViewMatrix = GLKMatrix4MakeTranslation(0.0f, 0.0f, 1.5f);
@@ -134,18 +134,18 @@
     
     modelViewProjectionMatrix = GLKMatrix4Multiply(projectionMatrix, modelViewMatrix);
     // Compute the model view matrix for the object rendered with GLKit
-    modelViewMatrix = GLKMatrix4MakeTranslation(0.0f, 4.0f, -1.5f);
-    modelViewMatrix = GLKMatrix4Rotate(modelViewMatrix, rotation, 1.0f, 1.0f, 1.0f);
-    modelViewMatrix = GLKMatrix4Multiply(baseModelViewMatrix, modelViewMatrix);
-    modelViewMatrixForGLKit2 = modelViewMatrix;
+//    modelViewMatrix = GLKMatrix4MakeTranslation(0.0f, 4.0f, -1.5f);
+//    modelViewMatrix = GLKMatrix4Rotate(modelViewMatrix, rotation, 1.0f, 1.0f, 1.0f);
+//    modelViewMatrix = GLKMatrix4Multiply(baseModelViewMatrix, modelViewMatrix);
+//    modelViewMatrixForGLKit2 = modelViewMatrix;
    // Compute the model view matrix for the object rendered with ES2
-    modelViewMatrix = GLKMatrix4MakeTranslation(0.0f, 4.0f, 1.5f);
-    modelViewMatrix = GLKMatrix4Rotate(modelViewMatrix, rotation, 1.0f, 1.0f, 1.0f);
-    modelViewMatrix = GLKMatrix4Multiply(baseModelViewMatrix, modelViewMatrix);
-    
-    normalMatrix2 = GLKMatrix3InvertAndTranspose(GLKMatrix4GetMatrix3(modelViewMatrix), NULL);
-    
-    modelViewProjectionMatrix2 = GLKMatrix4Multiply(projectionMatrix, modelViewMatrix);
+//    modelViewMatrix = GLKMatrix4MakeTranslation(0.0f, 4.0f, 1.5f);
+//    modelViewMatrix = GLKMatrix4Rotate(modelViewMatrix, rotation, 1.0f, 1.0f, 1.0f);
+//    modelViewMatrix = GLKMatrix4Multiply(baseModelViewMatrix, modelViewMatrix);
+//    
+//    normalMatrix2 = GLKMatrix3InvertAndTranspose(GLKMatrix4GetMatrix3(modelViewMatrix), NULL);
+//    
+//    modelViewProjectionMatrix2 = GLKMatrix4Multiply(projectionMatrix, modelViewMatrix);
     
     rotation += self.timeSinceLastUpdate * 0.5f;
 }
@@ -164,27 +164,27 @@
     glkRenderer.effect.transform.modelviewMatrix = modelViewMatrixForGLKit;
    
     
-    [object bindBuffer];
-    double CurrentTime = CACurrentMediaTime();
-    for (IPaGLRenderGroup *group in object.groups) {
-        [shaderRenderer prepareToDraw];
-        [shaderRenderer renderGroup:group];
-        [glkRenderer prepareToDraw];        
-        [glkRenderer renderGroup:group];
-    }
-    double finishedTime = CACurrentMediaTime();
-    
+//    [object bindBuffer];
+//    double CurrentTime = CACurrentMediaTime();
+//    for (IPaGLRenderGroup *group in object.groups) {
+//        [shaderRenderer prepareToDraw];
+//        [shaderRenderer renderGroup:group];
+//        [glkRenderer prepareToDraw];        
+//        [glkRenderer renderGroup:group];
+//    }
+//    double finishedTime = CACurrentMediaTime();
+//    
 //    NSLog(@"render by group take %f",finishedTime - CurrentTime);
     
     //render by object
-    shaderRenderer.modelViewProjectionMatrix = modelViewProjectionMatrix2;
-    shaderRenderer.normalMatrix = normalMatrix2;
+//    shaderRenderer.modelViewProjectionMatrix = modelViewProjectionMatrix2;
+//    shaderRenderer.normalMatrix = normalMatrix2;
     shaderRenderer.rotation = rotation;
-    glkRenderer.effect.transform.modelviewMatrix = modelViewMatrixForGLKit2;
-    CurrentTime = CACurrentMediaTime();
+//    glkRenderer.effect.transform.modelviewMatrix = modelViewMatrixForGLKit2;
+//    CurrentTime = CACurrentMediaTime();
     [shaderRenderer renderObject:object];
     [glkRenderer renderObject:object];
-    finishedTime = CACurrentMediaTime();  
+//    finishedTime = CACurrentMediaTime();  
     
 //    NSLog(@"render by object take %f",finishedTime - CurrentTime);
     
