@@ -9,10 +9,16 @@
 #import "IPaGLMaterial.h"
 
 @implementation IPaGLMaterial
+-(void)setTextureInfo:(GLKTextureInfo *)textureInfo
+{
+    _textureInfo = textureInfo;
+    self.texTarget = textureInfo.target;
+    self.textureName = textureInfo.name;
+}
 -(void)bindTexture
 {
-    if (self.textureInfo) {
-        glBindTexture(self.textureInfo.target, self.textureInfo.name);
+    if (self.textureName != 0) {
+        glBindTexture(self.texTarget, self.textureName);
     }
 }
 #pragma mark - description

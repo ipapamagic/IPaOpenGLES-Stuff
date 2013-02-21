@@ -14,6 +14,8 @@
 @property (nonatomic,strong) UIColor* ambient;
 @property (nonatomic,strong) UIColor* specular;
 @property (nonatomic,assign) GLfloat shininess;
+@property (nonatomic,assign) GLenum texTarget;
+@property (nonatomic,assign) GLuint textureName;
 @property (nonatomic,strong) GLKTextureInfo *textureInfo;
 -(void)bindTexture;
 @end
