@@ -13,6 +13,7 @@
 @property (nonatomic,assign) NSUInteger vertexAttributeCount;
 -(void)createBuffer;
 -(void)bindBuffer;
+-(void)updateAttributeBuffer;
 -(size_t)vertexAttributeSize;
 -(BOOL)hasPosZ;
 -(BOOL)hasNormal;
@@ -20,7 +21,7 @@
 -(void)setHasPosZ:(BOOL)hasPosZ;
 -(void)setHasNormal:(BOOL)hasNormal;
 -(void)setHasTexCoords:(BOOL)hasTexCoords;
-//a square data,you can use it to draw a 2D square 
+//a square data,you can use it to draw a 2D square
 +(IPaGLAttributes*)square2DAttributes;
 +(void)releaseSquare2DAttributes;
 @end

@@ -123,6 +123,12 @@ static IPaGLAttributes *square2DAttributes = nil;
         glBindVertexArrayOES(vertexArray);
     }
 }
+-(void)updateAttributeBuffer
+{
+    glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
+    glBufferData(GL_ARRAY_BUFFER, self.vertexAttributeSize * self.vertexAttributeCount, self.vertexAttributes, GL_STATIC_DRAW);
+    
+}
 #pragma mark - Global
 +(IPaGLAttributes*)square2DAttributes
 {
