@@ -60,13 +60,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6E3E132016D748910054B84B /* Utility */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Utility;
-			sourceTree = "<group>";
-		};
 		6E67FE2916A1602F00E94CFE = {
 			isa = PBXGroup;
 			children = (
@@ -96,7 +89,6 @@
 		6E67FE3916A1602F00E94CFE /* IPaGLObject */ = {
 			isa = PBXGroup;
 			children = (
-				6E3E132016D748910054B84B /* Utility */,
 				6E67FE3C16A1602F00E94CFE /* IPaGLObject.h */,
 				6E67FE3E16A1602F00E94CFE /* IPaGLObject.m */,
 				6E3E131D16D714140054B84B /* IPaGLAttributes.h */,
