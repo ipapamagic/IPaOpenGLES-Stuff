@@ -14,7 +14,7 @@
 -(void)renderObject:(IPaGLObject*)object
 {
     //bind Buffer should do before prepareToDraw
-    [object bindBuffer];
+    [object bindAttributeBuffer];
     [self prepareToDraw];
 
     for (IPaGLRenderGroup* group in object.groups) {
@@ -281,8 +281,8 @@
     }
     self.effect.light0.ambientColor = GLKVector4Make(r,g,b,a);
     self.effect.light0.linearAttenuation = material.shininess;
-    if (material.textureInfo != nil) {
-        self.effect.texture2d0.name = material.textureInfo.name;
+    if (material.textureName != 0) {
+        self.effect.texture2d0.name = material.textureName;
 //        self.effect.constantColor = GLKVector4Make(0.0, 0.0, 0.0, 1);
         self.effect.texture2d0.enabled = GL_TRUE;
 //        self.effect.texture2d0.envMode = GLKTextureEnvModeDecal;

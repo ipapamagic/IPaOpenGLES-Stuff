@@ -7,16 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class IPaGLAttributes;
 @interface IPaGLObject : NSObject
-@property (nonatomic) void *vertexAttributes;
-@property (nonatomic) uint vertexAttributeCount;
-@property (nonatomic) size_t vertexAttributeSize;
-@property (nonatomic) BOOL hasNormals, hasTexCoords;
+@property (nonatomic,weak) IPaGLAttributes* attributes;
 @property (nonatomic) NSDictionary *materials;
 @property (nonatomic,strong) NSArray *groups;
-
--(void)createBuffer;
--(void)bindBuffer;
++(IPaGLObject*)objectFromWavefrontObjFile:(NSString*)filePath attributes:(IPaGLAttributes*)attributes;
+-(void)createRenderGroupBuffer;
+-(void)bindAttributeBuffer;
 
 @end

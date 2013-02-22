@@ -9,9 +9,9 @@
 #import "IPaViewController.h"
 #import "SampleIPaGLRenderer.h"
 
-#import "IPaWavefrontObjLoader.h"
 #import "IPaGLObject.h"
 #import "IPaGLRenderGroup.h"
+#import "IPaGLAttributes.h"
 #import <QuartzCore/CAAnimation.h>
 @interface IPaViewController () {
   
@@ -30,7 +30,7 @@
     SampleIPaGLRenderer *shaderRenderer;
     IPaGLKitRenderer *glkRenderer;
     IPaGLObject *object;
-    
+    IPaGLAttributes *attributes;
     
     GLKMatrix4 modelViewProjectionMatrix;
     GLKMatrix3 normalMatrix;
@@ -92,8 +92,12 @@
     
     shaderRenderer = [[SampleIPaGLRenderer alloc] init];
     glkRenderer = [[IPaGLKitRenderer alloc] init];
-    object = [IPaWavefrontObjLoader loadIPaGLObjectFromObjFile:[[NSBundle mainBundle] pathForResource:@"uvcube2" ofType:@"obj"]];
-    [object createBuffer];
+    attributes = [[IPaGLAttributes alloc] init];
+    
+    //create an IPaGLAttributes to record vertex data
+    object = [IPaGLObject objectFromWavefrontObjFile:[[NSBundle mainBundle] pathForResource:@"uvcube2" ofType:@"obj"] attributes:attributes];
+    [attributes createBuffer];
+    [object createRenderGroupBuffer];
 
     
     glEnable(GL_DEPTH_TEST);

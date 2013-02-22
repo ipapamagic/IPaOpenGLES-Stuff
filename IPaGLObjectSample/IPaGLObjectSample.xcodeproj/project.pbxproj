@@ -29,7 +29,6 @@
 		6E67FEA316A3087800E94CFE /* uvcube2.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 6E67FE9F16A3087800E94CFE /* uvcube2.mtl */; };
 		6E67FEA416A3087800E94CFE /* uvcube2.obj in Resources */ = {isa = PBXBuildFile; fileRef = 6E67FEA016A3087800E94CFE /* uvcube2.obj */; };
 		6E67FEAD16A30E9D00E94CFE /* libIPaGLObject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E67FEAB16A30E9D00E94CFE /* libIPaGLObject.a */; };
-		6E67FEAE16A30E9D00E94CFE /* libIPaWavefrontObjLoader.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E67FEAC16A30E9D00E94CFE /* libIPaWavefrontObjLoader.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,7 +60,6 @@
 		6E67FE9F16A3087800E94CFE /* uvcube2.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = uvcube2.mtl; sourceTree = "<group>"; };
 		6E67FEA016A3087800E94CFE /* uvcube2.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = uvcube2.obj; sourceTree = "<group>"; };
 		6E67FEAB16A30E9D00E94CFE /* libIPaGLObject.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libIPaGLObject.a; path = "../../../../../../../Library/Developer/Xcode/DerivedData/IPaOpenGLES-Stuff-cmbitjfbndfsgcbrcagdubzujarj/Build/Products/Debug-iphoneos/libIPaGLObject.a"; sourceTree = "<group>"; };
-		6E67FEAC16A30E9D00E94CFE /* libIPaWavefrontObjLoader.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libIPaWavefrontObjLoader.a; path = "../../../../../../../Library/Developer/Xcode/DerivedData/IPaOpenGLES-Stuff-cmbitjfbndfsgcbrcagdubzujarj/Build/Products/Debug-iphoneos/libIPaWavefrontObjLoader.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +69,6 @@
 			files = (
 				6E393DB016A3D2E100EE2218 /* QuartzCore.framework in Frameworks */,
 				6E67FEAD16A30E9D00E94CFE /* libIPaGLObject.a in Frameworks */,
-				6E67FEAE16A30E9D00E94CFE /* libIPaWavefrontObjLoader.a in Frameworks */,
 				6E67FE6A16A3054800E94CFE /* UIKit.framework in Frameworks */,
 				6E67FE6C16A3054800E94CFE /* Foundation.framework in Frameworks */,
 				6E67FE6E16A3054800E94CFE /* CoreGraphics.framework in Frameworks */,
@@ -105,7 +102,6 @@
 			children = (
 				6E393DAF16A3D2E100EE2218 /* QuartzCore.framework */,
 				6E67FEAB16A30E9D00E94CFE /* libIPaGLObject.a */,
-				6E67FEAC16A30E9D00E94CFE /* libIPaWavefrontObjLoader.a */,
 				6E67FE6916A3054800E94CFE /* UIKit.framework */,
 				6E67FE6B16A3054800E94CFE /* Foundation.framework */,
 				6E67FE6D16A3054800E94CFE /* CoreGraphics.framework */,

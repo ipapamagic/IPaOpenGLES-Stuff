@@ -15,6 +15,11 @@
     self.texTarget = textureInfo.target;
     self.textureName = textureInfo.name;
 }
+
+-(void)dealloc
+{
+    glDeleteTextures(1, &_textureName);
+}
 -(void)bindTexture
 {
     if (self.textureName != 0) {

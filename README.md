@@ -4,9 +4,7 @@ IPaOpenGLES-Stuff
 some framework for OpenGL ES 2.0 and GLKit
 
 
-IPaWavefrontObjLoader is a wavefront obj loader
-
-IPaGLObject is a mesh collection, it has multiple IPaGLRenderGroup
+IPaGLObject is a mesh collection, it has multiple IPaGLRenderGroup,can load IPaGLObject from wavefront object file
 
 IPaGLRenderGroup has vertex indexes for render
 

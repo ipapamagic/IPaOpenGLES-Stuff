@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 @class IPaGLObject;
+@class IPaGLAttributes;
 @interface IPaWavefrontObjLoader : NSObject
-+(IPaGLObject*)loadIPaGLObjectFromObjFile:(NSString*)filePath;
+//you need to record attribute your save
++(IPaGLObject*)loadIPaGLObjectFromObjFile:(NSString*)filePath attributes:(IPaGLAttributes*)attributes;
 +(NSDictionary*)loadIPaGLMaterialsFromMTLFile:(NSString*)fileName withBasePath:(NSString*)basePath;
 @end

@@ -10,11 +10,12 @@
 #import "IPaGLObject.h"
 #import "IPaGLRenderGroup.h"
 #import "IPaGLMaterial.h"
+#import "IPaGLAttributes.h"
 @implementation IPaWavefrontObjLoader
-+(IPaGLObject*)loadIPaGLObjectFromObjFile:(NSString*)filePath
++(IPaGLObject*)loadIPaGLObjectFromObjFile:(NSString*)filePath attributes:(IPaGLAttributes*)attributes
 {
     IPaGLObject *glObject = [[IPaGLObject alloc] init];
-    
+    glObject.attributes = attributes;
 	
     NSString *basePath = [filePath stringByDeletingLastPathComponent];
     // Get lines
@@ -160,19 +161,20 @@
     }
     
     // See if we have texcoords and normals
-    glObject.hasTexCoords = vertexTexCoordList.count > 0;
-    glObject.hasNormals = vertexNormalList.count > 0;
-    
-    glObject.vertexAttributeSize = sizeof(GLfloat) * (3 + ((glObject.hasNormals)?3:0) + ((glObject.hasTexCoords)?2:0));
+    attributes.hasTexCoords = vertexTexCoordList.count > 0;
+    attributes.hasNormal = vertexNormalList.count > 0;
+    attributes.hasPosZ = YES;
+    size_t vertexAttributeSize = sizeof(GLfloat) * (3 + ((attributes.hasNormal)?3:0) + ((attributes.hasTexCoords)?2:0));
     // Now, it's time to collect the vertex attributes that we're really interested in
-    glObject.vertexAttributeCount = [totalVertexDict count];
-    glObject.vertexAttributes = calloc(glObject.vertexAttributeCount, glObject.vertexAttributeSize);
-    
+    attributes.vertexAttributeCount = [totalVertexDict count];
+    attributes.vertexAttributes = malloc(vertexAttributeSize * attributes.vertexAttributeCount);
+
+   
     NSUInteger index = 0;
     
     for (NSString *vertex in totalVertexList) {
         // Find the vertex attributes that we're setting
-        void *vertexAttribute = (void*)(glObject.vertexAttributes + (index * glObject.vertexAttributeSize));
+        void *vertexAttribute = (void*)(attributes.vertexAttributes + (index * vertexAttributeSize));
         NSArray *data = [vertex componentsSeparatedByString:@"/"];
         NSInteger vertexIdx = [data[0] integerValue] - 1;
         NSArray *vertexData = vertexList[vertexIdx];
@@ -186,7 +188,7 @@
         memcpy(vertexAttribute, vertexValue, dataSize);
         vertexAttribute = (void*)(vertexAttribute + dataSize);
         
-        if (glObject.hasTexCoords) {
+        if (attributes.hasTexCoords) {
             vertexIdx = [data[1] integerValue] - 1;
             
             if (vertexIdx >= 0) {
@@ -204,7 +206,7 @@
             vertexAttribute = (void*)(vertexAttribute + dataSize);
         }
         
-        if (glObject.hasNormals) {
+        if (attributes.hasNormal) {
             vertexIdx = [data[2] integerValue] - 1;
             if (vertexIdx >= 0) {
                 vertexData = vertexNormalList[vertexIdx];
