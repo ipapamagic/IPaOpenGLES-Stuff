@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E3A783516DC55A000D03657 /* IPaGLTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3A783416DC55A000D03657 /* IPaGLTexture.m */; };
+		6E3A783816DC5E4900D03657 /* IPaGLVertexIndexes.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3A783716DC5E4900D03657 /* IPaGLVertexIndexes.m */; };
 		6E3E131F16D714140054B84B /* IPaGLAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3E131E16D714140054B84B /* IPaGLAttributes.m */; };
+		6E3E133216D773030054B84B /* IPaGLBlender.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3E133116D773030054B84B /* IPaGLBlender.m */; };
 		6E67FE3816A1602F00E94CFE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E67FE3716A1602F00E94CFE /* Foundation.framework */; };
 		6E67FE3D16A1602F00E94CFE /* IPaGLObject.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6E67FE3C16A1602F00E94CFE /* IPaGLObject.h */; };
 		6E67FE3F16A1602F00E94CFE /* IPaGLObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E67FE3E16A1602F00E94CFE /* IPaGLObject.m */; };
@@ -31,8 +34,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6E3A783316DC55A000D03657 /* IPaGLTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLTexture.h; sourceTree = "<group>"; };
+		6E3A783416DC55A000D03657 /* IPaGLTexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLTexture.m; sourceTree = "<group>"; };
+		6E3A783616DC5E4900D03657 /* IPaGLVertexIndexes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLVertexIndexes.h; sourceTree = "<group>"; };
+		6E3A783716DC5E4900D03657 /* IPaGLVertexIndexes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLVertexIndexes.m; sourceTree = "<group>"; };
 		6E3E131D16D714140054B84B /* IPaGLAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLAttributes.h; sourceTree = "<group>"; };
 		6E3E131E16D714140054B84B /* IPaGLAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLAttributes.m; sourceTree = "<group>"; };
+		6E3E133016D773030054B84B /* IPaGLBlender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLBlender.h; sourceTree = "<group>"; };
+		6E3E133116D773030054B84B /* IPaGLBlender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLBlender.m; sourceTree = "<group>"; };
 		6E67FE3416A1602F00E94CFE /* libIPaGLObject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libIPaGLObject.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E67FE3716A1602F00E94CFE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6E67FE3B16A1602F00E94CFE /* IPaGLObject-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IPaGLObject-Prefix.pch"; sourceTree = "<group>"; };
@@ -93,10 +102,16 @@
 				6E67FE3E16A1602F00E94CFE /* IPaGLObject.m */,
 				6E3E131D16D714140054B84B /* IPaGLAttributes.h */,
 				6E3E131E16D714140054B84B /* IPaGLAttributes.m */,
+				6E3E133016D773030054B84B /* IPaGLBlender.h */,
+				6E3E133116D773030054B84B /* IPaGLBlender.m */,
 				6E67FE4516A1BD0C00E94CFE /* IPaGLRenderGroup.h */,
 				6E67FE4616A1BD0C00E94CFE /* IPaGLRenderGroup.m */,
+				6E3A783616DC5E4900D03657 /* IPaGLVertexIndexes.h */,
+				6E3A783716DC5E4900D03657 /* IPaGLVertexIndexes.m */,
 				6E67FE4816A1BD6000E94CFE /* IPaGLMaterial.h */,
 				6E67FE4916A1BD6000E94CFE /* IPaGLMaterial.m */,
+				6E3A783316DC55A000D03657 /* IPaGLTexture.h */,
+				6E3A783416DC55A000D03657 /* IPaGLTexture.m */,
 				6E67FE5316A2EFEF00E94CFE /* IPaGLRenderer.h */,
 				6E67FE5416A2EFEF00E94CFE /* IPaGLRenderer.m */,
 				6E67FE3A16A1602F00E94CFE /* Supporting Files */,
@@ -168,6 +183,9 @@
 				6E67FE4A16A1BD6000E94CFE /* IPaGLMaterial.m in Sources */,
 				6E67FE5516A2EFEF00E94CFE /* IPaGLRenderer.m in Sources */,
 				6E3E131F16D714140054B84B /* IPaGLAttributes.m in Sources */,
+				6E3E133216D773030054B84B /* IPaGLBlender.m in Sources */,
+				6E3A783516DC55A000D03657 /* IPaGLTexture.m in Sources */,
+				6E3A783816DC5E4900D03657 /* IPaGLVertexIndexes.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,11 +7,12 @@
 //
 
 #import "IPaGLRenderGroup.h"
-#import "IPaGLRenderer.h"
-#import "IPaGLMaterial.h"
+#import "IPaGLVertexIndexes.h"
+@interface IPaGLRenderGroup ()
+@end
 @implementation IPaGLRenderGroup
 {
-    GLuint indexArrayBuffer;
+
 }
 - (id)initWithName:(NSString *)inName
 {
@@ -21,42 +22,23 @@
 	}
 	return self;
 }
--(void)setIndexNumber:(NSUInteger)indexNumber
-{
-    _indexNumber = indexNumber;
-    if (self.vertexIndexes) {
-        free(self.vertexIndexes);
-    }
-    self.vertexIndexes = malloc(sizeof(GLushort) * indexNumber);
-    
-}
--(void)dealloc
-{
-    if (self.vertexIndexes) {
-        free(self.vertexIndexes);
-    }
-    if (indexArrayBuffer) {
-        glDeleteBuffers(1, &indexArrayBuffer);
-    }
-}
 -(void)bindBuffer
 {
-    if (indexArrayBuffer) {
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexArrayBuffer);
-    }
+    [self.vertexIndexes bindBuffer];
 }
--(void)createBuffer
+
+-(NSUInteger)indexNumber
 {
-    
-    glGenBuffers(1, &indexArrayBuffer);
-    
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexArrayBuffer);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, self.indexNumber * sizeof(GLushort), self.vertexIndexes, GL_STATIC_DRAW);
-    
-    
-    
+    return self.vertexIndexes.indexNumber;
 }
-
-
-
+-(void)setVertexIndexes:(IPaGLVertexIndexes *)vertexIndexes
+{
+    [_vertexIndexes releaseFromIPaGLRenderGroup:self];
+    _vertexIndexes = vertexIndexes;
+    [vertexIndexes retainByIPaGLRenderGroup:self];
+}
+-(void)releaseResouces
+{
+    self.vertexIndexes = nil;
+}
 @end

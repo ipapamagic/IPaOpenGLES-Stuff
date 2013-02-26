@@ -11,12 +11,15 @@
 
 @class IPaGLMaterial;
 @class IPaGLRenderer;
+@class IPaGLBlender;
+@class IPaGLVertexIndexes;
 @interface IPaGLRenderGroup : NSObject
 @property (nonatomic, copy) NSString *name;
-@property (nonatomic, assign) GLushort *vertexIndexes;
-@property (nonatomic, assign) NSUInteger indexNumber;
+@property (nonatomic,weak) IPaGLVertexIndexes *vertexIndexes;
 @property (nonatomic, weak) IPaGLMaterial *material;
+@property (nonatomic, strong) IPaGLBlender *blender;
 - (id)initWithName:(NSString *)inName;
--(void)createBuffer;
 -(void)bindBuffer;
+-(NSUInteger)indexNumber;
+-(void)releaseResouces;
 @end

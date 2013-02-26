@@ -10,8 +10,11 @@
 #import "IPaGLRenderGroup.h"
 #import "IPaGLAttributes.h"
 #import "IPaGLMaterial.h"
+#import "IPaGLBlender.h"
+#import "IPaGLTexture.h"
+#import "IPaGLVertexIndexes.h"
 #import <GLKit/GLKit.h>
-@interface IPaGLObject()
+@interface IPaGLObject() <NSCopying>
 
 @end
 
@@ -19,26 +22,35 @@
 @implementation IPaGLObject
 {
 }
--(void)dealloc
+-(void)releaseResources
 {
-   
+    [self.attributes releaseFromIPaGLObject:self];
+    self.materials = nil;
+    for (IPaGLRenderGroup *group in self.groups) {
+        [group releaseResouces];
+    }
     self.groups = nil;
 }
--(void)createRenderGroupBuffer
+-(void)dealloc
 {
-       
-    for (IPaGLRenderGroup* group in self.groups) {
-        [group createBuffer];
-    }
-
+    self.groups = nil;
 }
+
 -(void)bindAttributeBuffer
 {
     [self.attributes bindBuffer];
 }
-+(IPaGLObject*)objectFromWavefrontObjFile:(NSString*)filePath attributes:(IPaGLAttributes*)attributes
+
+-(void)setAttributes:(IPaGLAttributes *)attributes
+{
+    [_attributes releaseFromIPaGLObject:self];
+    _attributes = attributes;
+    [attributes retainByIPaGLObject:self];
+}
++(IPaGLObject*)objectFromWavefrontObjFile:(NSString*)filePath
 {
     IPaGLObject *glObject = [[IPaGLObject alloc] init];
+    IPaGLAttributes *attributes = [[IPaGLAttributes alloc] init];
     glObject.attributes = attributes;
 	
     NSString *basePath = [filePath stringByDeletingLastPathComponent];
@@ -252,27 +264,31 @@
         
         index++;
     }
-    
+    [attributes createBuffer]; 
     //        NSArray *totalVertex = [totalVertexSet allObjects];
     for (IPaGLRenderGroup* group in groups) {
         NSArray *facesList = groupsFaces[group.name];
         
-        group.indexNumber = facesList.count;
+        NSUInteger indexNumber = facesList.count;
         NSUInteger index = 0;
-        
+        GLushort *vertexIndexes = malloc(indexNumber * sizeof(GLushort));
         for (NSNumber* faceVertex in facesList) {
             GLushort faceIdx = [faceVertex unsignedShortValue];
             //                GLushort faceIdx = (GLushort)[totalVertex indexOfObject:faceVertex];
-            memcpy(&group.vertexIndexes[index], &faceIdx, sizeof(GLushort));
+            memcpy(&vertexIndexes[index], &faceIdx, sizeof(GLushort));
             
             index++;
         }
+        IPaGLVertexIndexes *glVertexIndexes = [[IPaGLVertexIndexes alloc] initWithVertexIndexes:vertexIndexes withIndexNumber:indexNumber];
+        
+        group.vertexIndexes = glVertexIndexes;
         
         
         
         
     }
     glObject.groups = groups;
+   
     return glObject;
 }
 +(NSDictionary*)loadIPaGLMaterialsFromMTLFile:(NSString*)fileName withBasePath:(NSString*)basePath
@@ -339,8 +355,8 @@
 				{
                     
                     NSString *textureFileName = [basePath stringByAppendingPathComponent:[parseLine substringFromIndex:7]];
-                    NSDictionary * options = @{ GLKTextureLoaderOriginBottomLeft : @(YES)};
-					material.textureInfo = [GLKTextureLoader textureWithContentsOfFile:textureFileName options:options error:nil];
+                    IPaGLTexture* texture = [IPaGLTexture textureFromFile:textureFileName];
+                    material.textures = texture;
                     
                     //                    NSString *baseName = [[texName componentsSeparatedByString:@"."] objectAtIndex:0];
                     //
@@ -390,5 +406,30 @@
 		}
 	}
 	return ret;
+}
+
+#pragma mark - NSCopying
+-(id)copyWithZone:(NSZone *)zone
+{
+    IPaGLObject *newGLObj = [[IPaGLObject alloc] init];
+    newGLObj.attributes = self.attributes;
+    [self.attributes retainByIPaGLObject:newGLObj];
+    newGLObj.materials = [self.materials copy];
+    NSMutableArray *newGroups = [NSMutableArray arrayWithCapacity:self.groups.count];
+    for (IPaGLRenderGroup* group in self.groups) {
+        IPaGLRenderGroup *newGroup = [group copy];
+        newGroup.name = group.name;
+        newGroup.material = newGLObj.materials[group.material.name];
+        newGroup.vertexIndexes = group.vertexIndexes;
+
+        newGroup.blender = [group.blender copy];
+                
+        [newGroups addObject:newGroup];
+    }
+    
+    
+    newGLObj.groups = newGroups;
+    
+    return newGLObj;
 }
 @end

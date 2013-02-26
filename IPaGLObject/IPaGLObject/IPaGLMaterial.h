@@ -8,14 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import <GLKit/GLKit.h>
+@class IPaGLTexture;
 @interface IPaGLMaterial : NSObject
 @property (nonatomic, copy) NSString *name;
+@property (nonatomic,strong) UIColor *constantColor;
 @property (nonatomic,strong) UIColor* diffuse;
 @property (nonatomic,strong) UIColor* ambient;
 @property (nonatomic,strong) UIColor* specular;
 @property (nonatomic,assign) GLfloat shininess;
-@property (nonatomic,assign) GLenum texTarget;
-@property (nonatomic,assign) GLuint textureName;
-@property (nonatomic,strong) GLKTextureInfo *textureInfo;
+@property (nonatomic,weak) IPaGLTexture *textures;
 -(void)bindTexture;
 @end

@@ -8,14 +8,15 @@
 
 #import "IPaGLAttributes.h"
 #import <GLKit/GLKit.h>
+#import "IPaGLObject.h"
 typedef enum {
     IPaGLAttr_HasNormal = 1,
     IPaGLAttr_HasTexCoords = 1 << 1,
     IPaGLAttr_HasPosZ = 1 << 2,
 }IPaGLAttrFlags;
 @interface IPaGLAttributes()
-
-
+//object that use this attribute
+@property (nonatomic,strong) NSMutableArray *objectList;
 @end
 
 
@@ -26,7 +27,33 @@ typedef enum {
     GLuint vertexBuffer;
 }
 static IPaGLAttributes *square2DAttributes = nil;
-
+static NSMutableArray *IPaGLAttributeList = nil;
+-(id)init;
+{
+    if(self = [super init])
+    {
+        if (IPaGLAttributeList == nil) {
+            IPaGLAttributeList = [@[] mutableCopy];
+            [IPaGLAttributeList addObject:self];
+        }
+    
+        self.objectList = [@[] mutableCopy];
+    }
+    return self;
+}
+-(void)retainByIPaGLObject:(IPaGLObject*)object
+{
+    if ([self.objectList indexOfObject:object] == NSNotFound) {
+        [self.objectList addObject:object];
+    }
+}
+-(void)releaseFromIPaGLObject:(IPaGLObject*)object
+{
+    [self.objectList removeObject:object];
+    if ([self.objectList count] == 0) {
+        [IPaGLAttributeList removeObject:self];
+    }
+}
 -(void)dealloc
 {
     if (vertexBuffer != 0) {
@@ -153,10 +180,5 @@ static IPaGLAttributes *square2DAttributes = nil;
     
     return square2DAttributes;
 }
-+(void)releaseSquare2DAttributes
-{
-    if (square2DAttributes) {
-        square2DAttributes = nil;
-    }
-}
+
 @end

@@ -12,8 +12,10 @@
 @property (nonatomic,weak) IPaGLAttributes* attributes;
 @property (nonatomic) NSDictionary *materials;
 @property (nonatomic,strong) NSArray *groups;
-+(IPaGLObject*)objectFromWavefrontObjFile:(NSString*)filePath attributes:(IPaGLAttributes*)attributes;
--(void)createRenderGroupBuffer;
--(void)bindAttributeBuffer;
 
+
++(IPaGLObject*)objectFromWavefrontObjFile:(NSString*)filePath;
+
+-(void)bindAttributeBuffer;
+-(void)releaseResources;
 @end

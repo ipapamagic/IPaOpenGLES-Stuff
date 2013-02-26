@@ -8,9 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import <GLKit/GLKit.h>
+@class IPaGLObject;
 @interface IPaGLAttributes : NSObject
 @property (nonatomic,assign) void *vertexAttributes;
 @property (nonatomic,assign) NSUInteger vertexAttributeCount;
+
+//make sure to retain and release IPaGLObject correctly that uses this Attributes
+-(void)retainByIPaGLObject:(IPaGLObject*)object;
+-(void)releaseFromIPaGLObject:(IPaGLObject*)object;
+
 -(void)createBuffer;
 -(void)bindBuffer;
 -(void)updateAttributeBuffer;
@@ -21,7 +27,8 @@
 -(void)setHasPosZ:(BOOL)hasPosZ;
 -(void)setHasNormal:(BOOL)hasNormal;
 -(void)setHasTexCoords:(BOOL)hasTexCoords;
+
+
 //a square data,you can use it to draw a 2D square
 +(IPaGLAttributes*)square2DAttributes;
-+(void)releaseSquare2DAttributes;
 @end

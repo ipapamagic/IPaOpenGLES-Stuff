@@ -10,13 +10,15 @@
 #import "IPaGLRenderGroup.h"
 #import "IPaGLMaterial.h"
 #import "IPaGLObject.h"
+#import "IPaGLBlender.h"
+#import "IPaGLTexture.h"
 @implementation IPaGLRenderer
 -(void)renderObject:(IPaGLObject*)object
 {
     //bind Buffer should do before prepareToDraw
     [object bindAttributeBuffer];
     [self prepareToDraw];
-
+    
     for (IPaGLRenderGroup* group in object.groups) {
         [self renderGroup:group];
     }
@@ -24,8 +26,15 @@
 -(void)renderGroup:(IPaGLRenderGroup*)group
 {
     [group bindBuffer];
+    if (group.blender == nil) {
+        glDisable(GL_BLEND);
+    }
+    else {
+        [group.blender bindBlendFunc];
+    }
     [self prepareToRenderGroup:group];
     glDrawElements(GL_TRIANGLES, group.indexNumber, GL_UNSIGNED_SHORT, 0);
+    
 }
 -(void)prepareToRenderGroup:(IPaGLRenderGroup *)group
 {
@@ -54,7 +63,7 @@
     if (program) {
         glDeleteProgram(program);
     }
-
+    
 }
 -(void)prepareToDraw
 {
@@ -90,7 +99,7 @@
 {
     
     GLuint vertShader, fragShader;
-
+    
     
     // Create shader program.
     program = glCreateProgram();
@@ -141,7 +150,7 @@
     
     // Get uniform locations.
     [self onGetGLUniforms:program];
-
+    
     
     // Release vertex and fragment shaders.
     if (vertShader) {
@@ -249,14 +258,23 @@
 }
 -(void)prepareToDraw
 {
-
+    
     
 }
 -(void)prepareToRenderGroup:(IPaGLRenderGroup*)group
 {
     IPaGLMaterial *material = group.material;
-    UIColor *color = material.diffuse;
+    UIColor *color = material.constantColor;
     CGFloat r,g,b,a;
+    if (color == nil) {
+        r = g = b = a = 1;
+    }
+    else {
+        [color getRed:&r green:&g blue:&b alpha:&a];
+    }
+    self.effect.constantColor = GLKVector4Make(r,g,b,a);
+    
+    color = material.diffuse;
     if (color == nil) {
         r = g = b = a = 0;
     }
@@ -281,11 +299,11 @@
     }
     self.effect.light0.ambientColor = GLKVector4Make(r,g,b,a);
     self.effect.light0.linearAttenuation = material.shininess;
-    if (material.textureName != 0) {
-        self.effect.texture2d0.name = material.textureName;
-//        self.effect.constantColor = GLKVector4Make(0.0, 0.0, 0.0, 1);
+    if (material.textures != nil) {
+        self.effect.texture2d0.name = material.textures.textureName;
+        //        self.effect.constantColor = GLKVector4Make(0.0, 0.0, 0.0, 1);
         self.effect.texture2d0.enabled = GL_TRUE;
-//        self.effect.texture2d0.envMode = GLKTextureEnvModeDecal;
+        //        self.effect.texture2d0.envMode = GLKTextureEnvModeDecal;
     }
     else {
         self.effect.texture2d0.enabled = GL_FALSE;

@@ -7,34 +7,48 @@
 //
 
 #import "IPaGLMaterial.h"
-
+#import "IPaGLTexture.h"
+@interface IPaGLMaterial () <NSCopying>
+@end
 @implementation IPaGLMaterial
--(void)setTextureInfo:(GLKTextureInfo *)textureInfo
-{
-    _textureInfo = textureInfo;
-    self.texTarget = textureInfo.target;
-    self.textureName = textureInfo.name;
-}
-
 -(void)dealloc
 {
-    glDeleteTextures(1, &_textureName);
+    self.textures = nil;
+}
+-(void)setTextures:(IPaGLTexture *)textures
+{
+    [_textures releaseFromIPaGLMaterial:self];
+    _textures = textures;
+    [textures retainByIPaGLMaterial:self];
 }
 -(void)bindTexture
 {
-    if (self.textureName != 0) {
-        glBindTexture(self.texTarget, self.textureName);
-    }
+    [self.textures bindTexture];
 }
 #pragma mark - description
 - (NSString *)description
 {
+    CGFloat constRed,constGreen,constBlue,constAlpha;
     CGFloat diffuseRed,diffuseGreen,diffuseBlue,diffuseAlpha;
     CGFloat ambientRed,ambientGreen,ambientBlue,ambientAlpha;
     CGFloat specularRed,specularGreen,specularBlue,specularAlpha;
+    [self.constantColor getRed:&constRed green:&constGreen blue:&constBlue alpha:&constAlpha];
     [self.diffuse getRed:&diffuseRed green:&diffuseGreen blue:&diffuseBlue alpha:&diffuseAlpha];
     [self.ambient getRed:&ambientRed green:&ambientGreen blue:&ambientBlue alpha:&ambientAlpha];
     [self.specular getRed:&specularRed green:&specularGreen blue:&specularBlue alpha:&specularAlpha];
-    return [NSString stringWithFormat:@"Material: %@ (Shininess: %f, Diffuse: {%f, %f, %f, %f}, Ambient: {%f, %f, %f, %f}, Specular: {%f, %f, %f, %f})", self.name, self.shininess, diffuseRed, diffuseGreen, diffuseBlue, diffuseAlpha, ambientRed, ambientGreen, ambientBlue, ambientAlpha, specularRed, specularGreen, specularBlue, specularAlpha];
+    return [NSString stringWithFormat:@"Material: %@ (Shininess: %f, ConstantColor:{%f, %f, %f, %f} Diffuse: {%f, %f, %f, %f}, Ambient: {%f, %f, %f, %f}, Specular: {%f, %f, %f, %f})", self.name, self.shininess, constRed,constGreen,constBlue,constAlpha ,diffuseRed, diffuseGreen, diffuseBlue, diffuseAlpha, ambientRed, ambientGreen, ambientBlue, ambientAlpha, specularRed, specularGreen, specularBlue, specularAlpha];
+}
+#pragma mark - NSCopying Protocol
+-(id)copyWithZone:(NSZone *)zone
+{
+    IPaGLMaterial *newMaterial = [super copy];
+    newMaterial.name = self.name;
+    newMaterial.constantColor = [self.constantColor copy];
+    newMaterial.diffuse = [self.diffuse copy];
+    newMaterial.ambient = [self.ambient copy];
+    newMaterial.specular = [self.specular copy];
+    newMaterial.shininess = self.shininess;
+    newMaterial.textures = self.textures;
+    return newMaterial;
 }
 @end
