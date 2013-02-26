@@ -17,5 +17,8 @@
 +(IPaGLObject*)objectFromWavefrontObjFile:(NSString*)filePath;
 
 -(void)bindAttributeBuffer;
+
+//you need to releaseResources if you want to delete IPaGLObject
+//or it may cause memory leak
 -(void)releaseResources;
 @end

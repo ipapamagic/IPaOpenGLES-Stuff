@@ -30,7 +30,6 @@
     SampleIPaGLRenderer *shaderRenderer;
     IPaGLKitRenderer *glkRenderer;
     IPaGLObject *object;
-    NSMutableDictionary *textures;
     
     GLKMatrix4 modelViewProjectionMatrix;
     GLKMatrix3 normalMatrix;
@@ -93,7 +92,6 @@
     shaderRenderer = [[SampleIPaGLRenderer alloc] init];
     glkRenderer = [[IPaGLKitRenderer alloc] init];
 
-    textures = [@{} mutableCopy];
     //create an IPaGLAttributes to record vertex data
     object = [IPaGLObject objectFromWavefrontObjFile:[[NSBundle mainBundle] pathForResource:@"uvcube2" ofType:@"obj"]];
 
@@ -107,7 +105,7 @@
 
 - (void)tearDownGL
 {
-
+    [object releaseResources];
 }
 
 #pragma mark - GLKView and GLKViewController delegate methods
