@@ -19,6 +19,8 @@
 		6E476C6016E8914D00A61985 /* IPaGLSprite2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E476C5F16E8914D00A61985 /* IPaGLSprite2D.m */; };
 		6E4B2D1116E981FD00B41F6C /* IPaGLSprite2DRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4B2D1016E981FD00B41F6C /* IPaGLSprite2DRenderer.m */; };
 		6EC22B8116EEE28F008CD1BA /* IPaGLFramebufferTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC22B8016EEE28F008CD1BA /* IPaGLFramebufferTexture.m */; };
+		6EC22B8716EEE946008CD1BA /* IPaGLWavefrontObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC22B8416EEE946008CD1BA /* IPaGLWavefrontObj.m */; };
+		6EC22B8816EEE946008CD1BA /* IPaGLWavefrontObjRenderGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC22B8616EEE946008CD1BA /* IPaGLWavefrontObjRenderGroup.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -57,6 +59,10 @@
 		6E4B2D1016E981FD00B41F6C /* IPaGLSprite2DRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLSprite2DRenderer.m; sourceTree = "<group>"; };
 		6EC22B7F16EEE28F008CD1BA /* IPaGLFramebufferTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLFramebufferTexture.h; sourceTree = "<group>"; };
 		6EC22B8016EEE28F008CD1BA /* IPaGLFramebufferTexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLFramebufferTexture.m; sourceTree = "<group>"; };
+		6EC22B8316EEE946008CD1BA /* IPaGLWavefrontObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLWavefrontObj.h; sourceTree = "<group>"; };
+		6EC22B8416EEE946008CD1BA /* IPaGLWavefrontObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLWavefrontObj.m; sourceTree = "<group>"; };
+		6EC22B8516EEE946008CD1BA /* IPaGLWavefrontObjRenderGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLWavefrontObjRenderGroup.h; sourceTree = "<group>"; };
+		6EC22B8616EEE946008CD1BA /* IPaGLWavefrontObjRenderGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLWavefrontObjRenderGroup.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,14 +106,6 @@
 			name = IPaGL;
 			sourceTree = "<group>";
 		};
-		6E43610916EEC8E600C27FD0 /* IPaGLWavefronObj */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = IPaGLWavefronObj;
-			path = IPaGLObject;
-			sourceTree = "<group>";
-		};
 		6E476C0816E8708600A61985 = {
 			isa = PBXGroup;
 			children = (
@@ -138,7 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				6E43610516EEC2C600C27FD0 /* IPaGL */,
-				6E43610916EEC8E600C27FD0 /* IPaGLWavefronObj */,
+				6EC22B8916EEEA03008CD1BA /* IPaGLWavefrontObj */,
 				6E3B0B7616EDAE030013A6C2 /* IPaGLSprite2D */,
 				6EC22B8216EEE294008CD1BA /* IPaGLFramebufferTexture */,
 				6E476C1916E8708600A61985 /* IPaGLEngine.h */,
@@ -163,6 +161,17 @@
 				6EC22B8016EEE28F008CD1BA /* IPaGLFramebufferTexture.m */,
 			);
 			name = IPaGLFramebufferTexture;
+			sourceTree = "<group>";
+		};
+		6EC22B8916EEEA03008CD1BA /* IPaGLWavefrontObj */ = {
+			isa = PBXGroup;
+			children = (
+				6EC22B8316EEE946008CD1BA /* IPaGLWavefrontObj.h */,
+				6EC22B8416EEE946008CD1BA /* IPaGLWavefrontObj.m */,
+				6EC22B8516EEE946008CD1BA /* IPaGLWavefrontObjRenderGroup.h */,
+				6EC22B8616EEE946008CD1BA /* IPaGLWavefrontObjRenderGroup.m */,
+			);
+			name = IPaGLWavefrontObj;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,6 +234,8 @@
 				6E4B2D1116E981FD00B41F6C /* IPaGLSprite2DRenderer.m in Sources */,
 				6E43610816EEC3F100C27FD0 /* IPaGLRenderSource.m in Sources */,
 				6EC22B8116EEE28F008CD1BA /* IPaGLFramebufferTexture.m in Sources */,
+				6EC22B8716EEE946008CD1BA /* IPaGLWavefrontObj.m in Sources */,
+				6EC22B8816EEE946008CD1BA /* IPaGLWavefrontObjRenderGroup.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
