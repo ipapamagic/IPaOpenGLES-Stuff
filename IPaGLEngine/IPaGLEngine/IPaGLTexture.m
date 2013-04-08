@@ -7,9 +7,12 @@
 //
 
 #import "IPaGLTexture.h"
+#define MAX_TEXTURE_WIDTH 2048
+#define MAX_TEXTURE_HEIGHT 2048
 @interface IPaGLTexture()
 //object that use this attribute
 @property (nonatomic,strong) NSMutableArray *materialList;
+@property (nonatomic,readwrite) GLKVector2 imageSize;
 @end
 @implementation IPaGLTexture
 static NSMutableDictionary *IPaGLTextureList = nil;
@@ -24,6 +27,48 @@ static NSMutableDictionary *IPaGLTextureList = nil;
         texture = [[IPaGLTexture alloc] initWithName:name];
         NSDictionary * options = @{ GLKTextureLoaderOriginBottomLeft : @(YES)};
         NSError *error;
+        CGSize imageSize = image.size;
+        
+        texture.imageSize = GLKVector2Make(imageSize.width, imageSize.height);
+        NSInteger temp = 2;
+        
+        while(temp < imageSize.width)
+        {
+            temp *= 2;
+            if (temp >= MAX_TEXTURE_WIDTH) {
+                temp = MAX_TEXTURE_WIDTH;
+                break;
+            }
+        }
+        imageSize.width = temp;
+        temp = 2;
+        while(temp < imageSize.height)
+        {
+            temp *= 2;
+            if (temp >= MAX_TEXTURE_HEIGHT) {
+                temp = MAX_TEXTURE_HEIGHT;
+                break;
+            }
+        }
+        imageSize.height = temp;
+        
+        if (!CGSizeEqualToSize(image.size, imageSize)) {
+            texture.texCoordRatio = GLKVector2Make(image.size.width / imageSize.width, image.size.height / imageSize.height);
+            UIGraphicsBeginImageContext(imageSize);
+            [image drawAtPoint:CGPointMake(0, imageSize.height - image.size.height)];
+            image = UIGraphicsGetImageFromCurrentImageContext();
+            UIGraphicsEndImageContext();
+            
+            
+           
+            
+
+        }
+        else {
+            texture.texCoordRatio = GLKVector2Make(1,1);
+        }
+        
+        
         texture.textureInfo = [GLKTextureLoader textureWithCGImage:image.CGImage options:options error:&error];
         if (error != nil) {
             NSLog(@"IPaGLTexture:textureFromImage error:%@",error);
@@ -36,13 +81,16 @@ static NSMutableDictionary *IPaGLTextureList = nil;
 {
     IPaGLTexture *texture = IPaGLTextureList[filePath];
     if (texture == nil) {
-        texture = [[IPaGLTexture alloc] initWithName:filePath];
-        NSDictionary * options = @{ GLKTextureLoaderOriginBottomLeft : @(YES)};
-        NSError *error;
-        texture.textureInfo = [GLKTextureLoader textureWithContentsOfFile:filePath options:options error:&error];
-        if (error != nil) {
-            NSLog(@"IPaGLTexture:textureFromFile error:%@",error);
-        }
+        UIImage *image = [UIImage imageWithContentsOfFile:filePath];
+        return [self textureFromImage:image withName:filePath];
+//        
+//        texture = [[IPaGLTexture alloc] initWithName:filePath];
+//        NSDictionary * options = @{ GLKTextureLoaderOriginBottomLeft : @(YES)};
+//        NSError *error;
+//        texture.textureInfo = [GLKTextureLoader textureWithContentsOfFile:filePath options:options error:&error];
+//        if (error != nil) {
+//            NSLog(@"IPaGLTexture:textureFromFile error:%@",error);
+//        }
     }
     return texture;
 }
@@ -51,7 +99,7 @@ static NSMutableDictionary *IPaGLTextureList = nil;
     self = [super init];
   
     self.materialList = [@[] mutableCopy];
-
+   
     return self;
 }
 -(IPaGLTexture*)initWithName:(NSString*)name
@@ -98,7 +146,7 @@ static NSMutableDictionary *IPaGLTextureList = nil;
 -(void)releaseFromIPaGLMaterial:(IPaGLMaterial*)material
 {
     [self.materialList removeObject:material];
-    if ([self.materialList count] == 0) {
+    if (self.name != nil && [self.materialList count] == 0) {
         [IPaGLTextureList removeObjectForKey:self.name];
     }
 }

@@ -21,9 +21,14 @@
 
 -(NSString*)vertexShaderFilePath;
 -(NSString*)fragmentShaderFilePath;
+//overwrite theses function , if you want to give shader code with string directly
+-(NSString*)vertexShaderSource;
+-(NSString*)fragmentShaderSource;
+
 -(void)onBindGLAttributes:(GLuint)_program;
 -(void)onGetGLUniforms:(GLuint)_program;
 -(void)onBindGLUniforms;
+-(void)prepareToRenderWithMaterial:(IPaGLMaterial *)material;
 @end
 @interface IPaGLShaderRenderer : IPaGLRenderer <IPaGLShaderRendererProtocol>
 @end

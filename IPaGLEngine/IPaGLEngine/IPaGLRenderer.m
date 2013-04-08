@@ -56,14 +56,25 @@
 #pragma mark - IPaGLShaderRendererProtocol
 -(NSString*)vertexShaderFilePath
 {
-
-    NSAssert(NO, @"%@ need to over override vertexShaderFilePath",[self class]);
     return nil;
 }
 -(NSString*)fragmentShaderFilePath
 {
-    NSAssert(NO, @"%@ need to over override fragmentShaderFilePath",[self class]);
     return nil;
+}
+
+-(NSString*)vertexShaderSource
+{
+    NSString* file = [self vertexShaderFilePath];
+    
+    return [NSString stringWithContentsOfFile:file encoding:NSUTF8StringEncoding error:nil];
+
+}
+-(NSString*)fragmentShaderSource
+{
+    NSString* file = [self fragmentShaderFilePath];
+    return [NSString stringWithContentsOfFile:file encoding:NSUTF8StringEncoding error:nil];
+
 }
 -(void)onBindGLAttributes:(GLuint)_program
 {
@@ -87,15 +98,17 @@
     program = glCreateProgram();
     
     // Create and compile vertex shader.
-    NSString *vertShaderPathname = [self vertexShaderFilePath];
-    if (![self compileShader:&vertShader type:GL_VERTEX_SHADER file:vertShaderPathname]) {
+
+    NSString* source = [self vertexShaderSource];
+    
+    if (![self compileShader:&vertShader type:GL_VERTEX_SHADER source:source]) {
         NSLog(@"Failed to compile vertex shader");
         return;
     }
     
     // Create and compile fragment shader.
-    NSString *fragShaderPathname = [self fragmentShaderFilePath];
-    if (![self compileShader:&fragShader type:GL_FRAGMENT_SHADER file:fragShaderPathname]) {
+    source = [self fragmentShaderSource];
+    if (![self compileShader:&fragShader type:GL_FRAGMENT_SHADER source:source]) {
         NSLog(@"Failed to compile fragment shader");
         return;
     }
@@ -146,19 +159,19 @@
     
 }
 
-- (BOOL)compileShader:(GLuint *)shader type:(GLenum)type file:(NSString *)file
+- (BOOL)compileShader:(GLuint *)shader type:(GLenum)type source:(NSString *)source
 {
     GLint status;
-    const GLchar *source;
     
-    source = (GLchar *)[[NSString stringWithContentsOfFile:file encoding:NSUTF8StringEncoding error:nil] UTF8String];
+    
     if (!source) {
         NSLog(@"Failed to load vertex shader");
         return NO;
     }
-    
+    const GLchar* charSource = (GLchar *)[source UTF8String];
+
     *shader = glCreateShader(type);
-    glShaderSource(*shader, 1, &source, NULL);
+    glShaderSource(*shader, 1, &charSource, NULL);
     glCompileShader(*shader);
     
 #if defined(DEBUG)

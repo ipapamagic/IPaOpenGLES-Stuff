@@ -8,7 +8,8 @@
 
 
 #import "IPaGLSprite2DRenderer.h"
-
+#import "IPaGLMaterial.h"
+#import "IPaGLTexture.h"
 @implementation IPaGLKitSprite2DRenderer
 {
     
@@ -39,7 +40,7 @@
     _displaySize = displaySize;
     displaySizeRatio = GLKVector2Make(1 / displaySize.x, 1 / displaySize.y);
 }
--(void)setModelViewMatrix:(GLKMatrix4)matrix
+-(void)prepareToRenderWithMatrix:(GLKMatrix4)matrix
 {
     self.effect.transform.projectionMatrix = GLKMatrix4Identity;
     self.effect.transform.modelviewMatrix = matrix;
@@ -73,7 +74,7 @@
     _displaySize = displaySize;
     displaySizeRatio = GLKVector2Make(1 / displaySize.x, 1 / displaySize.y);
 }
--(void)setModelViewMatrix:(GLKMatrix4)matrix
+-(void)prepareToRenderWithMatrix:(GLKMatrix4)matrix
 {
     NSAssert(NO, @"%@ need to over override setModelViewMatrix",[self class]);
 }

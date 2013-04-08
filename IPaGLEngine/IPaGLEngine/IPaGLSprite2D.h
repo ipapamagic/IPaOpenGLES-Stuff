@@ -15,11 +15,13 @@
 @interface IPaGLSprite2D : NSObject
 @property (nonatomic,assign) GLKVector2 position;
 @property (nonatomic,assign) GLKVector2 size;
-@property (nonatomic,readonly) GLKMatrix4 matrix;
+@property (nonatomic,assign) GLKMatrix4 matrix;
 @property (nonatomic,weak) IPaGLRenderer <IPaGLSprite2DRenderer> *renderer;
 @property (nonatomic,strong) IPaGLMaterial* material;
 -(void)render;
 -(void)setTexture:(IPaGLTexture*)texture;
 -(id)initWithUIImage:(UIImage*)image withName:(NSString*)name;
 -(void)setPosition:(GLKVector2)position size:(GLKVector2)size;
+//rect represent (originalX,originalY,width,height)
+-(void)setImageRect:(GLKVector4)rect;
 @end
