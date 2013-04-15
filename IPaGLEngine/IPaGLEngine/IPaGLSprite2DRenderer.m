@@ -40,11 +40,17 @@
     _displaySize = displaySize;
     displaySizeRatio = GLKVector2Make(1 / displaySize.x, 1 / displaySize.y);
 }
--(void)prepareToRenderWithMatrix:(GLKMatrix4)matrix
+-(void)prepareToDraw
 {
+    [super prepareToDraw];
     self.effect.transform.projectionMatrix = GLKMatrix4Identity;
-    self.effect.transform.modelviewMatrix = matrix;
+    self.effect.transform.modelviewMatrix = GLKMatrix4Identity;
 }
+//-(void)prepareToRenderWithMatrix:(GLKMatrix4)matrix
+//{
+//    self.effect.transform.projectionMatrix = GLKMatrix4Identity;
+//    self.effect.transform.modelviewMatrix = matrix;
+//}
 
 
 @end
@@ -74,10 +80,10 @@
     _displaySize = displaySize;
     displaySizeRatio = GLKVector2Make(1 / displaySize.x, 1 / displaySize.y);
 }
--(void)prepareToRenderWithMatrix:(GLKMatrix4)matrix
-{
-    NSAssert(NO, @"%@ need to over override setModelViewMatrix",[self class]);
-}
+//-(void)prepareToRenderWithMatrix:(GLKMatrix4)matrix
+//{
+//    NSAssert(NO, @"%@ need to over override setModelViewMatrix",[self class]);
+//}
 -(GLKVector2)displaySizeRatio
 {
     return displaySizeRatio;

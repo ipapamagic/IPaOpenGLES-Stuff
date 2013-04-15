@@ -81,7 +81,18 @@ typedef enum {
 {
     return (BOOL)(atributesFlags & IPaGLAttr_HasTexCoords);
 }
--(void)createBuffer
+
+//create buffer with GL_STATIC_DRAW
+-(void)createBufferStatic
+{
+    [self createBuffer:GL_STATIC_DRAW];
+}
+//create buffer with GL_DYNAMIC_DRAW
+-(void)createBufferDynamic
+{
+    [self createBuffer:GL_DYNAMIC_DRAW];
+}
+-(void)createBuffer:(GLenum)bufferUsage
 {
     NSInteger posVNum = (self.attrHasPosZ)?3:2;
     size_t attributesSize = self.vertexAttributeSize;
@@ -90,7 +101,7 @@ typedef enum {
     
     glGenBuffers(1, &vertexBuffer);
     glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
-    glBufferData(GL_ARRAY_BUFFER, attributesSize * self.vertexAttributeCount, self.vertexAttributes, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, attributesSize * self.vertexAttributeCount, self.vertexAttributes, bufferUsage);
     
     glEnableVertexAttribArray(GLKVertexAttribPosition);
     glVertexAttribPointer(GLKVertexAttribPosition, posVNum, GL_FLOAT, GL_FALSE, attributesSize, 0);
@@ -117,7 +128,10 @@ typedef enum {
 {
     [self bindBuffer];
     glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
-    glBufferData(GL_ARRAY_BUFFER, self.vertexAttributeSize * self.vertexAttributeCount, self.vertexAttributes, GL_STATIC_DRAW);
+    glBufferSubData(GL_ARRAY_BUFFER, 0, self.vertexAttributeSize * self.vertexAttributeCount, self.vertexAttributes);
+    
+    
+//    glBufferData(GL_ARRAY_BUFFER, self.vertexAttributeSize * self.vertexAttributeCount, self.vertexAttributes, GL_STATIC_DRAW);
     
 }
 -(void)renderWithRenderer:(IPaGLRenderer*)renderer;

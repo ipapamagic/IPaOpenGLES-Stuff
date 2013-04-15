@@ -231,7 +231,7 @@
         
         index++;
     }
-    [self createBuffer];
+    [self createBufferStatic];
     //        NSArray *totalVertex = [totalVertexSet allObjects];
     for (IPaGLWavefrontObjRenderGroup* group in groups) {
         NSArray *facesList = groupsFaces[group.name];

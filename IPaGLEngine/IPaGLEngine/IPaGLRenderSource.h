@@ -13,7 +13,10 @@
 @property (nonatomic,assign) NSUInteger vertexAttributeCount;
 
 
--(void)createBuffer;
+//create buffer with GL_STATIC_DRAW
+-(void)createBufferStatic;
+//create buffer with GL_DYNAMIC_DRAW
+-(void)createBufferDynamic;
 -(void)bindBuffer;
 -(void)updateAttributeBuffer;
 -(size_t)vertexAttributeSize;

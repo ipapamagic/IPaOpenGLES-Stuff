@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E20B0E9171A907100DEB598 /* IPaGLFilterSprite2DRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E20B0E8171A907100DEB598 /* IPaGLFilterSprite2DRenderer.m */; };
 		6E43610816EEC3F100C27FD0 /* IPaGLRenderSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E43610716EEC3F100C27FD0 /* IPaGLRenderSource.m */; };
 		6E476C1516E8708600A61985 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E476C1416E8708600A61985 /* Foundation.framework */; };
 		6E476C1A16E8708600A61985 /* IPaGLEngine.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6E476C1916E8708600A61985 /* IPaGLEngine.h */; };
@@ -18,6 +19,7 @@
 		6E476C5016E870C400A61985 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E476C4F16E870C400A61985 /* GLKit.framework */; };
 		6E476C6016E8914D00A61985 /* IPaGLSprite2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E476C5F16E8914D00A61985 /* IPaGLSprite2D.m */; };
 		6E4B2D1116E981FD00B41F6C /* IPaGLSprite2DRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4B2D1016E981FD00B41F6C /* IPaGLSprite2DRenderer.m */; };
+		6EA5BAF11714049C00A39B81 /* IPaGLSprite2DAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA5BAF01714049C00A39B81 /* IPaGLSprite2DAction.m */; };
 		6EC22B8116EEE28F008CD1BA /* IPaGLFramebufferTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC22B8016EEE28F008CD1BA /* IPaGLFramebufferTexture.m */; };
 		6EC22B8716EEE946008CD1BA /* IPaGLWavefrontObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC22B8416EEE946008CD1BA /* IPaGLWavefrontObj.m */; };
 		6EC22B8816EEE946008CD1BA /* IPaGLWavefrontObjRenderGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC22B8616EEE946008CD1BA /* IPaGLWavefrontObjRenderGroup.m */; };
@@ -37,6 +39,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6E20B0E7171A907100DEB598 /* IPaGLFilterSprite2DRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLFilterSprite2DRenderer.h; sourceTree = "<group>"; };
+		6E20B0E8171A907100DEB598 /* IPaGLFilterSprite2DRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLFilterSprite2DRenderer.m; sourceTree = "<group>"; };
 		6E43610616EEC3F100C27FD0 /* IPaGLRenderSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLRenderSource.h; sourceTree = "<group>"; };
 		6E43610716EEC3F100C27FD0 /* IPaGLRenderSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLRenderSource.m; sourceTree = "<group>"; };
 		6E476C1116E8708600A61985 /* libIPaGLEngine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libIPaGLEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,6 +61,8 @@
 		6E476C5F16E8914D00A61985 /* IPaGLSprite2D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLSprite2D.m; sourceTree = "<group>"; };
 		6E476C6116E8964700A61985 /* IPaGLSprite2DRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLSprite2DRenderer.h; sourceTree = "<group>"; };
 		6E4B2D1016E981FD00B41F6C /* IPaGLSprite2DRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLSprite2DRenderer.m; sourceTree = "<group>"; };
+		6EA5BAEF1714049C00A39B81 /* IPaGLSprite2DAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLSprite2DAction.h; sourceTree = "<group>"; };
+		6EA5BAF01714049C00A39B81 /* IPaGLSprite2DAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLSprite2DAction.m; sourceTree = "<group>"; };
 		6EC22B7F16EEE28F008CD1BA /* IPaGLFramebufferTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLFramebufferTexture.h; sourceTree = "<group>"; };
 		6EC22B8016EEE28F008CD1BA /* IPaGLFramebufferTexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLFramebufferTexture.m; sourceTree = "<group>"; };
 		6EC22B8316EEE946008CD1BA /* IPaGLWavefrontObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLWavefrontObj.h; sourceTree = "<group>"; };
@@ -78,13 +84,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E20B0E3171A8FFC00DEB598 /* IPaGLSprite2DRenderer */ = {
+			isa = PBXGroup;
+			children = (
+				6E476C6116E8964700A61985 /* IPaGLSprite2DRenderer.h */,
+				6E4B2D1016E981FD00B41F6C /* IPaGLSprite2DRenderer.m */,
+				6E20B0E7171A907100DEB598 /* IPaGLFilterSprite2DRenderer.h */,
+				6E20B0E8171A907100DEB598 /* IPaGLFilterSprite2DRenderer.m */,
+			);
+			name = IPaGLSprite2DRenderer;
+			sourceTree = "<group>";
+		};
 		6E3B0B7616EDAE030013A6C2 /* IPaGLSprite2D */ = {
 			isa = PBXGroup;
 			children = (
 				6E476C5E16E8914D00A61985 /* IPaGLSprite2D.h */,
 				6E476C5F16E8914D00A61985 /* IPaGLSprite2D.m */,
-				6E476C6116E8964700A61985 /* IPaGLSprite2DRenderer.h */,
-				6E4B2D1016E981FD00B41F6C /* IPaGLSprite2DRenderer.m */,
+				6EA5BAEF1714049C00A39B81 /* IPaGLSprite2DAction.h */,
+				6EA5BAF01714049C00A39B81 /* IPaGLSprite2DAction.m */,
+				6E20B0E3171A8FFC00DEB598 /* IPaGLSprite2DRenderer */,
 			);
 			name = IPaGLSprite2D;
 			sourceTree = "<group>";
@@ -236,6 +254,8 @@
 				6EC22B8116EEE28F008CD1BA /* IPaGLFramebufferTexture.m in Sources */,
 				6EC22B8716EEE946008CD1BA /* IPaGLWavefrontObj.m in Sources */,
 				6EC22B8816EEE946008CD1BA /* IPaGLWavefrontObjRenderGroup.m in Sources */,
+				6EA5BAF11714049C00A39B81 /* IPaGLSprite2DAction.m in Sources */,
+				6E20B0E9171A907100DEB598 /* IPaGLFilterSprite2DRenderer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

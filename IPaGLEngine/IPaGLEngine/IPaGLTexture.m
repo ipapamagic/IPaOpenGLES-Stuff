@@ -7,8 +7,7 @@
 //
 
 #import "IPaGLTexture.h"
-#define MAX_TEXTURE_WIDTH 2048
-#define MAX_TEXTURE_HEIGHT 2048
+
 @interface IPaGLTexture()
 //object that use this attribute
 @property (nonatomic,strong) NSMutableArray *materialList;

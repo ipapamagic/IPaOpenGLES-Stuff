@@ -10,7 +10,7 @@
 #import <GLKit/GLKit.h>
 #import "IPaGLRenderer.h"
 @protocol IPaGLSprite2DRenderer <NSObject>
--(void)prepareToRenderWithMatrix:(GLKMatrix4)matrix;
+//-(void)prepareToRenderWithMatrix:(GLKMatrix4)matrix;
 -(void)setDisplaySize:(GLKVector2)size;
 //inverse of displaySize
 -(GLKVector2)displaySizeRatio;

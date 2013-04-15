@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <GLKit/GLKit.h>
+#define MAX_TEXTURE_WIDTH 2048
+#define MAX_TEXTURE_HEIGHT 2048
 @class IPaGLMaterial;
 @interface IPaGLTexture : NSObject
 //name must be unique

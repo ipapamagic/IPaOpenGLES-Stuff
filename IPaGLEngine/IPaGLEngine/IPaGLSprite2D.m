@@ -17,6 +17,7 @@
 @implementation IPaGLSprite2D
 {
     IPaGLRenderSource *source;
+//    GLKMatrix4 matrix;
 }
 -(id)init
 {
@@ -35,9 +36,9 @@
         source.attrHasPosZ = NO;
         source.attrHasNormal = NO;
         source.attrHasTexCoords = YES;
-        [source createBuffer];
+        [source createBufferDynamic];
         self.material = [[IPaGLMaterial alloc] init];
-        self.matrix = GLKMatrix4Identity;
+//        matrix = GLKMatrix4Identity;
     }
     return self;
 }
@@ -59,7 +60,7 @@
     [source updateAttributeBuffer];
     return self;
 }
--(void)setImageRect:(GLKVector4)rect
+-(void)setTextureRect:(GLKVector4)rect
 {
     GLKVector2 imgSize = self.material.texture.imageSize;
 
@@ -78,31 +79,60 @@
     source = nil;
     [self.material releaseResource];
 }
+-(CGFloat)alpha
+{
+    if (self.material.constantColor == nil) {
+        return 1;
+    }
+    CGFloat constRed,constGreen,constBlue,constAlpha;
+
+    [self.material.constantColor getRed:&constRed green:&constGreen blue:&constBlue alpha:&constAlpha];
+    return constAlpha;
+}
+-(void)setAlpha:(CGFloat)alpha
+{
+    if (self.material.constantColor == nil) {
+        self.material.constantColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:alpha];
+    }
+    else
+    {
+        self.material.constantColor = [self.material.constantColor colorWithAlphaComponent:alpha];
+    }
+}
 -(void)setPosition:(GLKVector2)position
 {
     _position = position;
-    [self refreshMatrix];    
+    [self updateVertexPos];    
+}
+-(GLKVector2)center
+{
+    return GLKVector2Make(self.position.x + self.size.x * 0.5, self.position.y + self.size.y * 0.5);
+}
+-(void)setCenter:(GLKVector2)center
+{
+    self.position = GLKVector2Make(center.x - self.size.x * 0.5, center.y - self.size.y * 0.5);
 }
 -(void)setSize:(GLKVector2)size
 {
     _size = size;
-    [self refreshMatrix];
+    [self updateVertexPos];
 }
 -(void)setPosition:(GLKVector2)position size:(GLKVector2)size
 {
     _position = position;
     _size = size;
-    [self refreshMatrix];
+    [self updateVertexPos];
 }
--(void)refreshMatrix
+-(void)setCenter:(GLKVector2)center size:(GLKVector2)size
+{
+    _size = size;
+    _position = GLKVector2Make(center.x - self.size.x * 0.5, center.y - self.size.y * 0.5);
+    [self updateVertexPos];
+}
+-(void)updateVertexPos
 {
  
     GLKVector2 displaySizeRatio = self.renderer.displaySizeRatio;
-//    
-//    -1,-1,0,0,
-//    1,-1,1,0,
-//    -1,1,0,1,
-//    1,1,1,1,
     GLfloat *vertexAttr = source.vertexAttributes;
     
     vertexAttr[0] = vertexAttr[8] = -1 + (self.position.x * displaySizeRatio.x * 2);
@@ -110,11 +140,11 @@
     vertexAttr[4] = vertexAttr[12] = -1 + (self.position.x + self.size.x) * displaySizeRatio.x * 2;
     vertexAttr[9] = vertexAttr[13] = 1 - (self.position.y * displaySizeRatio.y * 2);
     [source updateAttributeBuffer];
+//
+//    matrix = GLKMatrix4MakeTranslation(-1 + (self.size.x + self.position.x * 2) * displaySizeRatio.x,1 - (self.size.y + self.position.y * 2) * displaySizeRatio.y, 0);
+//    
+//    matrix = GLKMatrix4Scale(matrix, self.size.x * displaySizeRatio.x, self.size.y * displaySizeRatio.y, 1);
     
-//    _matrix = GLKMatrix4MakeTranslation(-1 + (self.size.x + self.position.x * 2) * displaySizeRatio.x,1 - (self.size.y + self.position.y * 2) * displaySizeRatio.y, 0);
-//    
-//    _matrix = GLKMatrix4Scale(_matrix, self.size.x * displaySizeRatio.x, self.size.y * displaySizeRatio.y, 1);
-//    
 }
 
 -(void)setTexture:(IPaGLTexture*)texture
@@ -125,7 +155,7 @@
 }
 -(void)render
 {
-    [self.renderer prepareToRenderWithMatrix:self.matrix];
+//    [self.renderer prepareToRenderWithMatrix:matrix];
     [self.renderer prepareToRenderWithMaterial:self.material];
     
     

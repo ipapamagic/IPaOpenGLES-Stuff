@@ -10,7 +10,6 @@
 #import <UIKit/UIKit.h>
 @class IPaGLSprite2D;
 @interface IPaGLEngine : NSObject
-
--(void)render;
--(void)update;
+@property (nonatomic,readonly) EAGLContext* defaultContext;
++(IPaGLEngine*)sharedInstance;
 @end

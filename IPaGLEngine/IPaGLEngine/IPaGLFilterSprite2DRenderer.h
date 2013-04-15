@@ -1,0 +1,14 @@
+//
+//  IPaGLFilterSprite2DRenderer.h
+//  MrMagic
+//
+//  Created by IPaPa on 13/4/12.
+//  Copyright (c) 2013年 IPaPa. All rights reserved.
+//
+
+#import "IPaGLSprite2DRenderer.h"
+
+@interface IPaGLFilterSprite2DRenderer : IPaGLShaderSprite2DRenderer
+@property (nonatomic,assign) CGFloat brightness;
+@property (nonatomic,assign) CGFloat contrast;
+@end
