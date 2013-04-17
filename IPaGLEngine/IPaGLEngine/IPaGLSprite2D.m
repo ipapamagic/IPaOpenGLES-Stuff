@@ -51,13 +51,13 @@
     [self setPosition:GLKVector2Make(0, 0) size:GLKVector2Make(image.size.width, image.size.height)];
     
     
-    GLfloat *vertexAttr = source.vertexAttributes;
-    GLKVector2 texCoordRatio = self.material.texture.texCoordRatio;
+//    GLfloat *vertexAttr = source.vertexAttributes;
+//    GLKVector2 texCoordRatio = self.material.texture.texCoordRatio;
 //    vertexAttr[2] = vertexAttr[10] = 0;
 //    vertexAttr[3] = vertexAttr[7] = 0;
-    vertexAttr[6] = vertexAttr[14] = texCoordRatio.x;
-    vertexAttr[11] = vertexAttr[15] = texCoordRatio.y;
-    [source updateAttributeBuffer];
+//    vertexAttr[6] = vertexAttr[14] = texCoordRatio.x;
+//    vertexAttr[11] = vertexAttr[15] = texCoordRatio.y;
+//    [source updateAttributeBuffer];
     return self;
 }
 -(void)setTextureRect:(GLKVector4)rect
@@ -66,11 +66,11 @@
 
     //set image rect
     GLfloat *vertexAttr = source.vertexAttributes;
-    GLKVector2 texCoordRatio = self.material.texture.texCoordRatio;
-    vertexAttr[2] = vertexAttr[10] = rect.x / imgSize.x * texCoordRatio.x;
-    vertexAttr[3] = vertexAttr[7] = (1 - ((rect.y + rect.w) / imgSize.y))  * texCoordRatio.y;
-    vertexAttr[6] = vertexAttr[14] = (rect.x + rect.z) / imgSize.x  * texCoordRatio.x;
-    vertexAttr[11] = vertexAttr[15] = (1 - (rect.y / imgSize.y)) * texCoordRatio.y;
+//    GLKVector2 texCoordRatio = self.material.texture.texCoordRatio;
+    vertexAttr[2] = vertexAttr[10] = rect.x / imgSize.x;// * texCoordRatio.x;
+    vertexAttr[3] = vertexAttr[7] = (1 - ((rect.y + rect.w) / imgSize.y));//  * texCoordRatio.y;
+    vertexAttr[6] = vertexAttr[14] = (rect.x + rect.z) / imgSize.x;//  * texCoordRatio.x;
+    vertexAttr[11] = vertexAttr[15] = (1 - (rect.y / imgSize.y));// * texCoordRatio.y;
     [source updateAttributeBuffer];
     
 }

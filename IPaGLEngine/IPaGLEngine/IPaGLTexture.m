@@ -52,9 +52,10 @@ static NSMutableDictionary *IPaGLTextureList = nil;
         imageSize.height = temp;
         
         if (!CGSizeEqualToSize(image.size, imageSize)) {
-            texture.texCoordRatio = GLKVector2Make(image.size.width / imageSize.width, image.size.height / imageSize.height);
+//            texture.texCoordRatio = GLKVector2Make(image.size.width / imageSize.width, image.size.height / imageSize.height);
             UIGraphicsBeginImageContext(imageSize);
-            [image drawAtPoint:CGPointMake(0, imageSize.height - image.size.height)];
+//            [image drawAtPoint:CGPointMake(0, imageSize.height - image.size.height)];
+            [image drawInRect:CGRectMake(0, 0, imageSize.width, imageSize.height)];
             image = UIGraphicsGetImageFromCurrentImageContext();
             UIGraphicsEndImageContext();
             
@@ -63,9 +64,9 @@ static NSMutableDictionary *IPaGLTextureList = nil;
             
 
         }
-        else {
-            texture.texCoordRatio = GLKVector2Make(1,1);
-        }
+//        else {
+//            texture.texCoordRatio = GLKVector2Make(1,1);
+//        }
         
         
         texture.textureInfo = [GLKTextureLoader textureWithCGImage:image.CGImage options:options error:&error];

@@ -7,7 +7,7 @@
 //
 
 #import "FramebufferTextureSampleViewController.h"
-#import "PaintView.h"
+
 #import "IPaGLTexture.h"
 #import "IPaGLFramebufferTexture.h"
 #import "IPaGLSprite2D.h"
@@ -16,7 +16,7 @@
 #import "IPaGLRenderSource.h"
 #define kBrushPixelStep		3
 #define vertexMax 64
-@interface FramebufferTextureSampleViewController () <PaintViewDelegate>
+@interface FramebufferTextureSampleViewController () 
 
 @end
 
@@ -48,9 +48,8 @@
         NSLog(@"Failed to create ES context");
     }
     
-    PaintView *view = (PaintView *)self.view;
+    GLKView *view = (GLKView *)self.view;
     view.context = context;
-    view.paintDelegate = self;
     view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
     [EAGLContext setCurrentContext:context];
     [bBtn setSelected:YES];
@@ -103,7 +102,7 @@
     [paintAttributes setAttrHasNormal:NO];
     [paintAttributes setAttrHasTexCoords:NO];
     [paintAttributes setAttrHasPosZ:NO];
-    [paintAttributes createBuffer];
+    [paintAttributes createBufferDynamic];
     
     
     [texture bindFramebuffer];
@@ -183,7 +182,7 @@
     
 	// Render the vertex array
 
-    [paintAttributes updateAttributeBuffer];
+    [paintAttributes createBufferDynamic];
     [texture bindFramebuffer];
     
     glViewport(0, texture.framebufferSize.y - viewFrame.size.height, viewFrame.size.width, viewFrame.size.height);
@@ -208,5 +207,55 @@
     bBtn = nil;
     wBtn = nil;
     [super viewDidUnload];
+}
+
+
+// Handles the start of a touch
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [super touchesBegan:touches withEvent:event];
+    
+    UITouch*	touch = [[event touchesForView:self.view] anyObject];
+	// Convert touch point from UIView referential to OpenGL one (upside-down flip)
+	CGPoint location = [touch locationInView:self.view];
+    [self renderLineFromPoint:location toPoint:location];
+    
+}
+
+// Handles the continuation of a touch.
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    //    CGSize viewSize = self.bounds.size;
+	UITouch*			touch = [[event touchesForView:self.view] anyObject];
+    
+	// Convert touch point from UIView referential to OpenGL one (upside-down flip)
+    
+    CGPoint location = [touch locationInView:self.view];
+    CGPoint previousLocation = [touch previousLocationInView:self.view];
+	
+	[self renderLineFromPoint:previousLocation toPoint:location];
+    
+}
+
+// Handles the end of a touch event when the touch is a tap.
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    
+    [super touchesEnded:touches withEvent:event];
+    UITouch*	touch = [[event touchesForView:self.view] anyObject];
+    
+    CGPoint location = [touch locationInView:self.view];
+    CGPoint previousLocation = [touch previousLocationInView:self.view];
+	
+	[self renderLineFromPoint:previousLocation toPoint:location];
+    
+}
+
+// Handles the end of a touch event.
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [super touchesCancelled:touches withEvent:event];
+	// If appropriate, add code necessary to save the state of the application.
+	// This application is not saving state.
 }
 @end

@@ -10,7 +10,6 @@
 		6E393DB016A3D2E100EE2218 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E393DAF16A3D2E100EE2218 /* QuartzCore.framework */; };
 		6E3B0B7516ED93F30013A6C2 /* FramebufferTextureSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3B0B7416ED93F30013A6C2 /* FramebufferTextureSampleViewController.m */; };
 		6E3B0B8016EDB25D0013A6C2 /* FrameBufferRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3B0B7F16EDB25D0013A6C2 /* FrameBufferRenderer.m */; };
-		6E3B0B8316EDB7240013A6C2 /* PaintView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3B0B8216EDB7230013A6C2 /* PaintView.m */; };
 		6E3B0B8B16EDC8620013A6C2 /* FrameBufferShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 6E3B0B7816EDB1350013A6C2 /* FrameBufferShader.fsh */; };
 		6E3B0B8C16EDC8620013A6C2 /* FrameBufferShader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 6E3B0B7916EDB1350013A6C2 /* FrameBufferShader.vsh */; };
 		6E45B2B616E9C14400C14ABA /* TitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E45B2B516E9C14400C14ABA /* TitleViewController.m */; };
@@ -46,8 +45,6 @@
 		6E3B0B7916EDB1350013A6C2 /* FrameBufferShader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = FrameBufferShader.vsh; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
 		6E3B0B7E16EDB25D0013A6C2 /* FrameBufferRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrameBufferRenderer.h; sourceTree = "<group>"; };
 		6E3B0B7F16EDB25D0013A6C2 /* FrameBufferRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FrameBufferRenderer.m; sourceTree = "<group>"; };
-		6E3B0B8116EDB7230013A6C2 /* PaintView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaintView.h; sourceTree = "<group>"; };
-		6E3B0B8216EDB7230013A6C2 /* PaintView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaintView.m; sourceTree = "<group>"; };
 		6E45B2B416E9C14400C14ABA /* TitleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleViewController.h; sourceTree = "<group>"; };
 		6E45B2B516E9C14400C14ABA /* TitleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleViewController.m; sourceTree = "<group>"; };
 		6E45B2B716E9C3BE00C14ABA /* IPaGLSprite2DSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLSprite2DSampleViewController.h; sourceTree = "<group>"; };
@@ -108,8 +105,6 @@
 				6E3B0B7416ED93F30013A6C2 /* FramebufferTextureSampleViewController.m */,
 				6E3B0B7E16EDB25D0013A6C2 /* FrameBufferRenderer.h */,
 				6E3B0B7F16EDB25D0013A6C2 /* FrameBufferRenderer.m */,
-				6E3B0B8116EDB7230013A6C2 /* PaintView.h */,
-				6E3B0B8216EDB7230013A6C2 /* PaintView.m */,
 			);
 			name = "FramebuffetTexture Sample";
 			sourceTree = "<group>";
@@ -284,7 +279,6 @@
 				6E45B2B916E9C3BE00C14ABA /* IPaGLSprite2DSampleViewController.m in Sources */,
 				6E3B0B7516ED93F30013A6C2 /* FramebufferTextureSampleViewController.m in Sources */,
 				6E3B0B8016EDB25D0013A6C2 /* FrameBufferRenderer.m in Sources */,
-				6E3B0B8316EDB7240013A6C2 /* PaintView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

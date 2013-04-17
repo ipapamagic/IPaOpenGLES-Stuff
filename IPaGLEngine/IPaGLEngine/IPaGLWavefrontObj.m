@@ -19,7 +19,7 @@
 {
     self = [super init];
     self.filePath = filePath;
-
+    
     NSString *basePath = [filePath stringByDeletingLastPathComponent];
     // Get lines
     
@@ -39,7 +39,7 @@
     NSMutableArray *vertexTexCoordList = [@[] mutableCopy];
     NSMutableArray *vertexNormalList = [@[] mutableCopy];
     NSMutableArray *groups = [@[] mutableCopy];
-    
+    NSMutableDictionary *groupsDict = [@{} mutableCopy];
     
     NSInteger currentFaceType = -1;
     for (NSString *_line in lines) {
@@ -64,13 +64,21 @@
             self.materials = [IPaGLWavefrontObj loadIPaGLMaterialsFromMTLFile:truncLine withBasePath:basePath];
         } else if ([line hasPrefix:@"g "]) {
             NSString *groupName = [line substringFromIndex:2];
+            currentGroup = [groupsDict objectForKey:groupName];
+            if (currentGroup == nil) {
+                currentGroup = [[IPaGLWavefrontObjRenderGroup alloc] initWithName:groupName];
+                [groups addObject:currentGroup];
+                currentFaceData = [@[] mutableCopy];
+                groupsFaces[groupName] = currentFaceData;
+                groupsDict[groupName] = currentGroup;
+            }
+            else {
+                currentFaceData = groupsFaces[groupName];
+            }
             
-            currentGroup = [[IPaGLWavefrontObjRenderGroup alloc] initWithName:groupName];
             
-            [groups addObject:currentGroup];
             //reset faceCount
-            currentFaceData = [@[] mutableCopy];
-            groupsFaces[groupName] = currentFaceData;
+            
             currentFaceType = -1;
             
         }
@@ -80,7 +88,7 @@
                 currentGroup = [[IPaGLWavefrontObjRenderGroup alloc] initWithName:@"default"];
                 groupsFaces[@"default"] = currentFaceData;
                 [groups addObject:currentGroup];
-                
+                groupsDict[@"default"] = currentGroup;
             }
             NSString *materialKey = [line substringFromIndex:7];
             currentGroup.material = [self.materials objectForKey:materialKey];
@@ -90,7 +98,7 @@
                 currentGroup = [[IPaGLWavefrontObjRenderGroup alloc] initWithName:@"default"];
                 groupsFaces[@"default"] = currentFaceData;
                 [groups addObject:currentGroup];
-                
+                groupsDict[@"default"] = currentGroup;
             }
             NSString *lineTrunc = [line substringFromIndex:2];
             NSArray *lineComponents = [lineTrunc componentsSeparatedByString:@" "];
@@ -269,15 +277,15 @@
 -(void)renderWithRenderer:(IPaGLRenderer *)renderer
 {
     [super renderWithRenderer:renderer];
-
+    
     
     for (IPaGLWavefrontObjRenderGroup* group in self.renderGroup) {
-        [group.vertexIndexes bindBuffer];        
+        [group.vertexIndexes bindBuffer];
         [renderer prepareToRenderWithMaterial:group.material];
         
         glDrawElements(GL_TRIANGLES, group.vertexIndexes.indexNumber,GL_UNSIGNED_SHORT, 0);
     }
-
+    
 }
 
 +(NSDictionary*)loadIPaGLMaterialsFromMTLFile:(NSString*)fileName withBasePath:(NSString*)basePath

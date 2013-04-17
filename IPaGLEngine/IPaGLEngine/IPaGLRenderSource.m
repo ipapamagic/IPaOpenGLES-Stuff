@@ -132,7 +132,7 @@ typedef enum {
     
     
 //    glBufferData(GL_ARRAY_BUFFER, self.vertexAttributeSize * self.vertexAttributeCount, self.vertexAttributes, GL_STATIC_DRAW);
-    
+    glBindVertexArrayOES(0);    
 }
 -(void)renderWithRenderer:(IPaGLRenderer*)renderer;
 {
