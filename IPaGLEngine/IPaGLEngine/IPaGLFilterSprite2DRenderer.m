@@ -13,6 +13,7 @@
     GLint textureUniform;
     GLint brightnessUniform;
     GLint contrastUniform;
+    GLint matrixUniform;
 }
 
 -(NSString*)vertexShaderSource
@@ -20,10 +21,11 @@
     return @"attribute vec4 position;\
             attribute vec2 texCoord;\
             varying lowp vec2 v_texCoord;\
+            uniform mat4 matrix;\
             void main()\
             {\
                 v_texCoord = texCoord;\
-                gl_Position = position;\
+                gl_Position = matrix * position;\
             }";
 
 }
@@ -52,11 +54,15 @@
     textureUniform = glGetUniformLocation(_program, "texture");
     brightnessUniform = glGetUniformLocation(_program, "Brightness");
     contrastUniform = glGetUniformLocation(_program, "Contrast");
+    matrixUniform = glGetUniformLocation(_program, "matrix");
 }
 -(void)onBindGLUniforms
 {
     glUniform1f(brightnessUniform, self.brightness);
     glUniform1f(contrastUniform, self.contrast);
+    GLKMatrix4 matrix = GLKMatrix4Multiply(self.projectionMatrix, self.modelMatrix);
+    glUniformMatrix4fv(matrixUniform, 1, 0, matrix.m);
+
 }
 
 //-(void)prepareToRenderWithMaterial:(IPaGLMaterial *)material

@@ -17,9 +17,9 @@
 @property (nonatomic,assign) GLenum texTarget;
 @property (nonatomic,assign) GLuint textureName;
 //ratio of original image size and texture size
-//@property (nonatomic,assign) GLKVector2 texCoordRatio;
+@property (nonatomic,assign) GLKVector2 texCoordRatio;
 //original image size
-@property (nonatomic,readonly) GLKVector2 imageSize;
+@property (nonatomic,assign) GLKVector2 imageSize;
 @property (nonatomic,strong) GLKTextureInfo *textureInfo;
 //if name already exists ,will return an instance of original texture
 -(IPaGLTexture*)initWithName:(NSString*)name;

@@ -15,8 +15,8 @@
 @interface IPaGLSprite2D : NSObject
 @property (nonatomic,assign) GLKVector2 position;
 @property (nonatomic,assign) GLKVector2 size;
-@property (nonatomic,weak) IPaGLRenderer <IPaGLSprite2DRenderer> *renderer;
 @property (nonatomic,strong) IPaGLMaterial* material;
+@property (nonatomic,assign) GLKMatrix4 matrix;
 //alpha property
 -(CGFloat)alpha;
 -(void)setAlpha:(CGFloat)alpha;
@@ -24,7 +24,7 @@
 -(GLKVector2)center;
 -(void)setCenter:(GLKVector2)center;
 //
--(void)render;
+-(void)renderWithRenderer:(IPaGLRenderer <IPaGLSprite2DRenderer> *)renderer;
 -(void)setTexture:(IPaGLTexture*)texture;
 -(id)initWithUIImage:(UIImage*)image withName:(NSString*)name;
 -(void)setPosition:(GLKVector2)position size:(GLKVector2)size;

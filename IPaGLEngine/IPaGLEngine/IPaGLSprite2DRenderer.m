@@ -13,7 +13,6 @@
 @implementation IPaGLKitSprite2DRenderer
 {
     
-    GLKVector2 displaySizeRatio;
 }
 -(id)init
 {
@@ -31,26 +30,17 @@
     }
     return self;
 }
--(GLKVector2)displaySizeRatio
-{
-    return displaySizeRatio;
-}
+
 -(void)setDisplaySize:(GLKVector2)displaySize
 {
     _displaySize = displaySize;
-    displaySizeRatio = GLKVector2Make(1 / displaySize.x, 1 / displaySize.y);
+    GLKMatrix4 matrix = GLKMatrix4MakeTranslation(-1, 1, 0);
+    matrix = GLKMatrix4Scale(matrix, 2/displaySize.x, 2/displaySize.y, 1);
+    
+    
+    self.projectionMatrix = matrix;
+
 }
--(void)prepareToDraw
-{
-    [super prepareToDraw];
-    self.effect.transform.projectionMatrix = GLKMatrix4Identity;
-    self.effect.transform.modelviewMatrix = GLKMatrix4Identity;
-}
-//-(void)prepareToRenderWithMatrix:(GLKMatrix4)matrix
-//{
-//    self.effect.transform.projectionMatrix = GLKMatrix4Identity;
-//    self.effect.transform.modelviewMatrix = matrix;
-//}
 
 
 @end
@@ -78,15 +68,12 @@
 -(void)setDisplaySize:(GLKVector2)displaySize
 {
     _displaySize = displaySize;
-    displaySizeRatio = GLKVector2Make(1 / displaySize.x, 1 / displaySize.y);
-}
-//-(void)prepareToRenderWithMatrix:(GLKMatrix4)matrix
-//{
-//    NSAssert(NO, @"%@ need to over override setModelViewMatrix",[self class]);
-//}
--(GLKVector2)displaySizeRatio
-{
-    return displaySizeRatio;
+    GLKMatrix4 matrix = GLKMatrix4MakeTranslation(-1, 1, 0);
+    matrix = GLKMatrix4Scale(matrix, 2/displaySize.x, 2/displaySize.y, 1);
+    
+    
+    self.projectionMatrix = matrix;
+    
 }
 
 

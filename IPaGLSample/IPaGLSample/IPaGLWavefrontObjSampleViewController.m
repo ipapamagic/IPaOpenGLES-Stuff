@@ -7,9 +7,9 @@
 //
 
 #import "IPaGLWavefrontObjSampleViewController.h"
-#import "SampleIPaGLRenderer.h"
 #import "IPaGLWavefrontObj.h"
 #import <QuartzCore/CAAnimation.h>
+#import "IPaGLWavefrontObjRenderer.h"
 @interface IPaGLWavefrontObjSampleViewController () {
   
     
@@ -24,7 +24,7 @@
 
 @implementation IPaGLWavefrontObjSampleViewController
 {
-    SampleIPaGLRenderer *shaderRenderer;
+    IPaGLWavefrontObjRenderer *shaderRenderer;
     IPaGLKitRenderer *glkRenderer;
     IPaGLWavefrontObj *object;
     
@@ -87,7 +87,7 @@
 {
     [EAGLContext setCurrentContext:self.context];
     
-    shaderRenderer = [[SampleIPaGLRenderer alloc] init];
+    shaderRenderer = [[IPaGLWavefrontObjRenderer alloc] init];
     glkRenderer = [[IPaGLKitRenderer alloc] init];
 
     //create an IPaGLAttributes to record vertex data
@@ -146,11 +146,10 @@
     //render by renderGroup
     shaderRenderer.modelViewProjectionMatrix = modelViewProjectionMatrix;
     shaderRenderer.normalMatrix = normalMatrix;
-    shaderRenderer.rotation = rotation;
+
     
     glkRenderer.effect.transform.modelviewMatrix = modelViewMatrixForGLKit;
    
-    shaderRenderer.rotation = rotation;
     [object renderWithRenderer:shaderRenderer];
     [object renderWithRenderer:glkRenderer];
 }

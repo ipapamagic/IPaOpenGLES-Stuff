@@ -87,7 +87,6 @@
     
     sprite = [[IPaGLSprite2D alloc] init];
     [sprite setTexture:texture.texture];
-    sprite.renderer = paintRenderer;
 
     [sprite setPosition:GLKVector2Make(0, 0) size:GLKVector2Make(size.width, size.height)];
     
@@ -106,7 +105,7 @@
     
     
     [texture bindFramebuffer];
-    [framebufferRenderer prepareToDraw];
+//    [framebufferRenderer prepareToDraw];
     glClearColor(0.65f, 0.65f, 0.65f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
@@ -134,7 +133,7 @@
 
 - (IBAction)onClear:(id)sender {
     [texture bindFramebuffer];
-    [framebufferRenderer prepareToDraw];
+//    [framebufferRenderer prepareToDraw];
     glClearColor(0.65f, 0.65f, 0.65f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
@@ -198,10 +197,10 @@
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
 {
-    glClearColor(0.65f, 0.65f, 0.65f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+   // glClearColor(0.65f, 0.65f, 0.65f, 1.0f);
+   // glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
-    [sprite render];
+    [sprite renderWithRenderer:paintRenderer];
 }
 - (void)viewDidUnload {
     bBtn = nil;

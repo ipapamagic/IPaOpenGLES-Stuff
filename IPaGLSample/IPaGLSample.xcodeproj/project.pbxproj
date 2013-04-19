@@ -27,10 +27,7 @@
 		6E67FE8216A3054800E94CFE /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E67FE8116A3054800E94CFE /* Default@2x.png */; };
 		6E67FE8416A3054800E94CFE /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E67FE8316A3054800E94CFE /* Default-568h@2x.png */; };
 		6E67FE8716A3054800E94CFE /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E67FE8516A3054800E94CFE /* MainStoryboard.storyboard */; };
-		6E67FE8916A3054800E94CFE /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 6E67FE8816A3054800E94CFE /* Shader.fsh */; };
-		6E67FE8B16A3054800E94CFE /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 6E67FE8A16A3054800E94CFE /* Shader.vsh */; };
 		6E67FE8E16A3054800E94CFE /* IPaGLWavefrontObjSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E67FE8D16A3054800E94CFE /* IPaGLWavefrontObjSampleViewController.m */; };
-		6E67FE9616A3057800E94CFE /* SampleIPaGLRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E67FE9516A3057800E94CFE /* SampleIPaGLRenderer.m */; };
 		6E67FEA116A3087800E94CFE /* texture.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E67FE9D16A3087800E94CFE /* texture.png */; };
 		6E67FEA216A3087800E94CFE /* texture2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E67FE9E16A3087800E94CFE /* texture2.png */; };
 		6E67FEA316A3087800E94CFE /* uvcube2.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 6E67FE9F16A3087800E94CFE /* uvcube2.mtl */; };
@@ -66,12 +63,8 @@
 		6E67FE8116A3054800E94CFE /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		6E67FE8316A3054800E94CFE /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		6E67FE8616A3054800E94CFE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		6E67FE8816A3054800E94CFE /* Shader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.fsh; path = Shaders/Shader.fsh; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
-		6E67FE8A16A3054800E94CFE /* Shader.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.vsh; path = Shaders/Shader.vsh; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.glsl; };
 		6E67FE8C16A3054800E94CFE /* IPaGLWavefrontObjSampleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IPaGLWavefrontObjSampleViewController.h; sourceTree = "<group>"; };
 		6E67FE8D16A3054800E94CFE /* IPaGLWavefrontObjSampleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IPaGLWavefrontObjSampleViewController.m; sourceTree = "<group>"; };
-		6E67FE9416A3057800E94CFE /* SampleIPaGLRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleIPaGLRenderer.h; sourceTree = "<group>"; };
-		6E67FE9516A3057800E94CFE /* SampleIPaGLRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleIPaGLRenderer.m; sourceTree = "<group>"; };
 		6E67FE9D16A3087800E94CFE /* texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = texture.png; sourceTree = "<group>"; };
 		6E67FE9E16A3087800E94CFE /* texture2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = texture2.png; sourceTree = "<group>"; };
 		6E67FE9F16A3087800E94CFE /* uvcube2.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = uvcube2.mtl; sourceTree = "<group>"; };
@@ -112,16 +105,12 @@
 		6E3B0B7C16EDB20D0013A6C2 /* IPaGLWavefrontObj Sample */ = {
 			isa = PBXGroup;
 			children = (
-				6E67FE8816A3054800E94CFE /* Shader.fsh */,
-				6E67FE8A16A3054800E94CFE /* Shader.vsh */,
 				6E67FE9D16A3087800E94CFE /* texture.png */,
 				6E67FE9E16A3087800E94CFE /* texture2.png */,
 				6E67FE9F16A3087800E94CFE /* uvcube2.mtl */,
 				6E67FEA016A3087800E94CFE /* uvcube2.obj */,
 				6E67FE8C16A3054800E94CFE /* IPaGLWavefrontObjSampleViewController.h */,
 				6E67FE8D16A3054800E94CFE /* IPaGLWavefrontObjSampleViewController.m */,
-				6E67FE9416A3057800E94CFE /* SampleIPaGLRenderer.h */,
-				6E67FE9516A3057800E94CFE /* SampleIPaGLRenderer.m */,
 			);
 			name = "IPaGLWavefrontObj Sample";
 			sourceTree = "<group>";
@@ -255,8 +244,6 @@
 				6E67FE8216A3054800E94CFE /* Default@2x.png in Resources */,
 				6E67FE8416A3054800E94CFE /* Default-568h@2x.png in Resources */,
 				6E67FE8716A3054800E94CFE /* MainStoryboard.storyboard in Resources */,
-				6E67FE8916A3054800E94CFE /* Shader.fsh in Resources */,
-				6E67FE8B16A3054800E94CFE /* Shader.vsh in Resources */,
 				6E67FEA116A3087800E94CFE /* texture.png in Resources */,
 				6E67FEA216A3087800E94CFE /* texture2.png in Resources */,
 				6E67FEA316A3087800E94CFE /* uvcube2.mtl in Resources */,
@@ -274,7 +261,6 @@
 				6E67FE7A16A3054800E94CFE /* main.m in Sources */,
 				6E67FE7E16A3054800E94CFE /* IPaAppDelegate.m in Sources */,
 				6E67FE8E16A3054800E94CFE /* IPaGLWavefrontObjSampleViewController.m in Sources */,
-				6E67FE9616A3057800E94CFE /* SampleIPaGLRenderer.m in Sources */,
 				6E45B2B616E9C14400C14ABA /* TitleViewController.m in Sources */,
 				6E45B2B916E9C3BE00C14ABA /* IPaGLSprite2DSampleViewController.m in Sources */,
 				6E3B0B7516ED93F30013A6C2 /* FramebufferTextureSampleViewController.m in Sources */,

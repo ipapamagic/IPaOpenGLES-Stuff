@@ -12,8 +12,10 @@
 @protocol IPaGLSprite2DRenderer <NSObject>
 //-(void)prepareToRenderWithMatrix:(GLKMatrix4)matrix;
 -(void)setDisplaySize:(GLKVector2)size;
-//inverse of displaySize
--(GLKVector2)displaySizeRatio;
+-(void)setProjectionMatrix:(GLKMatrix4)projectionMatrix;
+-(GLKMatrix4)projectionMatrix;
+-(void)setModelMatrix:(GLKMatrix4)modelMatrix;
+-(GLKMatrix4)modelMatrix;
 @end
 
 
@@ -24,6 +26,8 @@
 
 @interface IPaGLShaderSprite2DRenderer : IPaGLShaderRenderer <IPaGLSprite2DRenderer>
 @property (nonatomic,assign) GLKVector2 displaySize;
+@property (nonatomic,assign) GLKMatrix4 projectionMatrix;
+@property (nonatomic,assign) GLKMatrix4 modelMatrix;
 -(id)initWithDisplaySize:(GLKVector2)displaySize;
 @end
 

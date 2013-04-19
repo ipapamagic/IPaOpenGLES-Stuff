@@ -251,7 +251,11 @@
     
     return self;
 }
+-(void)prepareToDraw
+{
 
+    [self.effect prepareToDraw];
+}
 -(void)prepareToRenderWithMaterial:(IPaGLMaterial*)material
 {
     if (material == nil) {
@@ -308,7 +312,22 @@
             self.effect.texture2d0.enabled = GL_FALSE;
         }
     }
-    //need to do prepareToDraw after set texture
-    [self.effect prepareToDraw];
+   
+}
+-(void)setProjectionMatrix:(GLKMatrix4)projectionMatrix
+{
+    self.effect.transform.projectionMatrix = projectionMatrix;
+}
+-(GLKMatrix4)projectionMatrix
+{
+    return self.effect.transform.projectionMatrix;
+}
+-(void)setModelMatrix:(GLKMatrix4)modelMatrix
+{
+    self.effect.transform.modelviewMatrix = modelMatrix;
+}
+-(GLKMatrix4)modelMatrix
+{
+    return self.effect.transform.modelviewMatrix;
 }
 @end

@@ -9,6 +9,7 @@
 #import "IPaGLSprite2DSampleViewController.h"
 #import "IPaGLSprite2D.h"
 #import "IPaGLSprite2DRenderer.h"
+#import "IPaGLEngine.h"
 @implementation IPaGLSprite2DSampleViewController
 {
     IPaGLSprite2D* entity;
@@ -18,7 +19,7 @@
 {
     [super viewDidLoad];
     
-    EAGLContext* context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
+    EAGLContext* context = [[IPaGLEngine sharedInstance] defaultContext];
     
     if (!context) {
         NSLog(@"Failed to create ES context");
@@ -28,7 +29,7 @@
     view.context = context;
     view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
     
-    [self setupGL];
+
 }
 
 - (void)dealloc
@@ -57,18 +58,18 @@
     
     // Dispose of any resources that can be recreated.
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self setupGL];
+}
 - (void)setupGL
 {
     GLKView *view = (GLKView *)self.view;
     [EAGLContext setCurrentContext:view.context];
     
-    
-    entity = [[IPaGLSprite2D alloc] initWithUIImage:[UIImage imageNamed:@"texture.png"] withName:@"texture"];
-    
     renderer = [[IPaGLKitSprite2DRenderer alloc] initWithDisplaySize:GLKVector2Make(self.view.frame.size.width, self.view.frame.size.height)];
-
-    entity.renderer = renderer;
+    entity = [[IPaGLSprite2D alloc] initWithUIImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"texture" ofType:@"png"]] withName:@"texture"];
     
     [entity setPosition:GLKVector2Make(100, self.view.frame.size.height / 2) size:GLKVector2Make(self.view.frame.size.width / 2, self.view.frame.size.height / 2)];
     
@@ -90,8 +91,9 @@
 {
     glClearColor(0.65f, 0.65f, 0.65f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    
-    [entity render];
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    [entity renderWithRenderer:renderer];
 }
 
 

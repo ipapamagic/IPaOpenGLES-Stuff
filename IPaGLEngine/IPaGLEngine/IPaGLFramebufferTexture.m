@@ -43,7 +43,8 @@
     self.texture = [[IPaGLTexture alloc] init];
     self.texture.textureName = textureName;
     self.texture.texTarget = GL_TEXTURE_2D;
-    
+    self.texture.imageSize = GLKVector2Make(size.width, size.height);
+    self.texture.texCoordRatio = GLKVector2Make(1, 1);
     return self;
 
 }

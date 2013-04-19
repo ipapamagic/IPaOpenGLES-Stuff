@@ -11,7 +11,6 @@
 @interface IPaGLTexture()
 //object that use this attribute
 @property (nonatomic,strong) NSMutableArray *materialList;
-@property (nonatomic,readwrite) GLKVector2 imageSize;
 @end
 @implementation IPaGLTexture
 static NSMutableDictionary *IPaGLTextureList = nil;
@@ -24,7 +23,7 @@ static NSMutableDictionary *IPaGLTextureList = nil;
     IPaGLTexture *texture = IPaGLTextureList[name];
     if (texture == nil) {
         texture = [[IPaGLTexture alloc] initWithName:name];
-        NSDictionary * options = @{ GLKTextureLoaderOriginBottomLeft : @(YES)};
+        NSDictionary * options = @{ GLKTextureLoaderOriginBottomLeft:@YES};
         NSError *error;
         CGSize imageSize = image.size;
         
@@ -52,21 +51,21 @@ static NSMutableDictionary *IPaGLTextureList = nil;
         imageSize.height = temp;
         
         if (!CGSizeEqualToSize(image.size, imageSize)) {
-//            texture.texCoordRatio = GLKVector2Make(image.size.width / imageSize.width, image.size.height / imageSize.height);
+            texture.texCoordRatio = GLKVector2Make(image.size.width / imageSize.width, image.size.height / imageSize.height);
             UIGraphicsBeginImageContext(imageSize);
-//            [image drawAtPoint:CGPointMake(0, imageSize.height - image.size.height)];
-            [image drawInRect:CGRectMake(0, 0, imageSize.width, imageSize.height)];
+            [image drawAtPoint:CGPointMake(0, imageSize.height - image.size.height)];
+//            [image drawInRect:CGRectMake(0, 0, imageSize.width, imageSize.height)];
             image = UIGraphicsGetImageFromCurrentImageContext();
             UIGraphicsEndImageContext();
             
-            
+            NSLog(@"IPaGLTexture:Image:%@ size is not power of 2",name);
            
             
 
         }
-//        else {
-//            texture.texCoordRatio = GLKVector2Make(1,1);
-//        }
+        else {
+            texture.texCoordRatio = GLKVector2Make(1,1);
+        }
         
         
         texture.textureInfo = [GLKTextureLoader textureWithCGImage:image.CGImage options:options error:&error];
@@ -98,7 +97,7 @@ static NSMutableDictionary *IPaGLTextureList = nil;
 {
     self = [super init];
   
-    self.materialList = [@[] mutableCopy];
+
    
     return self;
 }
@@ -108,7 +107,8 @@ static NSMutableDictionary *IPaGLTextureList = nil;
     if (texture != nil) {
         return nil;
     }
-    if (self = [self init]) {
+    if (self = [super init]) {
+        self.materialList = [@[] mutableCopy];
         self.name = name;
         if (IPaGLTextureList == nil) {
             IPaGLTextureList = [@{} mutableCopy];

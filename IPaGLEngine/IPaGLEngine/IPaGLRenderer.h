@@ -36,4 +36,8 @@
 
 @interface IPaGLKitRenderer : IPaGLRenderer
 @property (nonatomic,strong) GLKBaseEffect* effect;
+-(void)setProjectionMatrix:(GLKMatrix4)projectionMatrix;
+-(GLKMatrix4)projectionMatrix;
+-(void)setModelMatrix:(GLKMatrix4)modelMatrix;
+-(GLKMatrix4)modelMatrix;
 @end

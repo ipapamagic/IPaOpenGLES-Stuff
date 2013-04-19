@@ -94,7 +94,7 @@ typedef enum {
 }
 -(void)createBuffer:(GLenum)bufferUsage
 {
-    NSInteger posVNum = (self.attrHasPosZ)?3:2;
+
     size_t attributesSize = self.vertexAttributeSize;
     glGenVertexArraysOES(1, &vertexArray);
     glBindVertexArrayOES(vertexArray);
@@ -102,7 +102,7 @@ typedef enum {
     glGenBuffers(1, &vertexBuffer);
     glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
     glBufferData(GL_ARRAY_BUFFER, attributesSize * self.vertexAttributeCount, self.vertexAttributes, bufferUsage);
-    
+    NSInteger posVNum = (self.attrHasPosZ)?3:2;
     glEnableVertexAttribArray(GLKVertexAttribPosition);
     glVertexAttribPointer(GLKVertexAttribPosition, posVNum, GL_FLOAT, GL_FALSE, attributesSize, 0);
     size_t dataOffset = sizeof(GLfloat) * posVNum;
@@ -114,9 +114,15 @@ typedef enum {
     if (self.attrHasNormal) {
         glEnableVertexAttribArray(GLKVertexAttribNormal);
         glVertexAttribPointer(GLKVertexAttribNormal, 3, GL_FLOAT, GL_FALSE, attributesSize, (void*)dataOffset);
-        
     }
+    [self bindAttribute:attributesSize dataOffset:dataOffset];
     glBindVertexArrayOES(0);
+}
+
+//for subclass to override
+-(void)bindAttribute:(size_t)attributeSize dataOffset:(size_t)dataOffset
+{
+    
 }
 -(void)bindBuffer
 {

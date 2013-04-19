@@ -36,7 +36,7 @@
         source.attrHasPosZ = NO;
         source.attrHasNormal = NO;
         source.attrHasTexCoords = YES;
-        [source createBufferDynamic];
+        [source createBufferStatic];
         self.material = [[IPaGLMaterial alloc] init];
 //        matrix = GLKMatrix4Identity;
     }
@@ -47,17 +47,18 @@
     self = [self init];
     
     self.material.texture = [IPaGLTexture textureFromImage:image withName:name];
-    
     [self setPosition:GLKVector2Make(0, 0) size:GLKVector2Make(image.size.width, image.size.height)];
+    GLfloat *vertexAttr = source.vertexAttributes;
+    GLKVector2 texCoordRatio = self.material.texture.texCoordRatio;
     
-    
-//    GLfloat *vertexAttr = source.vertexAttributes;
-//    GLKVector2 texCoordRatio = self.material.texture.texCoordRatio;
-//    vertexAttr[2] = vertexAttr[10] = 0;
-//    vertexAttr[3] = vertexAttr[7] = 0;
-//    vertexAttr[6] = vertexAttr[14] = texCoordRatio.x;
-//    vertexAttr[11] = vertexAttr[15] = texCoordRatio.y;
-//    [source updateAttributeBuffer];
+    if (!(texCoordRatio.x == 1 && texCoordRatio.y == 1)) {
+        vertexAttr[2] = vertexAttr[10] = 0;
+        vertexAttr[3] = vertexAttr[7] = 0;
+        vertexAttr[6] = vertexAttr[14] = texCoordRatio.x;
+        vertexAttr[11] = vertexAttr[15] = texCoordRatio.y;
+        [source updateAttributeBuffer];
+
+    }
     return self;
 }
 -(void)setTextureRect:(GLKVector4)rect
@@ -66,11 +67,11 @@
 
     //set image rect
     GLfloat *vertexAttr = source.vertexAttributes;
-//    GLKVector2 texCoordRatio = self.material.texture.texCoordRatio;
-    vertexAttr[2] = vertexAttr[10] = rect.x / imgSize.x;// * texCoordRatio.x;
-    vertexAttr[3] = vertexAttr[7] = (1 - ((rect.y + rect.w) / imgSize.y));//  * texCoordRatio.y;
-    vertexAttr[6] = vertexAttr[14] = (rect.x + rect.z) / imgSize.x;//  * texCoordRatio.x;
-    vertexAttr[11] = vertexAttr[15] = (1 - (rect.y / imgSize.y));// * texCoordRatio.y;
+    GLKVector2 texCoordRatio = self.material.texture.texCoordRatio;
+    vertexAttr[2] = vertexAttr[10] = rect.x / imgSize.x * texCoordRatio.x;
+    vertexAttr[3] = vertexAttr[7] = (1 - ((rect.y + rect.w) / imgSize.y))  * texCoordRatio.y;
+    vertexAttr[6] = vertexAttr[14] = (rect.x + rect.z) / imgSize.x  * texCoordRatio.x;
+    vertexAttr[11] = vertexAttr[15] = (1 - (rect.y / imgSize.y)) * texCoordRatio.y;
     [source updateAttributeBuffer];
     
 }
@@ -102,7 +103,7 @@
 -(void)setPosition:(GLKVector2)position
 {
     _position = position;
-    [self updateVertexPos];    
+    [self updateMatrix];    
 }
 -(GLKVector2)center
 {
@@ -115,37 +116,42 @@
 -(void)setSize:(GLKVector2)size
 {
     _size = size;
-    [self updateVertexPos];
+    [self updateMatrix];
 }
 -(void)setPosition:(GLKVector2)position size:(GLKVector2)size
 {
     _position = position;
     _size = size;
-    [self updateVertexPos];
+    [self updateMatrix];
 }
 -(void)setCenter:(GLKVector2)center size:(GLKVector2)size
 {
     _size = size;
     _position = GLKVector2Make(center.x - self.size.x * 0.5, center.y - self.size.y * 0.5);
-    [self updateVertexPos];
+    [self updateMatrix];
 }
--(void)updateVertexPos
+-(void)updateMatrix
 {
- 
-    GLKVector2 displaySizeRatio = self.renderer.displaySizeRatio;
-    GLfloat *vertexAttr = source.vertexAttributes;
     
-    vertexAttr[0] = vertexAttr[8] = -1 + (self.position.x * displaySizeRatio.x * 2);
-    vertexAttr[1] = vertexAttr[5] = 1 - ((self.position.y + self.size.y)* displaySizeRatio.y * 2);
-    vertexAttr[4] = vertexAttr[12] = -1 + (self.position.x + self.size.x) * displaySizeRatio.x * 2;
-    vertexAttr[9] = vertexAttr[13] = 1 - (self.position.y * displaySizeRatio.y * 2);
-    [source updateAttributeBuffer];
+//    GLKVector2 displaySizeRatio = self.renderer.displaySizeRatio;
+//    GLfloat *vertexAttr = source.vertexAttributes;
 //
-//    matrix = GLKMatrix4MakeTranslation(-1 + (self.size.x + self.position.x * 2) * displaySizeRatio.x,1 - (self.size.y + self.position.y * 2) * displaySizeRatio.y, 0);
-//    
-//    matrix = GLKMatrix4Scale(matrix, self.size.x * displaySizeRatio.x, self.size.y * displaySizeRatio.y, 1);
+//    vertexAttr[0] = vertexAttr[8] = -1 + (self.position.x * displaySizeRatio.x * 2);
+//    vertexAttr[1] = vertexAttr[5] = 1 - ((self.position.y + self.size.y)* displaySizeRatio.y * 2);
+//    vertexAttr[4] = vertexAttr[12] = -1 + (self.position.x + self.size.x) * displaySizeRatio.x * 2;
+//    vertexAttr[9] = vertexAttr[13] = 1 - (self.position.y * displaySizeRatio.y * 2);
+//    [source updateAttributeBuffer];
+    
+
+    self.matrix = GLKMatrix4MakeTranslation(self.size.x * 0.5 + self.position.x, -self.size.y * 0.5 - self.position.y, 0);
+    self.matrix = GLKMatrix4Scale(self.matrix,self.size.x * 0.5, self.size.y * 0.5, 1);
+
+//    self.matrix = GLKMatrix4Scale(self.matrix, self.size.x, -self.size.y, 1);
+    //self.matrix = GLKMatrix4Translate(self.matrix,self.position.x,self.position.y,0);
+
     
 }
+
 
 -(void)setTexture:(IPaGLTexture*)texture
 {
@@ -153,13 +159,16 @@
     self.material.texture = texture;
     
 }
--(void)render
+-(void)renderWithRenderer:(IPaGLRenderer <IPaGLSprite2DRenderer> *)renderer
 {
-//    [self.renderer prepareToRenderWithMatrix:matrix];
-    [self.renderer prepareToRenderWithMaterial:self.material];
+//    renderer.projectionMatrix = self.projectionMatrix;
+    renderer.modelMatrix = self.matrix;
+    
+   
+    [renderer prepareToRenderWithMaterial:self.material];
     
     
-    [source renderWithRenderer:self.renderer];
+    [source renderWithRenderer:renderer];
     
 
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
