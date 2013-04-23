@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6E046088171FC4640099E902 /* IPaGLWavefrontObjRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E046087171FC4640099E902 /* IPaGLWavefrontObjRenderer.m */; };
 		6E20B0E9171A907100DEB598 /* IPaGLFilterSprite2DRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E20B0E8171A907100DEB598 /* IPaGLFilterSprite2DRenderer.m */; };
+		6E3AF6DB172677F10013A01C /* IPaGLWaterRippleEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3AF6DA172677F10013A01C /* IPaGLWaterRippleEffect.m */; };
 		6E43610816EEC3F100C27FD0 /* IPaGLRenderSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E43610716EEC3F100C27FD0 /* IPaGLRenderSource.m */; };
 		6E476C1516E8708600A61985 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E476C1416E8708600A61985 /* Foundation.framework */; };
 		6E476C1A16E8708600A61985 /* IPaGLEngine.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6E476C1916E8708600A61985 /* IPaGLEngine.h */; };
@@ -44,6 +45,8 @@
 		6E046087171FC4640099E902 /* IPaGLWavefrontObjRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLWavefrontObjRenderer.m; sourceTree = "<group>"; };
 		6E20B0E7171A907100DEB598 /* IPaGLFilterSprite2DRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLFilterSprite2DRenderer.h; sourceTree = "<group>"; };
 		6E20B0E8171A907100DEB598 /* IPaGLFilterSprite2DRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLFilterSprite2DRenderer.m; sourceTree = "<group>"; };
+		6E3AF6D9172677F10013A01C /* IPaGLWaterRippleEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLWaterRippleEffect.h; sourceTree = "<group>"; };
+		6E3AF6DA172677F10013A01C /* IPaGLWaterRippleEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLWaterRippleEffect.m; sourceTree = "<group>"; };
 		6E43610616EEC3F100C27FD0 /* IPaGLRenderSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLRenderSource.h; sourceTree = "<group>"; };
 		6E43610716EEC3F100C27FD0 /* IPaGLRenderSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLRenderSource.m; sourceTree = "<group>"; };
 		6E476C1116E8708600A61985 /* libIPaGLEngine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libIPaGLEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,6 +110,15 @@
 			name = IPaGLSprite2DRenderer;
 			sourceTree = "<group>";
 		};
+		6E3AF6D8172677710013A01C /* IPaGLEffect */ = {
+			isa = PBXGroup;
+			children = (
+				6E3AF6D9172677F10013A01C /* IPaGLWaterRippleEffect.h */,
+				6E3AF6DA172677F10013A01C /* IPaGLWaterRippleEffect.m */,
+			);
+			name = IPaGLEffect;
+			sourceTree = "<group>";
+		};
 		6E3B0B7616EDAE030013A6C2 /* IPaGLSprite2D */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +178,7 @@
 			children = (
 				6E43610516EEC2C600C27FD0 /* IPaGL */,
 				6EC22B8916EEEA03008CD1BA /* IPaGLWavefrontObj */,
+				6E3AF6D8172677710013A01C /* IPaGLEffect */,
 				6E3B0B7616EDAE030013A6C2 /* IPaGLSprite2D */,
 				6EC22B8216EEE294008CD1BA /* IPaGLFramebufferTexture */,
 				6E476C1916E8708600A61985 /* IPaGLEngine.h */,
@@ -270,6 +283,7 @@
 				6EA5BAF11714049C00A39B81 /* IPaGLSprite2DAction.m in Sources */,
 				6E20B0E9171A907100DEB598 /* IPaGLFilterSprite2DRenderer.m in Sources */,
 				6E046088171FC4640099E902 /* IPaGLWavefrontObjRenderer.m in Sources */,
+				6E3AF6DB172677F10013A01C /* IPaGLWaterRippleEffect.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

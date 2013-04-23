@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6E393DB016A3D2E100EE2218 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E393DAF16A3D2E100EE2218 /* QuartzCore.framework */; };
+		6E3AF6E11726934A0013A01C /* IPaGLWaterRippleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3AF6E01726934A0013A01C /* IPaGLWaterRippleViewController.m */; };
 		6E3B0B7516ED93F30013A6C2 /* FramebufferTextureSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3B0B7416ED93F30013A6C2 /* FramebufferTextureSampleViewController.m */; };
 		6E3B0B8016EDB25D0013A6C2 /* FrameBufferRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3B0B7F16EDB25D0013A6C2 /* FrameBufferRenderer.m */; };
 		6E3B0B8B16EDC8620013A6C2 /* FrameBufferShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 6E3B0B7816EDB1350013A6C2 /* FrameBufferShader.fsh */; };
@@ -32,10 +33,13 @@
 		6E67FEA216A3087800E94CFE /* texture2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E67FE9E16A3087800E94CFE /* texture2.png */; };
 		6E67FEA316A3087800E94CFE /* uvcube2.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 6E67FE9F16A3087800E94CFE /* uvcube2.mtl */; };
 		6E67FEA416A3087800E94CFE /* uvcube2.obj in Resources */ = {isa = PBXBuildFile; fileRef = 6E67FEA016A3087800E94CFE /* uvcube2.obj */; };
+		6E8E58A91726F7FD00B0D8FF /* rock.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E8E58A81726F7FD00B0D8FF /* rock.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6E393DAF16A3D2E100EE2218 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		6E3AF6DF1726934A0013A01C /* IPaGLWaterRippleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLWaterRippleViewController.h; sourceTree = "<group>"; };
+		6E3AF6E01726934A0013A01C /* IPaGLWaterRippleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLWaterRippleViewController.m; sourceTree = "<group>"; };
 		6E3B0B7316ED93F30013A6C2 /* FramebufferTextureSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FramebufferTextureSampleViewController.h; sourceTree = "<group>"; };
 		6E3B0B7416ED93F30013A6C2 /* FramebufferTextureSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FramebufferTextureSampleViewController.m; sourceTree = "<group>"; };
 		6E3B0B7816EDB1350013A6C2 /* FrameBufferShader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = FrameBufferShader.fsh; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.opencl; };
@@ -69,6 +73,7 @@
 		6E67FE9E16A3087800E94CFE /* texture2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = texture2.png; sourceTree = "<group>"; };
 		6E67FE9F16A3087800E94CFE /* uvcube2.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = uvcube2.mtl; sourceTree = "<group>"; };
 		6E67FEA016A3087800E94CFE /* uvcube2.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = uvcube2.obj; sourceTree = "<group>"; };
+		6E8E58A81726F7FD00B0D8FF /* rock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rock.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +94,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E3AF6E21726934E0013A01C /* IPaGLWaterRipple Sample */ = {
+			isa = PBXGroup;
+			children = (
+				6E3AF6DF1726934A0013A01C /* IPaGLWaterRippleViewController.h */,
+				6E3AF6E01726934A0013A01C /* IPaGLWaterRippleViewController.m */,
+			);
+			name = "IPaGLWaterRipple Sample";
+			sourceTree = "<group>";
+		};
+		6E3AF6E3172693B30013A01C /* Artist */ = {
+			isa = PBXGroup;
+			children = (
+				6E8E58A81726F7FD00B0D8FF /* rock.png */,
+				6E67FE9D16A3087800E94CFE /* texture.png */,
+				6E67FE9E16A3087800E94CFE /* texture2.png */,
+				6E67FE9F16A3087800E94CFE /* uvcube2.mtl */,
+				6E67FEA016A3087800E94CFE /* uvcube2.obj */,
+			);
+			name = Artist;
+			sourceTree = "<group>";
+		};
 		6E3B0B7716EDB1130013A6C2 /* FramebuffetTexture Sample */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,10 +131,6 @@
 		6E3B0B7C16EDB20D0013A6C2 /* IPaGLWavefrontObj Sample */ = {
 			isa = PBXGroup;
 			children = (
-				6E67FE9D16A3087800E94CFE /* texture.png */,
-				6E67FE9E16A3087800E94CFE /* texture2.png */,
-				6E67FE9F16A3087800E94CFE /* uvcube2.mtl */,
-				6E67FEA016A3087800E94CFE /* uvcube2.obj */,
 				6E67FE8C16A3054800E94CFE /* IPaGLWavefrontObjSampleViewController.h */,
 				6E67FE8D16A3054800E94CFE /* IPaGLWavefrontObjSampleViewController.m */,
 			);
@@ -163,6 +185,8 @@
 				6E67FE8516A3054800E94CFE /* MainStoryboard.storyboard */,
 				6E45B2B416E9C14400C14ABA /* TitleViewController.h */,
 				6E45B2B516E9C14400C14ABA /* TitleViewController.m */,
+				6E3AF6E3172693B30013A01C /* Artist */,
+				6E3AF6E21726934E0013A01C /* IPaGLWaterRipple Sample */,
 				6E3B0B7C16EDB20D0013A6C2 /* IPaGLWavefrontObj Sample */,
 				6E3B0B7D16EDB21C0013A6C2 /* IPaGLSprite2D Sample */,
 				6E3B0B7716EDB1130013A6C2 /* FramebuffetTexture Sample */,
@@ -248,6 +272,7 @@
 				6E67FEA216A3087800E94CFE /* texture2.png in Resources */,
 				6E67FEA316A3087800E94CFE /* uvcube2.mtl in Resources */,
 				6E67FEA416A3087800E94CFE /* uvcube2.obj in Resources */,
+				6E8E58A91726F7FD00B0D8FF /* rock.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +290,7 @@
 				6E45B2B916E9C3BE00C14ABA /* IPaGLSprite2DSampleViewController.m in Sources */,
 				6E3B0B7516ED93F30013A6C2 /* FramebufferTextureSampleViewController.m in Sources */,
 				6E3B0B8016EDB25D0013A6C2 /* FrameBufferRenderer.m in Sources */,
+				6E3AF6E11726934A0013A01C /* IPaGLWaterRippleViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

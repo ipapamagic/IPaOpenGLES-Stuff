@@ -12,4 +12,6 @@
 -(IBAction)onIPaGLWavefrontObjSampleBack:(UIStoryboardSegue*)sender;
 -(IBAction)onIPaGLSprite2DSampleBack:(UIStoryboardSegue*)sender;
 -(IBAction)onFramebufferSampleBack:(UIStoryboardSegue*)sender;
+
+-(IBAction)onIPaWaterRippleSampleBack:(UIStoryboardSegue*)sender;
 @end

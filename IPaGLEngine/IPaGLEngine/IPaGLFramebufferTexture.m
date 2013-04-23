@@ -15,7 +15,6 @@
 -(IPaGLFramebufferTexture*)initWithSize:(CGSize)size
 {
     self = [super init];
-    self.framebufferSize = GLKVector2Make(size.width, size.height);
     glGenFramebuffers(1, &framebuffer);
     glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
     //    glGenRenderbuffers(1, &baseDepthBuffer);
@@ -28,8 +27,8 @@
                  0, GL_RGBA, GL_UNSIGNED_SHORT_4_4_4_4, NULL);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
     // specify texture as color attachment
     glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0,
                            GL_TEXTURE_2D, textureName, 0);
@@ -56,5 +55,8 @@
 {
     glDeleteFramebuffers(1, &framebuffer);
 }
-
+-(GLKVector2)framebufferSize
+{
+    return self.texture.imageSize;
+}
 @end

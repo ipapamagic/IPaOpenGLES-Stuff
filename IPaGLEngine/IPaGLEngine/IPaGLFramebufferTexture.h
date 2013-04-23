@@ -10,8 +10,9 @@
 #import <GLKit/GLKit.h>
 @class IPaGLTexture;
 @interface IPaGLFramebufferTexture : NSObject
-@property (nonatomic,assign) GLKVector2 framebufferSize;
+
 @property (nonatomic,strong) IPaGLTexture *texture;
 -(IPaGLFramebufferTexture*)initWithSize:(CGSize)size;
 -(void)bindFramebuffer;
+-(GLKVector2)framebufferSize;
 @end
