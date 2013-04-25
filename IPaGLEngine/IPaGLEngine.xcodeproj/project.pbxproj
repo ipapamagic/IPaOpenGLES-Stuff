@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6E046088171FC4640099E902 /* IPaGLWavefrontObjRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E046087171FC4640099E902 /* IPaGLWavefrontObjRenderer.m */; };
+		6E2036BE172778B80043A035 /* IPaGLEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2036BD172778B80043A035 /* IPaGLEffect.m */; };
+		6E2036C11727851F0043A035 /* IPaGLGooEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2036C01727851F0043A035 /* IPaGLGooEffect.m */; };
 		6E20B0E9171A907100DEB598 /* IPaGLFilterSprite2DRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E20B0E8171A907100DEB598 /* IPaGLFilterSprite2DRenderer.m */; };
 		6E3AF6DB172677F10013A01C /* IPaGLWaterRippleEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3AF6DA172677F10013A01C /* IPaGLWaterRippleEffect.m */; };
 		6E43610816EEC3F100C27FD0 /* IPaGLRenderSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E43610716EEC3F100C27FD0 /* IPaGLRenderSource.m */; };
@@ -22,6 +24,7 @@
 		6E476C6016E8914D00A61985 /* IPaGLSprite2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E476C5F16E8914D00A61985 /* IPaGLSprite2D.m */; };
 		6E4B2D1116E981FD00B41F6C /* IPaGLSprite2DRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4B2D1016E981FD00B41F6C /* IPaGLSprite2DRenderer.m */; };
 		6EA5BAF11714049C00A39B81 /* IPaGLSprite2DAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA5BAF01714049C00A39B81 /* IPaGLSprite2DAction.m */; };
+		6EB3909B1728D5FC0068AF00 /* IPaGLGooRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB3909A1728D5FC0068AF00 /* IPaGLGooRenderer.m */; };
 		6EC22B8116EEE28F008CD1BA /* IPaGLFramebufferTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC22B8016EEE28F008CD1BA /* IPaGLFramebufferTexture.m */; };
 		6EC22B8716EEE946008CD1BA /* IPaGLWavefrontObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC22B8416EEE946008CD1BA /* IPaGLWavefrontObj.m */; };
 		6EC22B8816EEE946008CD1BA /* IPaGLWavefrontObjRenderGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC22B8616EEE946008CD1BA /* IPaGLWavefrontObjRenderGroup.m */; };
@@ -43,6 +46,10 @@
 /* Begin PBXFileReference section */
 		6E046086171FC4640099E902 /* IPaGLWavefrontObjRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLWavefrontObjRenderer.h; sourceTree = "<group>"; };
 		6E046087171FC4640099E902 /* IPaGLWavefrontObjRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLWavefrontObjRenderer.m; sourceTree = "<group>"; };
+		6E2036BC172778B80043A035 /* IPaGLEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLEffect.h; sourceTree = "<group>"; };
+		6E2036BD172778B80043A035 /* IPaGLEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLEffect.m; sourceTree = "<group>"; };
+		6E2036BF1727851F0043A035 /* IPaGLGooEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLGooEffect.h; sourceTree = "<group>"; };
+		6E2036C01727851F0043A035 /* IPaGLGooEffect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLGooEffect.m; sourceTree = "<group>"; };
 		6E20B0E7171A907100DEB598 /* IPaGLFilterSprite2DRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLFilterSprite2DRenderer.h; sourceTree = "<group>"; };
 		6E20B0E8171A907100DEB598 /* IPaGLFilterSprite2DRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLFilterSprite2DRenderer.m; sourceTree = "<group>"; };
 		6E3AF6D9172677F10013A01C /* IPaGLWaterRippleEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLWaterRippleEffect.h; sourceTree = "<group>"; };
@@ -69,6 +76,8 @@
 		6E4B2D1016E981FD00B41F6C /* IPaGLSprite2DRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLSprite2DRenderer.m; sourceTree = "<group>"; };
 		6EA5BAEF1714049C00A39B81 /* IPaGLSprite2DAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLSprite2DAction.h; sourceTree = "<group>"; };
 		6EA5BAF01714049C00A39B81 /* IPaGLSprite2DAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLSprite2DAction.m; sourceTree = "<group>"; };
+		6EB390991728D5FC0068AF00 /* IPaGLGooRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLGooRenderer.h; sourceTree = "<group>"; };
+		6EB3909A1728D5FC0068AF00 /* IPaGLGooRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLGooRenderer.m; sourceTree = "<group>"; };
 		6EC22B7F16EEE28F008CD1BA /* IPaGLFramebufferTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLFramebufferTexture.h; sourceTree = "<group>"; };
 		6EC22B8016EEE28F008CD1BA /* IPaGLFramebufferTexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLFramebufferTexture.m; sourceTree = "<group>"; };
 		6EC22B8316EEE946008CD1BA /* IPaGLWavefrontObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLWavefrontObj.h; sourceTree = "<group>"; };
@@ -113,8 +122,10 @@
 		6E3AF6D8172677710013A01C /* IPaGLEffect */ = {
 			isa = PBXGroup;
 			children = (
-				6E3AF6D9172677F10013A01C /* IPaGLWaterRippleEffect.h */,
-				6E3AF6DA172677F10013A01C /* IPaGLWaterRippleEffect.m */,
+				6E2036BC172778B80043A035 /* IPaGLEffect.h */,
+				6E2036BD172778B80043A035 /* IPaGLEffect.m */,
+				6EB390971728D5C80068AF00 /* IPaGLWaterRippleEffect */,
+				6EB390981728D5D50068AF00 /* IPaGLGooEffect */,
 			);
 			name = IPaGLEffect;
 			sourceTree = "<group>";
@@ -194,6 +205,26 @@
 				6E476C1816E8708600A61985 /* IPaGLEngine-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6EB390971728D5C80068AF00 /* IPaGLWaterRippleEffect */ = {
+			isa = PBXGroup;
+			children = (
+				6E3AF6D9172677F10013A01C /* IPaGLWaterRippleEffect.h */,
+				6E3AF6DA172677F10013A01C /* IPaGLWaterRippleEffect.m */,
+			);
+			name = IPaGLWaterRippleEffect;
+			sourceTree = "<group>";
+		};
+		6EB390981728D5D50068AF00 /* IPaGLGooEffect */ = {
+			isa = PBXGroup;
+			children = (
+				6E2036BF1727851F0043A035 /* IPaGLGooEffect.h */,
+				6E2036C01727851F0043A035 /* IPaGLGooEffect.m */,
+				6EB390991728D5FC0068AF00 /* IPaGLGooRenderer.h */,
+				6EB3909A1728D5FC0068AF00 /* IPaGLGooRenderer.m */,
+			);
+			name = IPaGLGooEffect;
 			sourceTree = "<group>";
 		};
 		6EC22B8216EEE294008CD1BA /* IPaGLFramebufferTexture */ = {
@@ -284,6 +315,9 @@
 				6E20B0E9171A907100DEB598 /* IPaGLFilterSprite2DRenderer.m in Sources */,
 				6E046088171FC4640099E902 /* IPaGLWavefrontObjRenderer.m in Sources */,
 				6E3AF6DB172677F10013A01C /* IPaGLWaterRippleEffect.m in Sources */,
+				6E2036BE172778B80043A035 /* IPaGLEffect.m in Sources */,
+				6E2036C11727851F0043A035 /* IPaGLGooEffect.m in Sources */,
+				6EB3909B1728D5FC0068AF00 /* IPaGLGooRenderer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

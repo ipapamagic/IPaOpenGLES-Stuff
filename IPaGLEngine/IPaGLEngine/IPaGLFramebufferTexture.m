@@ -50,6 +50,7 @@
 -(void)bindFramebuffer
 {
     glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
+    glViewport(0, 0, self.texture.imageSize.x, self.texture.imageSize.y);
 }
 -(void)dealloc
 {

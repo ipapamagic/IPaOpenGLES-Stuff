@@ -72,16 +72,9 @@
 }
 -(void)setupGL
 {
+    CGSize size = self.view.frame.size;
 
-    CGSize size = CGSizeMake(1, 1);
-
-    while (size.width < self.view.frame.size.width && size.width < 2048) {
-        size.width *= 2;
-    }
-    while (size.height < self.view.frame.size.height && size.height < 2048) {
-        size.height *= 2;
-    }
-    texture = [[IPaGLFramebufferTexture alloc] initWithSize:size];
+    texture = [[IPaGLFramebufferTexture alloc] initWithSize:self.view.frame.size];
  
     paintRenderer = [[IPaGLKitSprite2DRenderer alloc] initWithDisplaySize:GLKVector2Make(self.view.bounds.size.width, self.view.bounds.size.height)];
     
@@ -184,8 +177,7 @@
     [paintAttributes createBufferDynamic];
     [texture bindFramebuffer];
     
-    glViewport(0, texture.framebufferSize.y - viewFrame.size.height, viewFrame.size.width, viewFrame.size.height);
-
+    
     [framebufferRenderer prepareToDraw];
     [paintAttributes renderWithRenderer:framebufferRenderer];
 

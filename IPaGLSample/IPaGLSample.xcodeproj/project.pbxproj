@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E2036C41727E5E60043A035 /* GooViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2036C31727E5E60043A035 /* GooViewController.m */; };
 		6E393DB016A3D2E100EE2218 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E393DAF16A3D2E100EE2218 /* QuartzCore.framework */; };
 		6E3AF6E11726934A0013A01C /* IPaGLWaterRippleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3AF6E01726934A0013A01C /* IPaGLWaterRippleViewController.m */; };
 		6E3B0B7516ED93F30013A6C2 /* FramebufferTextureSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3B0B7416ED93F30013A6C2 /* FramebufferTextureSampleViewController.m */; };
@@ -37,6 +38,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6E2036C21727E5E60043A035 /* GooViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GooViewController.h; sourceTree = "<group>"; };
+		6E2036C31727E5E60043A035 /* GooViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GooViewController.m; sourceTree = "<group>"; };
 		6E393DAF16A3D2E100EE2218 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		6E3AF6DF1726934A0013A01C /* IPaGLWaterRippleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLWaterRippleViewController.h; sourceTree = "<group>"; };
 		6E3AF6E01726934A0013A01C /* IPaGLWaterRippleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLWaterRippleViewController.m; sourceTree = "<group>"; };
@@ -94,6 +97,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E2036C51727E80F0043A035 /* GooViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6E2036C21727E5E60043A035 /* GooViewController.h */,
+				6E2036C31727E5E60043A035 /* GooViewController.m */,
+			);
+			name = GooViewController;
+			sourceTree = "<group>";
+		};
 		6E3AF6E21726934E0013A01C /* IPaGLWaterRipple Sample */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +197,7 @@
 				6E67FE8516A3054800E94CFE /* MainStoryboard.storyboard */,
 				6E45B2B416E9C14400C14ABA /* TitleViewController.h */,
 				6E45B2B516E9C14400C14ABA /* TitleViewController.m */,
+				6E2036C51727E80F0043A035 /* GooViewController */,
 				6E3AF6E3172693B30013A01C /* Artist */,
 				6E3AF6E21726934E0013A01C /* IPaGLWaterRipple Sample */,
 				6E3B0B7C16EDB20D0013A6C2 /* IPaGLWavefrontObj Sample */,
@@ -291,6 +304,7 @@
 				6E3B0B7516ED93F30013A6C2 /* FramebufferTextureSampleViewController.m in Sources */,
 				6E3B0B8016EDB25D0013A6C2 /* FrameBufferRenderer.m in Sources */,
 				6E3AF6E11726934A0013A01C /* IPaGLWaterRippleViewController.m in Sources */,
+				6E2036C41727E5E60043A035 /* GooViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

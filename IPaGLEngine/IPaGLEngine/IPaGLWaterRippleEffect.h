@@ -8,12 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <GLKit/GLKit.h>
-@interface IPaGLWaterRippleEffect : NSObject
--(GLKVector2)displaySize;
--(void)update;
--(void)render;
--(void)createRippleAtPos:(GLKVector2)position;
-//call it before you want to draw something to texture of this effect
--(void)bindFrameBuffer;
+#import "IPaGLEffect.h"
+@interface IPaGLWaterRippleEffect : IPaGLEffect
 -(id)initWithSize:(GLKVector2)size meshFactor:(NSUInteger)factor rippleRadius:(NSUInteger)rippleRadius;
+-(void)createRippleAtPos:(GLKVector2)position;
 @end

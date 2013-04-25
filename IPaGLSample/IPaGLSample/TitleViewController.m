@@ -55,6 +55,10 @@
 {
     
 }
+-(IBAction)onGooViewControllerBack:(UIStoryboardSegue*)sender
+{
+    
+}
 #pragma mark - Table view data source
 
 
