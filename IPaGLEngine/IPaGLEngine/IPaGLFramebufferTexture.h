@@ -13,6 +13,7 @@
 
 @property (nonatomic,strong) IPaGLTexture *texture;
 -(IPaGLFramebufferTexture*)initWithSize:(CGSize)size;
+-(IPaGLFramebufferTexture*)initWithSize:(CGSize)size filter:(GLenum)filter;
 -(void)bindFramebuffer;
 -(GLKVector2)framebufferSize;
 @end

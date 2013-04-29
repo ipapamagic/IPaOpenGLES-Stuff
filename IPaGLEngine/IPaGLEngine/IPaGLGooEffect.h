@@ -11,4 +11,5 @@
 @interface IPaGLGooEffect : IPaGLEffect
 -(id)initWithSize:(GLKVector2)size meshFactor:(NSUInteger)factor gooRadius:(NSUInteger)gooRadius;
 -(void)velocityFromPos:(GLKVector2)startPos toPos:(GLKVector2)endPos;
+
 @end

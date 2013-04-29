@@ -81,10 +81,10 @@
     [EAGLContext setCurrentContext:view.context];
     
     IPaGLKitSprite2DRenderer *renderer = [[IPaGLKitSprite2DRenderer alloc] initWithDisplaySize:GLKVector2Make(self.view.frame.size.width, self.view.frame.size.height)];
-    IPaGLSprite2D* entity = [[IPaGLSprite2D alloc] initWithUIImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"texture" ofType:@"png"]] withName:@"texture"];
+    IPaGLSprite2D* entity = [[IPaGLSprite2D alloc] initWithUIImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"1" ofType:@"png"]] withName:@"texture"];
     
     [entity setPosition:GLKVector2Make(0, 0) size:GLKVector2Make(self.view.frame.size.width , self.view.frame.size.height )];
-    effect = [[IPaGLGooEffect alloc] initWithSize:GLKVector2Make(self.view.frame.size.width, self.view.frame.size.height) meshFactor:4 gooRadius:10];
+    effect = [[IPaGLGooEffect alloc] initWithSize:GLKVector2Make(self.view.frame.size.width, self.view.frame.size.height) meshFactor:4 gooRadius:50];
     
     [effect bindFrameBuffer];
     glClearColor(0.0,0.0,0.0, 1.0f);
@@ -108,7 +108,7 @@
 }
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
 {
-    glClearColor(0.65f, 0.65f, 0.65f, 1.0f);
+    glClearColor(1, 1, 1, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     [effect render];
@@ -127,5 +127,9 @@
     [effect velocityFromPos:GLKVector2Make(lastPos.x, lastPos.y) toPos:GLKVector2Make(pos.x, pos.y)];
     
     lastPos = pos;
+}
+
+- (IBAction)onReset:(id)sender {
+    [effect resetMesh];
 }
 @end

@@ -44,11 +44,11 @@
             for (int j=0; j<poolWidth; j++)
             {
                 NSUInteger idx = (i*poolWidth+j)*4;
-                vertexAttributes[idx+0] = -1.f + j*(2.f/(poolWidth-1));
-                vertexAttributes[idx+1] = 1.f - i*(2.f/(poolHeight-1));
+                vertexAttributes[idx+0] = -1.f + j*(2.f/(poolWidth));
+                vertexAttributes[idx+1] = 1.f - i*(2.f/(poolHeight));
                 
-                vertexAttributes[idx+2] = (GLfloat)j/(poolWidth-1);
-                vertexAttributes[idx+3] = (1.f - (GLfloat)i/(poolHeight-1));
+                vertexAttributes[idx+2] = (GLfloat)j/(poolWidth);
+                vertexAttributes[idx+3] = (1.f - (GLfloat)i/(poolHeight));
             }
         }
         
@@ -114,7 +114,7 @@
         
         texture = [[IPaGLFramebufferTexture alloc] initWithSize:CGSizeMake(size.x, size.y)];
         
-        material.texture = texture.texture;
+
         
         renderer = [[IPaGLKitRenderer alloc] init];
     }
@@ -142,14 +142,36 @@
 
 -(void)render
 {
+    material.texture = texture.texture;
+//    material.constantColor = [UIColor blackColor];
     [source renderWithRenderer:renderer];
     [vertexIndexes bindBuffer];
     [renderer prepareToRenderWithMaterial:material];
-    
+//    glDrawArrays(GL_POINTS, 0, source.vertexAttributeCount);
     glDrawElements(GL_TRIANGLE_STRIP, vertexIndexes.indexNumber,GL_UNSIGNED_SHORT, 0);
 }
 -(void)update
 {
     
+}
+-(void)resetMesh
+{
+    NSUInteger poolWidth = poolSize.x;
+    NSUInteger poolHeight = poolSize.y;
+    GLfloat *vertexAttributes = source.vertexAttributes;
+    
+    for (int i=0; i<poolHeight; i++)
+    {
+        for (int j=0; j<poolWidth; j++)
+        {
+            NSUInteger idx = (i*poolWidth+j)*4;
+            vertexAttributes[idx+0] = -1.f + j*(2.f/(poolWidth));
+            vertexAttributes[idx+1] = 1.f - i*(2.f/(poolHeight));
+            
+            vertexAttributes[idx+2] = (GLfloat)j/(poolWidth);
+            vertexAttributes[idx+3] = (1.f - (GLfloat)i/(poolHeight));
+        }
+    }
+    [source updateAttributeBuffer];
 }
 @end

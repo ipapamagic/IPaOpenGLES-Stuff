@@ -11,4 +11,7 @@
 @interface GooViewController : GLKViewController
 
 - (IBAction)onPan:(UIPanGestureRecognizer *)sender;
+
+- (IBAction)onReset:(id)sender;
+
 @end

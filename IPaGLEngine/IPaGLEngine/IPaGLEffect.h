@@ -28,4 +28,5 @@
 //call it before you want to draw something to texture of this effect
 -(void)bindFrameBuffer;
 -(GLKVector2)displaySize;
+-(void)resetMesh;
 @end
