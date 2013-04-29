@@ -13,12 +13,12 @@
 // 
 //    IPaGLFramebufferTexture *gooTexture;
 //    IPaGLGooRenderer *gooRenderer;
-
+    NSUInteger radius;
 }
 -(id)initWithSize:(GLKVector2)size meshFactor:(NSUInteger)factor gooRadius:(NSUInteger)gooRadius
 {
     self = [super initWithSize:size meshFactor:factor];
-    
+    radius = gooRadius;
 //    gooTexture = [[IPaGLFramebufferTexture alloc] initWithSize:CGSizeMake(size.x, size.y) filter:GL_LINEAR];
 //    gooRenderer = [[IPaGLGooRenderer alloc] init];
 //    gooRenderer.matrix = GLKMatrix4MakeTranslation(size.x * 0.5, size.y * 0.5, 0);
@@ -49,7 +49,6 @@
     NSUInteger poolWidth = poolSize.x;
     NSUInteger poolHeight = poolSize.y;
     
-    GLfloat maxRange = 80;
     for (NSUInteger y = 1; y < poolHeight-1; y ++) {
         for (NSUInteger x = 1; x < poolWidth-1; x++) {
             NSUInteger idx = (y * poolWidth + x) * 4;
@@ -59,7 +58,7 @@
             GLKVector2 vertexVec = GLKVector2Make(vertex.x - startPos.x, vertex.y - startPos.y);
             GLfloat vertexLength = GLKVector2Length(vertexVec);
             
-            if (vertexLength > maxRange) {
+            if (vertexLength > radius) {
                 continue;
             }
             
