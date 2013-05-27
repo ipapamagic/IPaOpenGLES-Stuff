@@ -254,7 +254,7 @@
 -(void)prepareToDraw
 {
 
-    [self.effect prepareToDraw];
+    
 }
 -(void)prepareToRenderWithMaterial:(IPaGLMaterial*)material
 {
@@ -312,7 +312,7 @@
             self.effect.texture2d0.enabled = GL_FALSE;
         }
     }
-   
+    [self.effect prepareToDraw];
 }
 -(void)setProjectionMatrix:(GLKMatrix4)projectionMatrix
 {

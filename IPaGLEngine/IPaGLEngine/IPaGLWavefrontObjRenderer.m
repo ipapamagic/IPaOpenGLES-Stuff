@@ -44,10 +44,10 @@
     uniform sampler2D texture;\
     void main()\
     {\
-    gl_FragColor = colorVarying + texture2D(texture, v_texCoord);\
+    gl_FragColor = texture2D(texture, v_texCoord);\
     }";
     
-    //
+    //    gl_FragColor = colorVarying + texture2D(texture, v_texCoord);
 }
 -(void)onBindGLAttributes:(GLuint)_program
 {

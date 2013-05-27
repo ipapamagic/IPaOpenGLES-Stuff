@@ -89,7 +89,7 @@
     [effect bindFrameBuffer];
     glClearColor(0.0,0.0,0.0, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
-    
+
     [entity renderWithRenderer:renderer];
     
     

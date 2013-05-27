@@ -241,30 +241,41 @@
     }
     [self createBufferStatic];
     //        NSArray *totalVertex = [totalVertexSet allObjects];
+    self.renderGroup = [NSMutableArray arrayWithCapacity:groups.count];
     for (IPaGLWavefrontObjRenderGroup* group in groups) {
         NSArray *facesList = groupsFaces[group.name];
         
         NSUInteger indexNumber = facesList.count;
+        if (indexNumber == 0) {
+            continue;
+        }
         NSUInteger index = 0;
         GLushort *vertexIndexes = malloc(indexNumber * sizeof(GLushort));
+        GLKVector3 center = GLKVector3Make(0, 0, 0);
         for (NSNumber* faceVertex in facesList) {
             GLushort faceIdx = [faceVertex unsignedShortValue];
             //                GLushort faceIdx = (GLushort)[totalVertex indexOfObject:faceVertex];
             memcpy(&vertexIndexes[index], &faceIdx, sizeof(GLushort));
             
+            GLfloat *vertexAttribute = (GLfloat*)(self.vertexAttributes + (faceIdx * vertexAttributeSize));
+            center.x += vertexAttribute[0];
+            center.y += vertexAttribute[1];
+            center.z += vertexAttribute[2];
             index++;
         }
+        CGFloat devideIndexNumber = 1.0f / indexNumber;
+        center.x *= devideIndexNumber;
+        center.y *= devideIndexNumber;
+        center.z *= devideIndexNumber;
+        group.center = center;
         IPaGLVertexIndexes *glVertexIndexes = [[IPaGLVertexIndexes alloc] initWithVertexIndexes:vertexIndexes withIndexNumber:indexNumber];
         
         group.vertexIndexes = glVertexIndexes;
         
-        
+        [self.renderGroup addObject:group];
         
         
     }
-    self.renderGroup = groups;
-    
-    
     return self;
 }
 -(void)dealloc
@@ -273,6 +284,33 @@
         [material releaseResource];
     }
     self.materials = nil;
+}
+
+-(void)arrangeGroupFromPos:(GLKVector3)position
+{
+    NSMutableDictionary *lengthDict = [NSMutableDictionary dictionaryWithCapacity:self.renderGroup.count];
+    for (IPaGLWavefrontObjRenderGroup* group in self.renderGroup) {
+        GLKVector3 center = group.center;
+        CGFloat x = position.x - center.x;
+        CGFloat y = position.y - center.y;
+        CGFloat z = position.z - center.z;
+        lengthDict[group.name] = @(x*x + y*y + z*z);
+    }
+    
+    
+    [self.renderGroup sortUsingComparator:^(IPaGLWavefrontObjRenderGroup* group1,IPaGLWavefrontObjRenderGroup *group2){
+        CGFloat dis1 = [lengthDict[group1.name] floatValue];
+        CGFloat dis2 = [lengthDict[group2.name] floatValue];
+        if (dis1 > dis2) {
+            return NSOrderedAscending;
+        }
+        else if (dis1 < dis2){
+            return NSOrderedDescending;
+            
+        }
+        return NSOrderedSame;
+    }];
+    
 }
 -(void)renderWithRenderer:(IPaGLRenderer *)renderer
 {

@@ -8,12 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "IPaGLRenderSource.h"
-
+#import <GLKit/GLKit.h>
 @interface IPaGLWavefrontObj : IPaGLRenderSource
 @property (nonatomic,copy) NSString *filePath;
 @property (nonatomic,strong) NSDictionary *materials;
-@property (nonatomic,strong) NSArray *renderGroup;
+@property (nonatomic,strong) NSMutableArray *renderGroup;
 -(IPaGLWavefrontObj*)initWithFilePath:(NSString*)filePath;
-
+//will arrange rendergroup from far to near
+-(void)arrangeGroupFromPos:(GLKVector3)position;
 @end
 
