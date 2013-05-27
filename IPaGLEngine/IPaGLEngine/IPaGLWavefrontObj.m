@@ -286,32 +286,7 @@
     self.materials = nil;
 }
 
--(void)arrangeGroupFromPos:(GLKVector3)position
-{
-    NSMutableDictionary *lengthDict = [NSMutableDictionary dictionaryWithCapacity:self.renderGroup.count];
-    for (IPaGLWavefrontObjRenderGroup* group in self.renderGroup) {
-        GLKVector3 center = group.center;
-        CGFloat x = position.x - center.x;
-        CGFloat y = position.y - center.y;
-        CGFloat z = position.z - center.z;
-        lengthDict[group.name] = @(x*x + y*y + z*z);
-    }
-    
-    
-    [self.renderGroup sortUsingComparator:^(IPaGLWavefrontObjRenderGroup* group1,IPaGLWavefrontObjRenderGroup *group2){
-        CGFloat dis1 = [lengthDict[group1.name] floatValue];
-        CGFloat dis2 = [lengthDict[group2.name] floatValue];
-        if (dis1 > dis2) {
-            return NSOrderedAscending;
-        }
-        else if (dis1 < dis2){
-            return NSOrderedDescending;
-            
-        }
-        return NSOrderedSame;
-    }];
-    
-}
+
 -(void)renderWithRenderer:(IPaGLRenderer *)renderer
 {
     [super renderWithRenderer:renderer];

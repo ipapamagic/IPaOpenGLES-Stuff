@@ -14,7 +14,5 @@
 @property (nonatomic,strong) NSDictionary *materials;
 @property (nonatomic,strong) NSMutableArray *renderGroup;
 -(IPaGLWavefrontObj*)initWithFilePath:(NSString*)filePath;
-//will arrange rendergroup from far to near
--(void)arrangeGroupFromPos:(GLKVector3)position;
 @end
 
