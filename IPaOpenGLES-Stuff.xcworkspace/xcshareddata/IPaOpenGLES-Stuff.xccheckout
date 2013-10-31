@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2FD80EE4-F533-4F53-AF1B-D26E5698A251</string>
+	<key>IDESourceControlProjectName</key>
+	<string>IPaOpenGLES-Stuff</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>DC64820D-9441-419E-9B6F-C9B4D2A3E66A</key>
+		<string>https://github.com/ipapamagic/IPaOpenGLES-Stuff.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>IPaOpenGLES-Stuff.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>DC64820D-9441-419E-9B6F-C9B4D2A3E66A</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/ipapamagic/IPaOpenGLES-Stuff.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>DC64820D-9441-419E-9B6F-C9B4D2A3E66A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DC64820D-9441-419E-9B6F-C9B4D2A3E66A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>IPaOpenGLES-Stuff</string>
+		</dict>
+	</array>
+</dict>
+</plist>

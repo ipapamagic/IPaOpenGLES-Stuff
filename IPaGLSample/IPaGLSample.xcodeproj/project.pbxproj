@@ -18,7 +18,6 @@
 		6E3B0B8C16EDC8620013A6C2 /* FrameBufferShader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 6E3B0B7916EDB1350013A6C2 /* FrameBufferShader.vsh */; };
 		6E45B2B616E9C14400C14ABA /* TitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E45B2B516E9C14400C14ABA /* TitleViewController.m */; };
 		6E45B2B916E9C3BE00C14ABA /* IPaGLSprite2DSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E45B2B816E9C3BE00C14ABA /* IPaGLSprite2DSampleViewController.m */; };
-		6E476C5216E870E400A61985 /* libIPaGLEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E476C5116E870E400A61985 /* libIPaGLEngine.a */; };
 		6E67FE6A16A3054800E94CFE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E67FE6916A3054800E94CFE /* UIKit.framework */; };
 		6E67FE6C16A3054800E94CFE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E67FE6B16A3054800E94CFE /* Foundation.framework */; };
 		6E67FE6E16A3054800E94CFE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E67FE6D16A3054800E94CFE /* CoreGraphics.framework */; };
@@ -36,6 +35,7 @@
 		6E67FEA216A3087800E94CFE /* texture2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E67FE9E16A3087800E94CFE /* texture2.png */; };
 		6E67FEA316A3087800E94CFE /* uvcube2.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 6E67FE9F16A3087800E94CFE /* uvcube2.mtl */; };
 		6E67FEA416A3087800E94CFE /* uvcube2.obj in Resources */ = {isa = PBXBuildFile; fileRef = 6E67FEA016A3087800E94CFE /* uvcube2.obj */; };
+		6E7C0E101822C4EB0026F3F9 /* IPaGLEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7C0E0F1822C4EB0026F3F9 /* IPaGLEngine.framework */; };
 		6E8E58A91726F7FD00B0D8FF /* rock.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E8E58A81726F7FD00B0D8FF /* rock.png */; };
 		6EA13150175DCC0900C5194C /* IPaGLToonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA1314F175DCC0900C5194C /* IPaGLToonViewController.m */; };
 		6EB3909D172934850068AF00 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EB3909C172934850068AF00 /* 1.png */; };
@@ -59,7 +59,6 @@
 		6E45B2B516E9C14400C14ABA /* TitleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleViewController.m; sourceTree = "<group>"; };
 		6E45B2B716E9C3BE00C14ABA /* IPaGLSprite2DSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLSprite2DSampleViewController.h; sourceTree = "<group>"; };
 		6E45B2B816E9C3BE00C14ABA /* IPaGLSprite2DSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLSprite2DSampleViewController.m; sourceTree = "<group>"; };
-		6E476C5116E870E400A61985 /* libIPaGLEngine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libIPaGLEngine.a; path = "../IPaGLEngine/build/Release-iphoneos/libIPaGLEngine.a"; sourceTree = "<group>"; };
 		6E67FE6516A3054800E94CFE /* IPaGLSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IPaGLSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E67FE6916A3054800E94CFE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6E67FE6B16A3054800E94CFE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -82,6 +81,7 @@
 		6E67FE9E16A3087800E94CFE /* texture2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = texture2.png; sourceTree = "<group>"; };
 		6E67FE9F16A3087800E94CFE /* uvcube2.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = uvcube2.mtl; sourceTree = "<group>"; };
 		6E67FEA016A3087800E94CFE /* uvcube2.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = uvcube2.obj; sourceTree = "<group>"; };
+		6E7C0E0F1822C4EB0026F3F9 /* IPaGLEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IPaGLEngine.framework; path = ../IPaGLEngine/Products/IPaGLEngine.framework; sourceTree = "<group>"; };
 		6E8E58A81726F7FD00B0D8FF /* rock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rock.png; sourceTree = "<group>"; };
 		6EA1314E175DCC0900C5194C /* IPaGLToonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLToonViewController.h; sourceTree = "<group>"; };
 		6EA1314F175DCC0900C5194C /* IPaGLToonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLToonViewController.m; sourceTree = "<group>"; };
@@ -93,10 +93,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E476C5216E870E400A61985 /* libIPaGLEngine.a in Frameworks */,
 				6E393DB016A3D2E100EE2218 /* QuartzCore.framework in Frameworks */,
 				6E67FE6A16A3054800E94CFE /* UIKit.framework in Frameworks */,
 				6E67FE6C16A3054800E94CFE /* Foundation.framework in Frameworks */,
+				6E7C0E101822C4EB0026F3F9 /* IPaGLEngine.framework in Frameworks */,
 				6E67FE6E16A3054800E94CFE /* CoreGraphics.framework in Frameworks */,
 				6E67FE7016A3054800E94CFE /* GLKit.framework in Frameworks */,
 				6E67FE7216A3054800E94CFE /* OpenGLES.framework in Frameworks */,
@@ -190,7 +190,7 @@
 		6E67FE6816A3054800E94CFE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6E476C5116E870E400A61985 /* libIPaGLEngine.a */,
+				6E7C0E0F1822C4EB0026F3F9 /* IPaGLEngine.framework */,
 				6E393DAF16A3D2E100EE2218 /* QuartzCore.framework */,
 				6E67FE6916A3054800E94CFE /* UIKit.framework */,
 				6E67FE6B16A3054800E94CFE /* Foundation.framework */,
@@ -409,6 +409,10 @@
 		6E67FE9216A3054800E94CFE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/IPaPa/Documents/MyWork/iOSLibrary/IPaOpenGLES-Stuff/IPaGLEngine/Products",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IPaGLSample/IPaGLSample-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../IPaGLEngine/IPaGLEngine\"/**";
@@ -423,6 +427,10 @@
 		6E67FE9316A3054800E94CFE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/IPaPa/Documents/MyWork/iOSLibrary/IPaOpenGLES-Stuff/IPaGLEngine/Products",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IPaGLSample/IPaGLSample-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../IPaGLEngine/IPaGLEngine\"/**";
