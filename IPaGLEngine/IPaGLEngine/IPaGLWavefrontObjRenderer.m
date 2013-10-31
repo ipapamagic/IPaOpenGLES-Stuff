@@ -19,33 +19,33 @@
 -(NSString*)vertexShaderSource
 {
     return @"attribute vec4 position;\
-    attribute vec3 normal;\
-    varying lowp vec4 colorVarying;\
-    uniform mat4 modelViewProjectionMatrix;\
-    uniform mat3 normalMatrix;\
-    uniform vec3 diffuseColor;\
-    attribute vec2 texCoord;\
-    uniform vec2 textRatio;\
-    varying lowp vec2 v_texCoord;\
-    void main()\
-    {\
-    vec3 eyeNormal = normalize(normalMatrix * normal);\
-    vec3 lightPosition = vec3(0.0, 0.0, 1.0);\
-    float nDotVP = max(0.0, dot(eyeNormal, normalize(lightPosition)));\
-    colorVarying.xyz = diffuseColor * nDotVP;\
-    v_texCoord = textRatio * texCoord;\
-    gl_Position = modelViewProjectionMatrix * position;\
-    }";
+        attribute vec3 normal;\
+        varying lowp vec4 colorVarying;\
+        uniform mat4 modelViewProjectionMatrix;\
+        uniform mat3 normalMatrix;\
+        uniform vec3 diffuseColor;\
+        attribute vec2 texCoord;\
+        uniform vec2 textRatio;\
+        varying lowp vec2 v_texCoord;\
+        void main()\
+        {\
+            vec3 eyeNormal = normalize(normalMatrix * normal);\
+            vec3 lightPosition = vec3(0.0, 0.0, 1.0);\
+            float nDotVP = max(0.0, dot(eyeNormal, normalize(lightPosition)));\
+            colorVarying.xyz = diffuseColor * nDotVP;\
+            v_texCoord = textRatio * texCoord;\
+            gl_Position = modelViewProjectionMatrix * position;\
+        }";
 }
 -(NSString*)fragmentShaderSource
 {
     return @"varying lowp vec4 colorVarying;\
-    varying lowp vec2 v_texCoord;\
-    uniform sampler2D texture;\
-    void main()\
-    {\
-    gl_FragColor = texture2D(texture, v_texCoord);\
-    }";
+        varying lowp vec2 v_texCoord;\
+        uniform sampler2D texture;\
+        void main()\
+        {\
+            gl_FragColor = texture2D(texture, v_texCoord);\
+        }";
     
     //    gl_FragColor = colorVarying + texture2D(texture, v_texCoord);
 }

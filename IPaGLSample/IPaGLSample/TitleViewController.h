@@ -14,4 +14,5 @@
 -(IBAction)onFramebufferSampleBack:(UIStoryboardSegue*)sender;
 -(IBAction)onIPaWaterRippleSampleBack:(UIStoryboardSegue*)sender;
 -(IBAction)onGooViewControllerBack:(UIStoryboardSegue*)sender;
+-(IBAction)onIPaGLToonViewControllerBack:(UIStoryboardSegue*)sender;
 @end

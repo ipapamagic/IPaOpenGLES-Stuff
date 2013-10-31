@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E1BCE64175EDD8900FF42C0 /* A.fsh in Sources */ = {isa = PBXBuildFile; fileRef = 6E1BCE63175EDD8900FF42C0 /* A.fsh */; };
+		6E1BCE66175EDD9300FF42C0 /* A.vsh in Sources */ = {isa = PBXBuildFile; fileRef = 6E1BCE65175EDD9300FF42C0 /* A.vsh */; };
 		6E2036C41727E5E60043A035 /* GooViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2036C31727E5E60043A035 /* GooViewController.m */; };
 		6E393DB016A3D2E100EE2218 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E393DAF16A3D2E100EE2218 /* QuartzCore.framework */; };
 		6E3AF6E11726934A0013A01C /* IPaGLWaterRippleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3AF6E01726934A0013A01C /* IPaGLWaterRippleViewController.m */; };
@@ -35,10 +37,13 @@
 		6E67FEA316A3087800E94CFE /* uvcube2.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 6E67FE9F16A3087800E94CFE /* uvcube2.mtl */; };
 		6E67FEA416A3087800E94CFE /* uvcube2.obj in Resources */ = {isa = PBXBuildFile; fileRef = 6E67FEA016A3087800E94CFE /* uvcube2.obj */; };
 		6E8E58A91726F7FD00B0D8FF /* rock.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E8E58A81726F7FD00B0D8FF /* rock.png */; };
+		6EA13150175DCC0900C5194C /* IPaGLToonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA1314F175DCC0900C5194C /* IPaGLToonViewController.m */; };
 		6EB3909D172934850068AF00 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EB3909C172934850068AF00 /* 1.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6E1BCE63175EDD8900FF42C0 /* A.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = A.fsh; sourceTree = "<group>"; };
+		6E1BCE65175EDD9300FF42C0 /* A.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = A.vsh; sourceTree = "<group>"; };
 		6E2036C21727E5E60043A035 /* GooViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GooViewController.h; sourceTree = "<group>"; };
 		6E2036C31727E5E60043A035 /* GooViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GooViewController.m; sourceTree = "<group>"; };
 		6E393DAF16A3D2E100EE2218 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -78,6 +83,8 @@
 		6E67FE9F16A3087800E94CFE /* uvcube2.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = uvcube2.mtl; sourceTree = "<group>"; };
 		6E67FEA016A3087800E94CFE /* uvcube2.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = uvcube2.obj; sourceTree = "<group>"; };
 		6E8E58A81726F7FD00B0D8FF /* rock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rock.png; sourceTree = "<group>"; };
+		6EA1314E175DCC0900C5194C /* IPaGLToonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLToonViewController.h; sourceTree = "<group>"; };
+		6EA1314F175DCC0900C5194C /* IPaGLToonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLToonViewController.m; sourceTree = "<group>"; };
 		6EB3909C172934850068AF00 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,6 +133,8 @@
 				6E67FE9E16A3087800E94CFE /* texture2.png */,
 				6E67FE9F16A3087800E94CFE /* uvcube2.mtl */,
 				6E67FEA016A3087800E94CFE /* uvcube2.obj */,
+				6E1BCE63175EDD8900FF42C0 /* A.fsh */,
+				6E1BCE65175EDD9300FF42C0 /* A.vsh */,
 			);
 			name = Artist;
 			sourceTree = "<group>";
@@ -202,6 +211,7 @@
 				6E45B2B516E9C14400C14ABA /* TitleViewController.m */,
 				6E3AF6E3172693B30013A01C /* Artist */,
 				6E2036C51727E80F0043A035 /* GooViewController */,
+				6EA13151175DCC1400C5194C /* IPaGLToonViewController */,
 				6E3AF6E21726934E0013A01C /* IPaGLWaterRipple Sample */,
 				6E3B0B7C16EDB20D0013A6C2 /* IPaGLWavefrontObj Sample */,
 				6E3B0B7D16EDB21C0013A6C2 /* IPaGLSprite2D Sample */,
@@ -223,6 +233,15 @@
 				6E67FE8316A3054800E94CFE /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6EA13151175DCC1400C5194C /* IPaGLToonViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6EA1314E175DCC0900C5194C /* IPaGLToonViewController.h */,
+				6EA1314F175DCC0900C5194C /* IPaGLToonViewController.m */,
+			);
+			name = IPaGLToonViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,6 +328,9 @@
 				6E3B0B8016EDB25D0013A6C2 /* FrameBufferRenderer.m in Sources */,
 				6E3AF6E11726934A0013A01C /* IPaGLWaterRippleViewController.m in Sources */,
 				6E2036C41727E5E60043A035 /* GooViewController.m in Sources */,
+				6EA13150175DCC0900C5194C /* IPaGLToonViewController.m in Sources */,
+				6E1BCE64175EDD8900FF42C0 /* A.fsh in Sources */,
+				6E1BCE66175EDD9300FF42C0 /* A.vsh in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
