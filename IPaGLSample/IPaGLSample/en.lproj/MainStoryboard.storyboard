@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Zde-IN-TKN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Zde-IN-TKN">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Title View Controller-->
         <scene sceneID="XgT-ec-U1N">
             <objects>
                 <tableViewController id="Zde-IN-TKN" customClass="TitleViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ByR-qA-BJ4">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ByR-qA-BJ4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -18,21 +19,21 @@
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="x6k-nk-gTP">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x6k-nk-gTP" id="lfe-qx-FXn">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="IPaGLObject Sample" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="miE-eC-wol">
+                                                    <rect key="frame" x="20" y="11" width="161" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
+                                        </tableViewCellContentView>
                                         <constraints>
-                                            <constraint firstItem="miE-eC-wol" firstAttribute="top" secondItem="x6k-nk-gTP" secondAttribute="top" constant="11" id="JUC-Tj-NQe"/>
-                                            <constraint firstItem="miE-eC-wol" firstAttribute="leading" secondItem="x6k-nk-gTP" secondAttribute="leading" constant="20" type="default" id="ren-bp-Y3R"/>
+                                            <constraint firstItem="miE-eC-wol" firstAttribute="leading" secondItem="x6k-nk-gTP" secondAttribute="leading" constant="20" id="3Dt-UA-XFI"/>
+                                            <constraint firstItem="miE-eC-wol" firstAttribute="top" secondItem="x6k-nk-gTP" secondAttribute="top" constant="11" id="p7y-vd-oj4"/>
                                         </constraints>
                                         <connections>
                                             <segue destination="2" kind="modal" id="060-SP-sXC"/>
@@ -41,21 +42,21 @@
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Q12-ET-WjT">
                                         <rect key="frame" x="0.0" y="44" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Q12-ET-WjT" id="aHG-uo-M7b">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="IPaGLSprite2D Sample" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7KF-W3-nfI">
+                                                    <rect key="frame" x="20" y="11" width="178" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
+                                        </tableViewCellContentView>
                                         <constraints>
-                                            <constraint firstItem="7KF-W3-nfI" firstAttribute="top" secondItem="Q12-ET-WjT" secondAttribute="top" constant="11" id="eyV-eR-MNx"/>
-                                            <constraint firstItem="7KF-W3-nfI" firstAttribute="leading" secondItem="Q12-ET-WjT" secondAttribute="leading" constant="20" type="default" id="t9b-f2-nH5"/>
+                                            <constraint firstItem="7KF-W3-nfI" firstAttribute="leading" secondItem="Q12-ET-WjT" secondAttribute="leading" constant="20" id="el2-2p-rGZ"/>
+                                            <constraint firstItem="7KF-W3-nfI" firstAttribute="top" secondItem="Q12-ET-WjT" secondAttribute="top" constant="11" id="xJM-Hj-84W"/>
                                         </constraints>
                                         <connections>
                                             <segue destination="CoD-1q-iql" kind="modal" id="sC4-jL-a9C"/>
@@ -64,21 +65,21 @@
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="R1v-PU-AwX">
                                         <rect key="frame" x="0.0" y="88" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="R1v-PU-AwX" id="wlE-ZM-dDn">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Framebuffer Texture Sample" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h5y-vd-twe">
+                                                    <rect key="frame" x="20" y="11" width="217" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
+                                        </tableViewCellContentView>
                                         <constraints>
-                                            <constraint firstItem="h5y-vd-twe" firstAttribute="leading" secondItem="R1v-PU-AwX" secondAttribute="leading" constant="20" type="default" id="21W-Sd-vcl"/>
-                                            <constraint firstItem="h5y-vd-twe" firstAttribute="top" secondItem="R1v-PU-AwX" secondAttribute="top" constant="11" id="kAo-AQ-c4q"/>
+                                            <constraint firstItem="h5y-vd-twe" firstAttribute="top" secondItem="R1v-PU-AwX" secondAttribute="top" constant="11" id="TFX-lC-9FS"/>
+                                            <constraint firstItem="h5y-vd-twe" firstAttribute="leading" secondItem="R1v-PU-AwX" secondAttribute="leading" constant="20" id="lFA-8O-P3o"/>
                                         </constraints>
                                         <connections>
                                             <segue destination="lbR-Er-i72" kind="modal" id="ukP-Wf-Pdi"/>
@@ -87,21 +88,21 @@
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="i7T-B5-GZl">
                                         <rect key="frame" x="0.0" y="132" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="i7T-B5-GZl" id="6uL-RM-CdT">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Water Ripple Sample" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kyx-bX-Rly">
+                                                    <rect key="frame" x="20" y="11" width="162" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
+                                        </tableViewCellContentView>
                                         <constraints>
-                                            <constraint firstItem="kyx-bX-Rly" firstAttribute="leading" secondItem="i7T-B5-GZl" secondAttribute="leading" constant="20" type="default" id="I2y-fG-sdj"/>
-                                            <constraint firstItem="kyx-bX-Rly" firstAttribute="top" secondItem="i7T-B5-GZl" secondAttribute="top" constant="11" id="hSU-3o-bym"/>
+                                            <constraint firstItem="kyx-bX-Rly" firstAttribute="top" secondItem="i7T-B5-GZl" secondAttribute="top" constant="11" id="ndb-j0-aI1"/>
+                                            <constraint firstItem="kyx-bX-Rly" firstAttribute="leading" secondItem="i7T-B5-GZl" secondAttribute="leading" constant="20" id="rdC-nh-l8Y"/>
                                         </constraints>
                                         <connections>
                                             <segue destination="0Mm-2d-xup" kind="modal" id="YAz-w1-M0v"/>
@@ -110,21 +111,21 @@
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Zve-Ee-8nm">
                                         <rect key="frame" x="0.0" y="176" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zve-Ee-8nm" id="XDw-ui-wUc">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Goo Effect Sample" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uth-Fd-gJp">
+                                                    <rect key="frame" x="20" y="11" width="145" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
+                                        </tableViewCellContentView>
                                         <constraints>
-                                            <constraint firstItem="Uth-Fd-gJp" firstAttribute="top" secondItem="Zve-Ee-8nm" secondAttribute="top" constant="11" id="5vv-IR-sfU"/>
-                                            <constraint firstItem="Uth-Fd-gJp" firstAttribute="leading" secondItem="Zve-Ee-8nm" secondAttribute="leading" constant="20" type="default" id="I8b-gm-Zvb"/>
+                                            <constraint firstItem="Uth-Fd-gJp" firstAttribute="leading" secondItem="Zve-Ee-8nm" secondAttribute="leading" constant="20" id="5qb-MS-v2X"/>
+                                            <constraint firstItem="Uth-Fd-gJp" firstAttribute="top" secondItem="Zve-Ee-8nm" secondAttribute="top" constant="11" id="owf-kN-LfM"/>
                                         </constraints>
                                         <connections>
                                             <segue destination="ttc-Sk-Wl4" kind="modal" id="IcL-OW-4p2"/>
@@ -133,21 +134,21 @@
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="S1I-bL-CDD">
                                         <rect key="frame" x="0.0" y="220" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="S1I-bL-CDD" id="Qcl-IV-l1Z">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Toon Shading" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2fe-lR-9Od">
+                                                    <rect key="frame" x="20" y="11" width="106" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
+                                        </tableViewCellContentView>
                                         <constraints>
-                                            <constraint firstItem="2fe-lR-9Od" firstAttribute="top" secondItem="S1I-bL-CDD" secondAttribute="top" constant="11" id="2Dx-f2-9zz"/>
-                                            <constraint firstItem="2fe-lR-9Od" firstAttribute="leading" secondItem="S1I-bL-CDD" secondAttribute="leading" constant="20" type="default" id="XkS-wA-ufF"/>
+                                            <constraint firstItem="2fe-lR-9Od" firstAttribute="leading" secondItem="S1I-bL-CDD" secondAttribute="leading" constant="20" id="M09-he-hI3"/>
+                                            <constraint firstItem="2fe-lR-9Od" firstAttribute="top" secondItem="S1I-bL-CDD" secondAttribute="top" constant="11" id="sR4-51-glc"/>
                                         </constraints>
                                         <connections>
                                             <segue destination="grR-a5-GfU" kind="modal" id="LeS-JL-9Vp"/>
@@ -170,24 +171,25 @@
         <scene sceneID="Qop-Ao-is3">
             <objects>
                 <glkViewController autoresizesArchivedViewToFullSize="NO" preferredFramesPerSecond="30" id="lbR-Er-i72" customClass="FramebufferTextureSampleViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pSF-yk-2Hb"/>
+                        <viewControllerLayoutGuide type="bottom" id="zFV-7n-hmC"/>
+                    </layoutGuides>
                     <glkView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="lgk-0a-NLi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BuG-c7-Bkd">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <rect key="frame" x="14" y="20" width="46" height="30"/>
                                 <state key="normal" title="Button">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="hMQ-by-RgT" kind="unwind" unwindAction="onFramebufferSampleBack:" id="d2f-bO-iO5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnC-7N-dQ5">
+                                <rect key="frame" x="62" y="523" width="73" height="44"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="73" id="4fW-kZ-mwZ"/>
@@ -209,6 +211,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7MB-Fs-XaK">
+                                <rect key="frame" x="149" y="524" width="73" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="73" id="PxR-VK-eKe"/>
@@ -230,13 +233,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RDJ-z1-9jK">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <rect key="frame" x="273" y="523" width="37" height="30"/>
                                 <state key="normal" title="Clear">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="onClear:" destination="lbR-Er-i72" eventType="touchUpInside" id="8ra-92-6KS"/>
@@ -244,13 +243,13 @@
                             </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="BuG-c7-Bkd" firstAttribute="top" secondItem="lgk-0a-NLi" secondAttribute="top" constant="20" symbolic="YES" type="default" id="Hi2-1t-iec"/>
+                            <constraint firstItem="BuG-c7-Bkd" firstAttribute="top" secondItem="lgk-0a-NLi" secondAttribute="top" constant="20" symbolic="YES" id="Hi2-1t-iec"/>
                             <constraint firstItem="vnC-7N-dQ5" firstAttribute="leading" secondItem="lgk-0a-NLi" secondAttribute="leading" constant="62" id="LJc-YD-4jq"/>
                             <constraint firstItem="BuG-c7-Bkd" firstAttribute="leading" secondItem="lgk-0a-NLi" secondAttribute="leading" constant="14" id="WeQ-5a-5N4"/>
-                            <constraint firstItem="7MB-Fs-XaK" firstAttribute="bottom" secondItem="lgk-0a-NLi" secondAttribute="bottom" type="default" id="Xkn-kI-sOS"/>
+                            <constraint firstItem="7MB-Fs-XaK" firstAttribute="bottom" secondItem="lgk-0a-NLi" secondAttribute="bottom" id="Xkn-kI-sOS"/>
                             <constraint firstItem="7MB-Fs-XaK" firstAttribute="leading" secondItem="lgk-0a-NLi" secondAttribute="leading" constant="149" id="aTj-9r-miz"/>
                             <constraint firstAttribute="trailing" secondItem="RDJ-z1-9jK" secondAttribute="trailing" constant="10" id="ad6-Oj-AW9"/>
-                            <constraint firstItem="RDJ-z1-9jK" firstAttribute="top" secondItem="vnC-7N-dQ5" secondAttribute="top" type="default" id="b9t-Yp-iiH"/>
+                            <constraint firstItem="RDJ-z1-9jK" firstAttribute="top" secondItem="vnC-7N-dQ5" secondAttribute="top" id="b9t-Yp-iiH"/>
                             <constraint firstAttribute="bottom" secondItem="vnC-7N-dQ5" secondAttribute="bottom" constant="1" id="mf6-IN-a0a"/>
                         </constraints>
                         <connections>
@@ -271,18 +270,18 @@
         <scene sceneID="5">
             <objects>
                 <viewController id="2" customClass="IPaGLWavefrontObjSampleViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2vq-cq-Loc"/>
+                        <viewControllerLayoutGuide type="bottom" id="234-pZ-x32"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3" customClass="GLKView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xyU-Pn-HiV">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <rect key="frame" x="20" y="20" width="46" height="30"/>
                                 <state key="normal" title="Button">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="FKH-fK-H5u" kind="unwind" unwindAction="onIPaGLWavefrontObjSampleBack:" id="dtj-xv-sHK"/>
@@ -291,8 +290,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="xyU-Pn-HiV" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="JmO-9E-ghK"/>
-                            <constraint firstItem="xyU-Pn-HiV" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="WdO-yY-45R"/>
+                            <constraint firstItem="xyU-Pn-HiV" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" id="JmO-9E-ghK"/>
+                            <constraint firstItem="xyU-Pn-HiV" firstAttribute="top" secondItem="3" secondAttribute="top" constant="20" symbolic="YES" id="WdO-yY-45R"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -305,31 +304,27 @@
         <scene sceneID="txr-y5-RqX">
             <objects>
                 <glkViewController autoresizesArchivedViewToFullSize="NO" preferredFramesPerSecond="30" id="ttc-Sk-Wl4" customClass="GooViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Gmc-20-maD"/>
+                        <viewControllerLayoutGuide type="bottom" id="FEW-dA-At9"/>
+                    </layoutGuides>
                     <glkView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="NYS-WB-Y0z">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pqz-5I-P6z">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <rect key="frame" x="10" y="9" width="46" height="30"/>
                                 <state key="normal" title="Button">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="b84-wj-QWc" kind="unwind" unwindAction="onGooViewControllerBack:" id="CHB-za-FUC"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KeI-kr-aBa">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <rect key="frame" x="140" y="531" width="40" height="30"/>
                                 <state key="normal" title="Reset">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="onReset:" destination="ttc-Sk-Wl4" eventType="touchUpInside" id="Vff-ft-dmf"/>
@@ -339,7 +334,7 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Pqz-5I-P6z" firstAttribute="leading" secondItem="NYS-WB-Y0z" secondAttribute="leading" constant="10" id="Fj7-Zz-sZ9"/>
-                            <constraint firstItem="KeI-kr-aBa" firstAttribute="centerX" secondItem="NYS-WB-Y0z" secondAttribute="centerX" type="default" id="RAy-KO-p3h"/>
+                            <constraint firstItem="KeI-kr-aBa" firstAttribute="centerX" secondItem="NYS-WB-Y0z" secondAttribute="centerX" id="RAy-KO-p3h"/>
                             <constraint firstItem="Pqz-5I-P6z" firstAttribute="top" secondItem="NYS-WB-Y0z" secondAttribute="top" constant="9" id="tVw-i1-gtr"/>
                             <constraint firstAttribute="bottom" secondItem="KeI-kr-aBa" secondAttribute="bottom" constant="7" id="ubf-UR-6qE"/>
                         </constraints>
@@ -363,18 +358,18 @@
         <scene sceneID="ctZ-im-heA">
             <objects>
                 <glkViewController autoresizesArchivedViewToFullSize="NO" preferredFramesPerSecond="30" id="0Mm-2d-xup" customClass="IPaGLWaterRippleViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7iZ-1c-qhW"/>
+                        <viewControllerLayoutGuide type="bottom" id="9UP-zY-llF"/>
+                    </layoutGuides>
                     <glkView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Cfu-fF-Lqs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GH1-UQ-Xc8">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <rect key="frame" x="11" y="20" width="46" height="30"/>
                                 <state key="normal" title="Button">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="Ftm-Af-1kr" kind="unwind" unwindAction="onIPaWaterRippleSampleBack:" id="15U-gU-35u"/>
@@ -384,7 +379,7 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="GH1-UQ-Xc8" firstAttribute="leading" secondItem="Cfu-fF-Lqs" secondAttribute="leading" constant="11" id="BhK-ji-1Fe"/>
-                            <constraint firstItem="GH1-UQ-Xc8" firstAttribute="top" secondItem="Cfu-fF-Lqs" secondAttribute="top" constant="20" symbolic="YES" type="default" id="jMh-iG-2Ik"/>
+                            <constraint firstItem="GH1-UQ-Xc8" firstAttribute="top" secondItem="Cfu-fF-Lqs" secondAttribute="top" constant="20" symbolic="YES" id="jMh-iG-2Ik"/>
                         </constraints>
                         <connections>
                             <outlet property="delegate" destination="0Mm-2d-xup" id="Mpx-ed-Oun"/>
@@ -406,18 +401,18 @@
         <scene sceneID="U2J-XK-1jX">
             <objects>
                 <glkViewController autoresizesArchivedViewToFullSize="NO" preferredFramesPerSecond="30" id="CoD-1q-iql" customClass="IPaGLSprite2DSampleViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FvE-5O-D9B"/>
+                        <viewControllerLayoutGuide type="bottom" id="poI-cz-wBG"/>
+                    </layoutGuides>
                     <glkView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1ig-Ma-Yoa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cEH-W2-P0H">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <rect key="frame" x="6" y="9" width="46" height="30"/>
                                 <state key="normal" title="Button">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="Vgz-To-E4x" kind="unwind" unwindAction="onIPaGLSprite2DSampleBack:" id="mNk-wM-eKb"/>
@@ -442,18 +437,18 @@
         <scene sceneID="eRo-Qg-aDm">
             <objects>
                 <glkViewController autoresizesArchivedViewToFullSize="NO" preferredFramesPerSecond="30" id="grR-a5-GfU" customClass="IPaGLToonViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bcn-CY-zJe"/>
+                        <viewControllerLayoutGuide type="bottom" id="4nB-xe-fcx"/>
+                    </layoutGuides>
                     <glkView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="30D-wH-wmz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Phh-mK-Bh8">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <rect key="frame" x="12" y="8" width="46" height="30"/>
                                 <state key="normal" title="Button">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="0uT-Kw-H2B" kind="unwind" unwindAction="onIPaGLToonViewControllerBack:" id="0WB-oz-mwI"/>
@@ -469,7 +464,7 @@
                         </connections>
                     </glkView>
                     <connections>
-                        <segue destination="0uT-Kw-H2B" kind="unwind" unwindAction="onIPaGLToonViewControllerBack:" id="7Xc-d3-jiU"/>
+                        <segue destination="0uT-Kw-H2B" kind="unwind" identifier="backToGLKitView" unwindAction="onIPaGLToonViewControllerBack:" id="7Xc-d3-jiU"/>
                     </connections>
                 </glkViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NkZ-H7-Act" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -479,7 +474,7 @@
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <nil key="statusBar"/>
+        <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>

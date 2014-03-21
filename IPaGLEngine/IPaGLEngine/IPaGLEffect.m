@@ -148,7 +148,7 @@
     [vertexIndexes bindBuffer];
     [renderer prepareToRenderWithMaterial:material];
 //    glDrawArrays(GL_POINTS, 0, source.vertexAttributeCount);
-    glDrawElements(GL_TRIANGLE_STRIP, vertexIndexes.indexNumber,GL_UNSIGNED_SHORT, 0);
+    glDrawElements(GL_TRIANGLE_STRIP, (int)vertexIndexes.indexNumber,GL_UNSIGNED_SHORT, 0);
 }
 -(void)update
 {

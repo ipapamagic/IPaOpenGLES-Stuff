@@ -104,16 +104,16 @@ typedef enum {
     glBufferData(GL_ARRAY_BUFFER, attributesSize * self.vertexAttributeCount, self.vertexAttributes, bufferUsage);
     NSInteger posVNum = (self.attrHasPosZ)?3:2;
     glEnableVertexAttribArray(GLKVertexAttribPosition);
-    glVertexAttribPointer(GLKVertexAttribPosition, posVNum, GL_FLOAT, GL_FALSE, attributesSize, 0);
+    glVertexAttribPointer(GLKVertexAttribPosition, (int)posVNum, GL_FLOAT, GL_FALSE, (int)attributesSize, 0);
     size_t dataOffset = sizeof(GLfloat) * posVNum;
     if (self.attrHasTexCoords) {
         glEnableVertexAttribArray(GLKVertexAttribTexCoord0);
-        glVertexAttribPointer(GLKVertexAttribTexCoord0, 2, GL_FLOAT, GL_FALSE, attributesSize, (void*)dataOffset);
+        glVertexAttribPointer(GLKVertexAttribTexCoord0, 2, GL_FLOAT, GL_FALSE, (int)attributesSize, (void*)dataOffset);
         dataOffset += sizeof(GLfloat) * 2;
     }
     if (self.attrHasNormal) {
         glEnableVertexAttribArray(GLKVertexAttribNormal);
-        glVertexAttribPointer(GLKVertexAttribNormal, 3, GL_FLOAT, GL_FALSE, attributesSize, (void*)dataOffset);
+        glVertexAttribPointer(GLKVertexAttribNormal, 3, GL_FLOAT, GL_FALSE, (int)attributesSize, (void*)dataOffset);
     }
     [self bindAttribute:attributesSize dataOffset:dataOffset];
     glBindVertexArrayOES(0);

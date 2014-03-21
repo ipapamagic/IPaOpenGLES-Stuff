@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6E1BCE64175EDD8900FF42C0 /* A.fsh in Sources */ = {isa = PBXBuildFile; fileRef = 6E1BCE63175EDD8900FF42C0 /* A.fsh */; };
-		6E1BCE66175EDD9300FF42C0 /* A.vsh in Sources */ = {isa = PBXBuildFile; fileRef = 6E1BCE65175EDD9300FF42C0 /* A.vsh */; };
+		6E1BCE64175EDD8900FF42C0 /* A.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 6E1BCE63175EDD8900FF42C0 /* A.fsh */; };
+		6E1BCE66175EDD9300FF42C0 /* A.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 6E1BCE65175EDD9300FF42C0 /* A.vsh */; };
 		6E2036C41727E5E60043A035 /* GooViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2036C31727E5E60043A035 /* GooViewController.m */; };
 		6E393DB016A3D2E100EE2218 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E393DAF16A3D2E100EE2218 /* QuartzCore.framework */; };
 		6E3AF6E11726934A0013A01C /* IPaGLWaterRippleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3AF6E01726934A0013A01C /* IPaGLWaterRippleViewController.m */; };
@@ -296,6 +296,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E1BCE64175EDD8900FF42C0 /* A.fsh in Resources */,
+				6E1BCE66175EDD9300FF42C0 /* A.vsh in Resources */,
 				6E3B0B8B16EDC8620013A6C2 /* FrameBufferShader.fsh in Resources */,
 				6E3B0B8C16EDC8620013A6C2 /* FrameBufferShader.vsh in Resources */,
 				6E67FE7816A3054800E94CFE /* InfoPlist.strings in Resources */,
@@ -329,8 +331,6 @@
 				6E3AF6E11726934A0013A01C /* IPaGLWaterRippleViewController.m in Sources */,
 				6E2036C41727E5E60043A035 /* GooViewController.m in Sources */,
 				6EA13150175DCC0900C5194C /* IPaGLToonViewController.m in Sources */,
-				6E1BCE64175EDD8900FF42C0 /* A.fsh in Sources */,
-				6E1BCE66175EDD9300FF42C0 /* A.vsh in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,7 +417,7 @@
 				GCC_PREFIX_HEADER = "IPaGLSample/IPaGLSample-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../IPaGLEngine/IPaGLEngine\"/**";
 				INFOPLIST_FILE = "IPaGLSample/IPaGLSample-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = IPaGLSample;
 				WRAPPER_EXTENSION = app;
@@ -435,7 +435,7 @@
 				GCC_PREFIX_HEADER = "IPaGLSample/IPaGLSample-Prefix.pch";
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../IPaGLEngine/IPaGLEngine\"/**";
 				INFOPLIST_FILE = "IPaGLSample/IPaGLSample-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = IPaGLSample;
 				WRAPPER_EXTENSION = app;

@@ -296,7 +296,7 @@
         [group.vertexIndexes bindBuffer];
         [renderer prepareToRenderWithMaterial:group.material];
         
-        glDrawElements(GL_TRIANGLES, group.vertexIndexes.indexNumber,GL_UNSIGNED_SHORT, 0);
+        glDrawElements(GL_TRIANGLES, (int)group.vertexIndexes.indexNumber,GL_UNSIGNED_SHORT, 0);
     }
     
 }
@@ -309,14 +309,14 @@
 	NSString *mtlData = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
 	NSArray *mtlLines = [mtlData componentsSeparatedByString:@"\n"];
 	// Can't use fast enumeration here, need to manipulate line order
-	for (int i = 0; i < [mtlLines count]; i++)
+	for (NSInteger i = 0; i < [mtlLines count]; i++)
 	{
 		NSString *line = [mtlLines objectAtIndex:i];
 		if ([line hasPrefix:@"newmtl"]) // Start of new material
 		{
 			// Determine start of next material
-			int mtlEnd = -1;
-			for (int j = i+1; j < [mtlLines count]; j++)
+			NSInteger mtlEnd = -1;
+			for (NSInteger j = i+1; j < [mtlLines count]; j++)
 			{
 				NSString *innerLine = [mtlLines objectAtIndex:j];
 				if ([innerLine hasPrefix:@"newmtl"])
@@ -332,7 +332,7 @@
             
 			
 			IPaGLMaterial *material = [[IPaGLMaterial alloc] init];
-			for (int j = i; j <= mtlEnd; j++)
+			for (NSInteger j = i; j <= mtlEnd; j++)
 			{
 				NSString *parseLine = [mtlLines objectAtIndex:j];
 				// ignore Ni, d, and illum, and texture - at least for now
