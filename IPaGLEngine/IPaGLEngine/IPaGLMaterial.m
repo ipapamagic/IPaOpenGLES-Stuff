@@ -21,6 +21,9 @@
 }
 -(void)setTexture:(IPaGLTexture *)texture
 {
+    if (texture == _texture) {
+        return;
+    }
     [_texture releaseFromIPaGLMaterial:self];
     _texture = texture;
     [texture retainByIPaGLMaterial:self];
