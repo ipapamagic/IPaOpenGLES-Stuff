@@ -3,7 +3,7 @@
 //  IPaGLEngine
 //
 //  Created by IPaPa on 13/4/23.
-//  Copyright (c) 2013年 IPaPa. All rights reserved.
+//  Copyright (c) 2013 IPaPa. All rights reserved.
 //
 
 #import "IPaGLWaterRippleEffect.h"

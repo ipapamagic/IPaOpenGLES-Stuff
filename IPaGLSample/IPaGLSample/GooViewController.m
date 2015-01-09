@@ -3,7 +3,7 @@
 //  IPaGLSample
 //
 //  Created by IPaPa on 13/4/24.
-//  Copyright (c) 2013年 IPaPa. All rights reserved.
+//  Copyright (c) 2013 IPaPa. All rights reserved.
 //
 
 #import "GooViewController.h"

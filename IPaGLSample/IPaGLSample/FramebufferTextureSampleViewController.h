@@ -3,7 +3,7 @@
 //  IPaGLObjectSample
 //
 //  Created by IPaPa on 13/3/11.
-//  Copyright (c) 2013年 IPaPa. All rights reserved.
+//  Copyright (c) 2013 IPaPa. All rights reserved.
 //
 
 #import <GLKit/GLKit.h>

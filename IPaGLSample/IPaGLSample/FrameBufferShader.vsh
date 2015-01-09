@@ -3,7 +3,7 @@
 //  GLTest
 //
 //  Created by IPaPa on 12/8/13.
-//  Copyright (c) 2012年 IPaPa. All rights reserved.
+//  Copyright (c) 2012 IPaPa. All rights reserved.
 //
 
 attribute vec4 position;

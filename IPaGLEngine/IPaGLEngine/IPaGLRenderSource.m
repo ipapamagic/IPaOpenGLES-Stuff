@@ -3,11 +3,11 @@
 //  IPaGLEngine
 //
 //  Created by IPaPa on 13/3/12.
-//  Copyright (c) 2013年 IPaPa. All rights reserved.
+//  Copyright (c) 2013 IPaPa. All rights reserved.
 //
 
 #import "IPaGLRenderSource.h"
-#import <GLKit/GLKit.h>
+#import <OpenGLES/ES2/glext.h>
 #import "IPaGLRenderer.h"
 #import "IPaGLMaterial.h"
 typedef enum {

@@ -3,7 +3,7 @@
 //  IPaGLObject
 //
 //  Created by IPaPa on 13/1/13.
-//  Copyright (c) 2013年 IPaPa. All rights reserved.
+//  Copyright (c) 2013 IPaPa. All rights reserved.
 //
 
 #import "IPaGLRenderer.h"

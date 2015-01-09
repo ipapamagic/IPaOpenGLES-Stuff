@@ -10,29 +10,29 @@
 	<string>IPaOpenGLES-Stuff</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>DC64820D-9441-419E-9B6F-C9B4D2A3E66A</key>
+		<key>389B74FC65C364AE199115FC7EA82E0C19B81150</key>
 		<string>https://github.com/ipapamagic/IPaOpenGLES-Stuff.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>IPaOpenGLES-Stuff.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>DC64820D-9441-419E-9B6F-C9B4D2A3E66A</key>
+		<key>389B74FC65C364AE199115FC7EA82E0C19B81150</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/ipapamagic/IPaOpenGLES-Stuff.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>DC64820D-9441-419E-9B6F-C9B4D2A3E66A</string>
+	<string>389B74FC65C364AE199115FC7EA82E0C19B81150</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>DC64820D-9441-419E-9B6F-C9B4D2A3E66A</string>
+			<string>389B74FC65C364AE199115FC7EA82E0C19B81150</string>
 			<key>IDESourceControlWCCName</key>
 			<string>IPaOpenGLES-Stuff</string>
 		</dict>
