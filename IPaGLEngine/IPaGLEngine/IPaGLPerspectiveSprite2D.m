@@ -133,7 +133,8 @@
     GLfloat c2 = secondPos.y - secondPos.x * m2;
     
     _center = GLKVector2Make((c1-c2)/(m2-m1), (m1*c2-m2*c1) / (m1-m2));
-    
+    //it's formular.....
+    // (uvqi = float3(ui,vi,1) * (di+d(i+2)) / d(i+2) )
     
     
     GLfloat firstLen = GLKVector2Distance(firstPos, _center);
