@@ -7,7 +7,6 @@
 //
 
 #import "IPaGLSprite2D.h"
-#import "IPaGLRenderer.h"
 #import "IPaGLSprite2DRenderer.h"
 #import "IPaGLMaterial.h"
 #import "IPaGLTexture.h"
@@ -19,35 +18,42 @@
     IPaGLRenderSource *source;
 //    GLKMatrix4 matrix;
 }
--(id)init
+//-(id)init
+//{
+//    return nil;
+//}
+-(id)initWithUIImage:(UIImage*)image withName:(NSString*)name renderer:(IPaGLSprite2DRenderer*) useRenderer
 {
-    if (self = [super init]) {
-        source = [[IPaGLRenderSource alloc] init];
-        GLfloat VertexData[] = {
-            //底
-            -1,-1,0,0,
-            1,-1,1,0,
-            -1,1,0,1,
-            1,1,1,1,
-        };
-        source.vertexAttributes = malloc(sizeof(VertexData));
-        memcpy(source.vertexAttributes, VertexData, sizeof(VertexData));
-        source.vertexAttributeCount = 4;
-        source.attrHasPosZ = NO;
-        source.attrHasNormal = NO;
-        source.attrHasTexCoords = YES;
-        [source createBufferStatic];
-        self.material = [[IPaGLMaterial alloc] init];
-//        matrix = GLKMatrix4Identity;
-    }
-    return self;
-}
--(id)initWithUIImage:(UIImage*)image withName:(NSString*)name
-{
-    self = [self init];
-    
+    self = [super init];
+    source = [[IPaGLRenderSource alloc] init];
+//    GLfloat VertexData[] = {
+//        //底
+//        -1,-1,0,0,
+//        1,-1,1,0,
+//        -1,1,0,1,
+//        1,1,1,1,
+//    };
+    GLKVector2 displaySize = useRenderer.displaySize;
+    GLfloat VertexData[] = {
+        //底
+        0,displaySize.y ,0,0,
+        displaySize.x ,displaySize.y,1,0,
+        0,0,0,1,
+        displaySize.x,0,1,1,
+    };
+
+    source.vertexAttributes = malloc(sizeof(VertexData));
+    memcpy(source.vertexAttributes, VertexData, sizeof(VertexData));
+    source.vertexAttributeCount = 4;
+    source.attrHasPosZ = NO;
+    source.attrHasNormal = NO;
+    source.attrHasTexCoords = YES;
+    [source createBufferDynamic];
+    self.material = [[IPaGLMaterial alloc] init];
+    self.matrix = GLKMatrix4Identity;
     self.material.texture = [IPaGLTexture textureFromImage:image withName:name];
-    [self setPosition:GLKVector2Make(0, 0) size:GLKVector2Make(image.size.width, image.size.height)];
+    self.renderer = useRenderer;
+   
     GLfloat *vertexAttr = source.vertexAttributes;
     GLKVector2 texCoordRatio = self.material.texture.texCoordRatio;
     
@@ -74,6 +80,14 @@
     vertexAttr[11] = vertexAttr[15] = (1 - (rect.y / imgSize.y)) * texCoordRatio.y;
     [source updateAttributeBuffer];
     
+}
+- (void)setImage:(UIImage*)image withName:(NSString*)name
+{
+    self.material.texture = [IPaGLTexture textureFromImage:image withName:name];
+}
+- (void)setImage:(UIImage*)image
+{
+    [self setImage:image withName:[image description]];
 }
 -(void)dealloc
 {
@@ -103,7 +117,7 @@
 -(void)setPosition:(GLKVector2)position
 {
     _position = position;
-    [self updateMatrix];    
+    [self updateSourceAttributes];
 }
 -(GLKVector2)center
 {
@@ -116,41 +130,43 @@
 -(void)setSize:(GLKVector2)size
 {
     _size = size;
-    [self updateMatrix];
+    [self updateSourceAttributes];
 }
 -(void)setPosition:(GLKVector2)position size:(GLKVector2)size
 {
     _position = position;
     _size = size;
-    [self updateMatrix];
+    [self updateSourceAttributes];
 }
 -(void)setCenter:(GLKVector2)center size:(GLKVector2)size
 {
     _size = size;
     _position = GLKVector2Make(center.x - self.size.x * 0.5, center.y - self.size.y * 0.5);
-    [self updateMatrix];
+    [self updateSourceAttributes];
 }
--(void)updateMatrix
+- (void)updateSourceAttributes
 {
-    
-//    GLKVector2 displaySizeRatio = self.renderer.displaySizeRatio;
-//    GLfloat *vertexAttr = source.vertexAttributes;
-//
-//    vertexAttr[0] = vertexAttr[8] = -1 + (self.position.x * displaySizeRatio.x * 2);
-//    vertexAttr[1] = vertexAttr[5] = 1 - ((self.position.y + self.size.y)* displaySizeRatio.y * 2);
-//    vertexAttr[4] = vertexAttr[12] = -1 + (self.position.x + self.size.x) * displaySizeRatio.x * 2;
-//    vertexAttr[9] = vertexAttr[13] = 1 - (self.position.y * displaySizeRatio.y * 2);
-//    [source updateAttributeBuffer];
-    
+//    GLKVector2 displaySize = self.renderer.displaySize;
+//    GLKVector2 displaySizeRatio =  GLKVector2Make(2/displaySize.x, 2/displaySize.y) ;
+    GLfloat *vertexAttr = source.vertexAttributes;
 
-    self.matrix = GLKMatrix4MakeTranslation(self.size.x * 0.5 + self.position.x, -self.size.y * 0.5 - self.position.y, 0);
-    self.matrix = GLKMatrix4Scale(self.matrix,self.size.x * 0.5, self.size.y * 0.5, 1);
-
-//    self.matrix = GLKMatrix4Scale(self.matrix, self.size.x, -self.size.y, 1);
-    //self.matrix = GLKMatrix4Translate(self.matrix,self.position.x,self.position.y,0);
-
+//    vertexAttr[0] = vertexAttr[8] = -1 + (self.position.x * displaySizeRatio.x);
+//    vertexAttr[1] = vertexAttr[5] = 1 - ((self.position.y + self.size.y)* displaySizeRatio.y);
+//    vertexAttr[4] = vertexAttr[12] = -1 + (self.position.x + self.size.x) * displaySizeRatio.x;
+//    vertexAttr[9] = vertexAttr[13] = 1 - (self.position.y * displaySizeRatio.y);
+    vertexAttr[0] = vertexAttr[8] = self.position.x;
+    vertexAttr[1] = vertexAttr[5] = self.position.y + self.size.y;
+    vertexAttr[4] = vertexAttr[12] = self.position.x + self.size.x;
+    vertexAttr[9] = vertexAttr[13] = self.position.y;
     
+    [source updateAttributeBuffer];
+
 }
+//-(void)updateMatrix
+//{
+//    self.matrix = GLKMatrix4MakeTranslation(self.size.x * 0.5 + self.position.x, -self.size.y * 0.5 - self.position.y, 0);
+//    self.matrix = GLKMatrix4Scale(self.matrix,self.size.x * 0.5, self.size.y * 0.5, 1);
+//}
 
 
 -(void)setTexture:(IPaGLTexture*)texture
@@ -159,16 +175,11 @@
     self.material.texture = texture;
     
 }
--(void)renderWithRenderer:(IPaGLRenderer <IPaGLSprite2DRenderer> *)renderer
+- (void)render
 {
 //    renderer.projectionMatrix = self.projectionMatrix;
-    renderer.modelMatrix = self.matrix;
-    
-   
-    [renderer prepareToRenderWithMaterial:self.material];
-    
-    
-    [source renderWithRenderer:renderer];
+    [self.renderer prepareToRenderSprite2D:self];
+    [source renderWithRenderer:self.renderer];
     
 
     glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);

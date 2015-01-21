@@ -13,7 +13,8 @@
 typedef enum {
     IPaGLAttr_HasNormal = 1,
     IPaGLAttr_HasTexCoords = 1 << 1,
-    IPaGLAttr_HasPosZ = 1 << 2,
+    IPaGLAttr_HasTexCoords3D = 1 << 2,
+    IPaGLAttr_HasPosZ = 1 << 3,
 }IPaGLAttrFlags;
 @implementation IPaGLRenderSource
 {
@@ -37,8 +38,9 @@ typedef enum {
 }
 -(size_t)vertexAttributeSize
 {
-    NSInteger posVNum = (self.attrHasPosZ)?3:2;
-    return sizeof(GLfloat) * (posVNum + ((self.attrHasNormal)?3:0) + ((self.attrHasTexCoords)?2:0));
+    GLint posVNum = (self.attrHasPosZ)?3:2;
+    GLint texNum = ((self.attrHasTexCoords)?((self.attrHasTexCoords3D)?3:2):0);
+    return sizeof(GLfloat) * (posVNum + ((self.attrHasNormal)?3:0) + texNum);
     
 }
 
@@ -58,6 +60,15 @@ typedef enum {
     }
     else {
         atributesFlags &= ~IPaGLAttr_HasNormal;
+    }
+}
+- (void)setAttrHasTexCoords3D:(BOOL)hasTexCoords3D
+{
+    if (hasTexCoords3D) {
+        atributesFlags |= (IPaGLAttr_HasTexCoords | IPaGLAttr_HasTexCoords3D);
+    }
+    else {
+        atributesFlags &= ~IPaGLAttr_HasTexCoords3D;
     }
 }
 -(void)setAttrHasTexCoords:(BOOL)hasTexCoords
@@ -80,6 +91,10 @@ typedef enum {
 -(BOOL)attrHasTexCoords
 {
     return (BOOL)(atributesFlags & IPaGLAttr_HasTexCoords);
+}
+-(BOOL)attrHasTexCoords3D
+{
+    return (BOOL)(atributesFlags & IPaGLAttr_HasTexCoords3D);
 }
 
 //create buffer with GL_STATIC_DRAW
@@ -107,9 +122,10 @@ typedef enum {
     glVertexAttribPointer(GLKVertexAttribPosition, (int)posVNum, GL_FLOAT, GL_FALSE, (int)attributesSize, 0);
     size_t dataOffset = sizeof(GLfloat) * posVNum;
     if (self.attrHasTexCoords) {
+        GLint count = (self.attrHasTexCoords3D)?3:2;
         glEnableVertexAttribArray(GLKVertexAttribTexCoord0);
-        glVertexAttribPointer(GLKVertexAttribTexCoord0, 2, GL_FLOAT, GL_FALSE, (int)attributesSize, (void*)dataOffset);
-        dataOffset += sizeof(GLfloat) * 2;
+        glVertexAttribPointer(GLKVertexAttribTexCoord0, count, GL_FLOAT, GL_FALSE, (int)attributesSize, (void*)dataOffset);
+        dataOffset += sizeof(GLfloat) * count;
     }
     if (self.attrHasNormal) {
         glEnableVertexAttribArray(GLKVertexAttribNormal);
@@ -140,7 +156,7 @@ typedef enum {
 //    glBufferData(GL_ARRAY_BUFFER, self.vertexAttributeSize * self.vertexAttributeCount, self.vertexAttributes, GL_STATIC_DRAW);
     glBindVertexArrayOES(0);    
 }
--(void)renderWithRenderer:(IPaGLRenderer*)renderer;
+-(void)renderWithRenderer:(id <IPaGLRenderer>)renderer;
 {
     [renderer prepareToDraw];
     [self bindBuffer];

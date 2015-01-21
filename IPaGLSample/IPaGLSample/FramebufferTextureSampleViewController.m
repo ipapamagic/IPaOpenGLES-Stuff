@@ -11,9 +11,9 @@
 #import "IPaGLTexture.h"
 #import "IPaGLFramebufferTexture.h"
 #import "IPaGLSprite2D.h"
-#import "IPaGLSprite2DRenderer.h"
 #import "FrameBufferRenderer.h"
 #import "IPaGLRenderSource.h"
+#import "IPaGLSprite2DRenderer.h"
 #define kBrushPixelStep		3
 #define vertexMax 64
 @interface FramebufferTextureSampleViewController () 
@@ -25,7 +25,7 @@
     IPaGLSprite2D *sprite;
     IPaGLFramebufferTexture* texture;
 //    IPaGLTexture *ttt;
-    IPaGLKitSprite2DRenderer *paintRenderer;
+    IPaGLSprite2DRenderer *paintRenderer;
     FrameBufferRenderer *framebufferRenderer;
     IPaGLRenderSource *paintAttributes;
 }
@@ -76,11 +76,11 @@
 
     texture = [[IPaGLFramebufferTexture alloc] initWithSize:self.view.frame.size];
  
-    paintRenderer = [[IPaGLKitSprite2DRenderer alloc] initWithDisplaySize:GLKVector2Make(self.view.bounds.size.width, self.view.bounds.size.height)];
+    paintRenderer = [[IPaGLSprite2DRenderer alloc] initWithDisplaySize:GLKVector2Make(self.view.bounds.size.width, self.view.bounds.size.height)];
     
     sprite = [[IPaGLSprite2D alloc] init];
     [sprite setTexture:texture.texture];
-
+    sprite.renderer = paintRenderer;
     [sprite setPosition:GLKVector2Make(0, 0) size:GLKVector2Make(size.width, size.height)];
     
     
@@ -192,7 +192,7 @@
    // glClearColor(0.65f, 0.65f, 0.65f, 1.0f);
    // glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
-    [sprite renderWithRenderer:paintRenderer];
+    [sprite render];
 }
 - (void)viewDidUnload {
     bBtn = nil;

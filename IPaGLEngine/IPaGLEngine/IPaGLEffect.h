@@ -11,7 +11,7 @@
 #import "IPaGLMaterial.h"
 #import "IPaGLFramebufferTexture.h"
 #import "IPaGLVertexIndexes.h"
-#import "IPaGLRenderer.h"
+#import "IPaGLKitRenderer.h"
 @interface IPaGLEffect : IPaGLRenderSource
 {
     IPaGLRenderSource *source;

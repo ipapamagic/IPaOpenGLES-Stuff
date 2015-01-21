@@ -1,14 +1,14 @@
 //
-//  IPaGLSprite2DRenderer.m
+//  IPaGLPerspectiveSprite2DRenderer.m
 //  IPaGLEngine
 //
-//  Created by IPa Chen on 2015/1/9.
+//  Created by IPa Chen on 2015/1/19.
 //  Copyright (c) 2015年 IPaPa. All rights reserved.
 //
 
-#import "IPaGLSprite2DRenderer.h"
-#import "IPaGLSprite2D.h"
-@implementation IPaGLSprite2DRenderer
+#import "IPaGLPerspectiveSprite2DRenderer.h"
+#import "IPaGLPerspectiveSprite2D.h"
+@implementation IPaGLPerspectiveSprite2DRenderer
 {
     GLint matrixUniform;
 }
@@ -31,14 +31,14 @@
 -(void)setDisplaySize:(GLKVector2)displaySize
 {
     _displaySize = displaySize;
-
-
+    
+    
     GLKMatrix4 matrix = GLKMatrix4MakeScale( 2/displaySize.x, -2/displaySize.y, 1);
     matrix = GLKMatrix4Translate(matrix, -displaySize.x * .5, -displaySize.y * .5, 0);
-
+    
     self.projectionMatrix = matrix;
 }
-- (void)prepareToRenderSprite2D:(IPaGLSprite2D*)sprite
+- (void)prepareToRenderSprite2D:(IPaGLPerspectiveSprite2D*)sprite
 {
     self.modelMatrix = sprite.matrix;
     [self prepareToRenderWithMaterial:sprite.material];
@@ -48,8 +48,8 @@
 -(NSString*)vertexShaderSource
 {
     return @"attribute vec4 position;\
-        attribute vec2 texCoord;\
-        varying lowp vec2 v_texCoord;\
+        attribute vec3 texCoord;\
+        varying lowp vec3 v_texCoord;\
         uniform mat4 matrix;\
         void main()\
         {\
@@ -60,12 +60,12 @@
 }
 -(NSString*)fragmentShaderSource
 {
-    return @"varying lowp vec2 v_texCoord;\
-    uniform sampler2D texture;\
-    void main(void)\
-    {\
-    gl_FragColor = texture2D(texture, v_texCoord);\
-    }";
+    return @"varying lowp vec3 v_texCoord;\
+        uniform sampler2D texture;\
+        void main(void)\
+        {\
+            gl_FragColor = texture2DProj(texture, v_texCoord);\
+        }";
 }
 
 -(void)onBindGLAttributes:(GLuint)_program

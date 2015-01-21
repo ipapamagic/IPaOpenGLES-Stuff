@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 IPaPa. All rights reserved.
 //
 
-#import "IPaGLRenderer.h"
+#import "IPaGLShaderRenderer.h"
 
 @interface FrameBufferRenderer : IPaGLShaderRenderer
 @property (nonatomic,assign) CGFloat penSize;

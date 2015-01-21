@@ -13,7 +13,9 @@
 @implementation IPaGLSprite2DSampleViewController
 {
     IPaGLSprite2D* entity;
-    IPaGLKitSprite2DRenderer *renderer;
+    IPaGLSprite2DRenderer *renderer;
+    
+    
 }
 - (void)viewDidLoad
 {
@@ -68,9 +70,9 @@
     GLKView *view = (GLKView *)self.view;
     [EAGLContext setCurrentContext:view.context];
     
-    renderer = [[IPaGLKitSprite2DRenderer alloc] initWithDisplaySize:GLKVector2Make(self.view.frame.size.width, self.view.frame.size.height)];
-    entity = [[IPaGLSprite2D alloc] initWithUIImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"texture" ofType:@"png"]] withName:@"texture"];
-    
+    renderer = [[IPaGLSprite2DRenderer alloc] initWithDisplaySize:GLKVector2Make(self.view.frame.size.width, self.view.frame.size.height)];
+    entity = [[IPaGLSprite2D alloc] initWithUIImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"texture" ofType:@"png"]] withName:@"texture" renderer:renderer] ;
+
     [entity setPosition:GLKVector2Make(100, self.view.frame.size.height / 2) size:GLKVector2Make(self.view.frame.size.width / 2, self.view.frame.size.height / 2)];
     
 }
@@ -93,7 +95,7 @@
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    [entity renderWithRenderer:renderer];
+    [entity render];
 }
 
 

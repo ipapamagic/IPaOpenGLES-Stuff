@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.21" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Zde-IN-TKN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Zde-IN-TKN">
     <dependencies>
-        <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.13"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
         <!--Title View Controller-->
         <scene sceneID="XgT-ec-U1N">
             <objects>
                 <tableViewController id="Zde-IN-TKN" customClass="TitleViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ByR-qA-BJ4">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ByR-qA-BJ4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -154,6 +154,29 @@
                                             <segue destination="grR-a5-GfU" kind="modal" id="LeS-JL-9Vp"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" id="Qn2-9U-Dge">
+                                        <rect key="frame" x="0.0" y="220" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qn2-9U-Dge" id="0UV-kO-sVb">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="PerspectiveSprite2D Sample" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RrG-ht-u6R">
+                                                    <rect key="frame" x="20" y="11" width="220" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstItem="RrG-ht-u6R" firstAttribute="leading" secondItem="Qn2-9U-Dge" secondAttribute="leading" constant="20" id="eE5-cd-YJI"/>
+                                            <constraint firstItem="RrG-ht-u6R" firstAttribute="top" secondItem="Qn2-9U-Dge" secondAttribute="top" constant="11" id="wZo-yF-bzJ"/>
+                                        </constraints>
+                                        <connections>
+                                            <segue destination="hhh-gL-8um" kind="modal" id="37I-ct-pzg"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -180,8 +203,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BuG-c7-Bkd">
-                                <rect key="frame" x="14" y="20" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                                <rect key="frame" x="14" y="20" width="35" height="30"/>
+                                <state key="normal" title="Back">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -279,8 +302,8 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xyU-Pn-HiV">
-                                <rect key="frame" x="20" y="20" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                                <rect key="frame" x="20" y="20" width="35" height="30"/>
+                                <state key="normal" title="Back">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -313,8 +336,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pqz-5I-P6z">
-                                <rect key="frame" x="10" y="9" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                                <rect key="frame" x="10" y="9" width="35" height="30"/>
+                                <state key="normal" title="Back">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -367,8 +390,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GH1-UQ-Xc8">
-                                <rect key="frame" x="11" y="20" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                                <rect key="frame" x="11" y="20" width="35" height="30"/>
+                                <state key="normal" title="Back">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -410,8 +433,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cEH-W2-P0H">
-                                <rect key="frame" x="6" y="9" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                                <rect key="frame" x="6" y="9" width="35" height="30"/>
+                                <state key="normal" title="Back">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -434,6 +457,105 @@
             <point key="canvasLocation" x="191" y="705"/>
         </scene>
         <!--GLKit View Controller-->
+        <scene sceneID="8bF-fW-gVd">
+            <objects>
+                <glkViewController preferredFramesPerSecond="30" id="hhh-gL-8um" customClass="IPaGLPerspectiveSprite2DSampleViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="81l-eR-bw7"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZHF-U4-kUK"/>
+                    </layoutGuides>
+                    <glkView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" enableSetNeedsDisplay="NO" id="vIx-kA-mYO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zgn-UY-e6r">
+                                <rect key="frame" x="8" y="28" width="35" height="30"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="J9Q-2W-hK1" kind="unwind" unwindAction="onIPaGLPerspectiveSprite2DViewControllerBack:" id="gZQ-Sh-Yd0"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8uv-VQ-aTN">
+                                <rect key="frame" x="282" y="535" width="38" height="33"/>
+                                <color key="backgroundColor" red="0.89823190789999996" green="0.082930715459999998" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="NGC-iX-igI" appends="YES" id="Ypg-8o-T44"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mgC-zS-j6g">
+                                <rect key="frame" x="282" y="0.0" width="38" height="33"/>
+                                <color key="backgroundColor" red="0.89823190789999996" green="0.082930715459999998" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="5Vs-MS-zjz" appends="YES" id="4ln-Kc-vVD"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pnL-5W-5I7">
+                                <rect key="frame" x="0.0" y="0.0" width="38" height="33"/>
+                                <color key="backgroundColor" red="0.89823190789999996" green="0.082930715459999998" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Dyy-ss-naZ" appends="YES" id="969-Ti-kVM"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="05B-h4-Nj0">
+                                <rect key="frame" x="0.0" y="535" width="38" height="33"/>
+                                <color key="backgroundColor" red="0.89823190789999996" green="0.082930715459999998" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="bi3-cn-UFh" appends="YES" id="XuZ-Oa-l8E"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bQN-Ky-f44">
+                                <rect key="frame" x="93" y="88" width="10" height="10"/>
+                                <color key="backgroundColor" red="0.98823529409999999" green="0.62745098040000002" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Zgn-UY-e6r" firstAttribute="top" secondItem="81l-eR-bw7" secondAttribute="bottom" constant="8" id="go9-4V-VNU"/>
+                            <constraint firstItem="Zgn-UY-e6r" firstAttribute="leading" secondItem="vIx-kA-mYO" secondAttribute="leading" constant="8" id="rM4-bV-cM0"/>
+                        </constraints>
+                        <connections>
+                            <outlet property="delegate" destination="hhh-gL-8um" id="j2e-pJ-aLf"/>
+                        </connections>
+                    </glkView>
+                    <connections>
+                        <outlet property="centerView" destination="bQN-Ky-f44" id="dZB-ls-cgL"/>
+                        <outlet property="lbView" destination="05B-h4-Nj0" id="UGZ-kW-Svv"/>
+                        <outlet property="luView" destination="pnL-5W-5I7" id="IPc-ud-28O"/>
+                        <outlet property="rbView" destination="8uv-VQ-aTN" id="uFW-WW-UqQ"/>
+                        <outlet property="ruView" destination="mgC-zS-j6g" id="Ugf-KV-rHf"/>
+                    </connections>
+                </glkViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O6u-wI-r6C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="J9Q-2W-hK1" userLabel="Exit" sceneMemberID="exit"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="Dyy-ss-naZ">
+                    <connections>
+                        <action selector="onPanLU:" destination="hhh-gL-8um" id="ftm-tz-e8j"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="5Vs-MS-zjz">
+                    <connections>
+                        <action selector="onPanRU:" destination="hhh-gL-8um" id="aEh-42-MAO"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="bi3-cn-UFh">
+                    <connections>
+                        <action selector="onPanLB:" destination="hhh-gL-8um" id="nmI-eQ-XLD"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="NGC-iX-igI">
+                    <connections>
+                        <action selector="onPanRB:" destination="hhh-gL-8um" id="0ma-4h-RjB"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="131" y="1401"/>
+        </scene>
+        <!--GLKit View Controller-->
         <scene sceneID="eRo-Qg-aDm">
             <objects>
                 <glkViewController autoresizesArchivedViewToFullSize="NO" preferredFramesPerSecond="30" id="grR-a5-GfU" customClass="IPaGLToonViewController" sceneMemberID="viewController">
@@ -446,8 +568,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Phh-mK-Bh8">
-                                <rect key="frame" x="12" y="8" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                                <rect key="frame" x="12" y="8" width="35" height="30"/>
+                                <state key="normal" title="Back">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>

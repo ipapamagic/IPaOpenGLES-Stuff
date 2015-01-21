@@ -11,6 +11,7 @@
 #import "IPaGLWaterRippleEffect.h"
 #import "IPaGLSprite2DRenderer.h"
 #import "IPaGLEngine.h"
+#import "IPaGLSprite2DRenderer.h"
 @interface IPaGLWaterRippleViewController ()
 
 @end
@@ -80,9 +81,9 @@
     GLKView *view = (GLKView *)self.view;
     [EAGLContext setCurrentContext:view.context];
     
-    IPaGLKitSprite2DRenderer *renderer = [[IPaGLKitSprite2DRenderer alloc] initWithDisplaySize:GLKVector2Make(self.view.frame.size.width, self.view.frame.size.height)];
-    IPaGLSprite2D* entity = [[IPaGLSprite2D alloc] initWithUIImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"rock" ofType:@"png"]] withName:@"texture"];
-    
+    IPaGLSprite2DRenderer *renderer = [[IPaGLSprite2DRenderer alloc] initWithDisplaySize:GLKVector2Make(self.view.frame.size.width, self.view.frame.size.height)];
+    IPaGLSprite2D* entity = [[IPaGLSprite2D alloc] initWithUIImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"rock" ofType:@"png"]] withName:@"texture" renderer:renderer];
+    entity.renderer = renderer;
     [entity setPosition:GLKVector2Make(0, 0) size:GLKVector2Make(self.view.frame.size.width , self.view.frame.size.height )];
     rippleEffect = [[IPaGLWaterRippleEffect alloc] initWithSize:GLKVector2Make(self.view.frame.size.width, self.view.frame.size.height) meshFactor:4 rippleRadius:5];
     
@@ -90,7 +91,7 @@
     glClearColor(1.0,0.0,0.0, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
     
-    [entity renderWithRenderer:renderer];
+    [entity render];
 
     
 }

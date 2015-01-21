@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@class IPaGLRenderer;
+@protocol IPaGLRenderer;
 @interface IPaGLRenderSource : NSObject
 @property (nonatomic,assign) void *vertexAttributes;
 @property (nonatomic,assign) NSUInteger vertexAttributeCount;
@@ -23,10 +23,11 @@
 -(BOOL)attrHasPosZ;
 -(BOOL)attrHasNormal;
 -(BOOL)attrHasTexCoords;
+-(BOOL)attrHasTexCoords3D;
 -(void)setAttrHasPosZ:(BOOL)hasPosZ;
 -(void)setAttrHasNormal:(BOOL)hasNormal;
 -(void)setAttrHasTexCoords:(BOOL)hasTexCoords;
-
--(void)renderWithRenderer:(IPaGLRenderer*)renderer;
+- (void)setAttrHasTexCoords3D:(BOOL)hasTexCoords3D;
+-(void)renderWithRenderer:(id <IPaGLRenderer>)renderer;
 
 @end

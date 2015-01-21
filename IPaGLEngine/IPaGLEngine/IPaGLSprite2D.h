@@ -7,28 +7,28 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <GLKit/GLKit.h>
-@class IPaGLRenderer;
+@import GLKit;
 @class IPaGLTexture;
 @class IPaGLMaterial;
-@protocol IPaGLSprite2DRenderer;
+@class IPaGLSprite2DRenderer;
+
 @interface IPaGLSprite2D : NSObject
 @property (nonatomic,assign) GLKVector2 position;
 @property (nonatomic,assign) GLKVector2 size;
 @property (nonatomic,strong) IPaGLMaterial* material;
 @property (nonatomic,assign) GLKMatrix4 matrix;
-//alpha property
--(CGFloat)alpha;
--(void)setAlpha:(CGFloat)alpha;
-//center property
--(GLKVector2)center;
--(void)setCenter:(GLKVector2)center;
+@property (nonatomic,weak) IPaGLSprite2DRenderer* renderer;
+@property (nonatomic,assign) CGFloat alpha;
+@property (nonatomic,assign) GLKVector2 center;
 //
--(void)renderWithRenderer:(IPaGLRenderer <IPaGLSprite2DRenderer> *)renderer;
 -(void)setTexture:(IPaGLTexture*)texture;
--(id)initWithUIImage:(UIImage*)image withName:(NSString*)name;
+-(id)initWithUIImage:(UIImage*)image withName:(NSString*)name renderer:(IPaGLSprite2DRenderer*) useRenderer;
 -(void)setPosition:(GLKVector2)position size:(GLKVector2)size;
 -(void)setCenter:(GLKVector2)center size:(GLKVector2)size;
 //rect represent (originalX,originalY,width,height)
 -(void)setTextureRect:(GLKVector4)rect;
+- (void)render;
+- (void)setImage:(UIImage*)image withName:(NSString*)name;
+- (void)setImage:(UIImage*)image;
+
 @end

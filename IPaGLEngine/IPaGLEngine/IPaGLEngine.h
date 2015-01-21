@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-@class IPaGLSprite2D;
 @interface IPaGLEngine : NSObject
 @property (nonatomic,readonly) EAGLContext* defaultContext;
 +(IPaGLEngine*)sharedInstance;

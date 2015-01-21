@@ -287,7 +287,7 @@
 }
 
 
--(void)renderWithRenderer:(IPaGLRenderer *)renderer
+-(void)renderWithRenderer:(id <IPaGLRenderer>)renderer
 {
     [super renderWithRenderer:renderer];
     

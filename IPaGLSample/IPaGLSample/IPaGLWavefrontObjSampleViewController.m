@@ -10,6 +10,7 @@
 #import "IPaGLWavefrontObj.h"
 #import <QuartzCore/CAAnimation.h>
 #import "IPaGLWavefrontObjRenderer.h"
+#import "IPaGLKitRenderer.h"
 @interface IPaGLWavefrontObjSampleViewController () {
   
     

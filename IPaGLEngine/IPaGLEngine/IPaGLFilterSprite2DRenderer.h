@@ -7,8 +7,7 @@
 //
 
 #import "IPaGLSprite2DRenderer.h"
-
-@interface IPaGLFilterSprite2DRenderer : IPaGLShaderSprite2DRenderer
+@interface IPaGLFilterSprite2DRenderer : IPaGLSprite2DRenderer
 @property (nonatomic,assign) CGFloat brightness;
 @property (nonatomic,assign) CGFloat contrast;
 @end

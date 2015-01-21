@@ -10,6 +10,7 @@
 		6E1BCE64175EDD8900FF42C0 /* A.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 6E1BCE63175EDD8900FF42C0 /* A.fsh */; };
 		6E1BCE66175EDD9300FF42C0 /* A.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 6E1BCE65175EDD9300FF42C0 /* A.vsh */; };
 		6E2036C41727E5E60043A035 /* GooViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2036C31727E5E60043A035 /* GooViewController.m */; };
+		6E2BDA8E1A65168800FE959D /* IPaGLPerspectiveSprite2DSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2BDA8D1A65168800FE959D /* IPaGLPerspectiveSprite2DSampleViewController.m */; };
 		6E393DB016A3D2E100EE2218 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E393DAF16A3D2E100EE2218 /* QuartzCore.framework */; };
 		6E3AF6E11726934A0013A01C /* IPaGLWaterRippleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3AF6E01726934A0013A01C /* IPaGLWaterRippleViewController.m */; };
 		6E3B0B7516ED93F30013A6C2 /* FramebufferTextureSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3B0B7416ED93F30013A6C2 /* FramebufferTextureSampleViewController.m */; };
@@ -46,6 +47,8 @@
 		6E1BCE65175EDD9300FF42C0 /* A.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = A.vsh; sourceTree = "<group>"; };
 		6E2036C21727E5E60043A035 /* GooViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GooViewController.h; sourceTree = "<group>"; };
 		6E2036C31727E5E60043A035 /* GooViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GooViewController.m; sourceTree = "<group>"; };
+		6E2BDA8C1A65168800FE959D /* IPaGLPerspectiveSprite2DSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLPerspectiveSprite2DSampleViewController.h; sourceTree = "<group>"; };
+		6E2BDA8D1A65168800FE959D /* IPaGLPerspectiveSprite2DSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLPerspectiveSprite2DSampleViewController.m; sourceTree = "<group>"; };
 		6E393DAF16A3D2E100EE2218 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		6E3AF6DF1726934A0013A01C /* IPaGLWaterRippleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLWaterRippleViewController.h; sourceTree = "<group>"; };
 		6E3AF6E01726934A0013A01C /* IPaGLWaterRippleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLWaterRippleViewController.m; sourceTree = "<group>"; };
@@ -113,6 +116,15 @@
 				6E2036C31727E5E60043A035 /* GooViewController.m */,
 			);
 			name = GooViewController;
+			sourceTree = "<group>";
+		};
+		6E2BDA8F1A65169200FE959D /* IPaGLShapeSpriteSampleViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6E2BDA8C1A65168800FE959D /* IPaGLPerspectiveSprite2DSampleViewController.h */,
+				6E2BDA8D1A65168800FE959D /* IPaGLPerspectiveSprite2DSampleViewController.m */,
+			);
+			name = IPaGLShapeSpriteSampleViewController;
 			sourceTree = "<group>";
 		};
 		6E3AF6E21726934E0013A01C /* IPaGLWaterRipple Sample */ = {
@@ -216,6 +228,7 @@
 				6E3B0B7C16EDB20D0013A6C2 /* IPaGLWavefrontObj Sample */,
 				6E3B0B7D16EDB21C0013A6C2 /* IPaGLSprite2D Sample */,
 				6E3B0B7716EDB1130013A6C2 /* FramebuffetTexture Sample */,
+				6E2BDA8F1A65169200FE959D /* IPaGLShapeSpriteSampleViewController */,
 				6E67FE7416A3054800E94CFE /* Supporting Files */,
 			);
 			path = IPaGLSample;
@@ -324,6 +337,7 @@
 				6E67FE7A16A3054800E94CFE /* main.m in Sources */,
 				6E67FE7E16A3054800E94CFE /* IPaAppDelegate.m in Sources */,
 				6E67FE8E16A3054800E94CFE /* IPaGLWavefrontObjSampleViewController.m in Sources */,
+				6E2BDA8E1A65168800FE959D /* IPaGLPerspectiveSprite2DSampleViewController.m in Sources */,
 				6E45B2B616E9C14400C14ABA /* TitleViewController.m in Sources */,
 				6E45B2B916E9C3BE00C14ABA /* IPaGLSprite2DSampleViewController.m in Sources */,
 				6E3B0B7516ED93F30013A6C2 /* FramebufferTextureSampleViewController.m in Sources */,
@@ -409,6 +423,7 @@
 		6E67FE9216A3054800E94CFE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/IPaPa/Documents/MyWork/iOSLibrary/IPaOpenGLES-Stuff/IPaGLEngine/Products",
@@ -427,6 +442,7 @@
 		6E67FE9316A3054800E94CFE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/IPaPa/Documents/MyWork/iOSLibrary/IPaOpenGLES-Stuff/IPaGLEngine/Products",

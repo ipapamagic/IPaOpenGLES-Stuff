@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 IPaPa. All rights reserved.
 //
 
-#import "IPaGLRenderer.h"
+#import "IPaGLShaderRenderer.h"
 
 @interface IPaGLToonRenderer : IPaGLShaderRenderer
 @property (nonatomic) GLKMatrix4 modelViewProjectionMatrix;
