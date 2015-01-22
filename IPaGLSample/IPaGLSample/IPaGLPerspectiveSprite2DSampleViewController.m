@@ -13,7 +13,6 @@
 #import "IPaGLTexture.h"
 #import "IPaGLFramebufferTexture.h"
 #import "IPaGLSprite2D.h"
-#import "FrameBufferRenderer.h"
 #import "IPaGLRenderSource.h"
 #import "IPaGLSprite2DRenderer.h"
 #define kBrushPixelStep		3
@@ -36,7 +35,6 @@
     IPaGLFramebufferTexture* texture;
     //    IPaGLTexture *ttt;
     IPaGLSprite2DRenderer *paintRenderer;
-    FrameBufferRenderer *framebufferRenderer;
     IPaGLRenderSource *paintAttributes;
 }
 - (void)viewDidLoad

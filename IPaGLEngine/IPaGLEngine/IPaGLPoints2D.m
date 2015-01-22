@@ -42,15 +42,10 @@
     GLfloat* vertexBuffer = source.vertexAttributes;
     vertexBuffer[source.vertexAttributeCount * 2] = point.x;
     vertexBuffer[source.vertexAttributeCount * 2 + 1] = point.y;
-    BOOL needCreate = (source.vertexAttributeCount == 0);
+
     source.vertexAttributeCount += 1;
     
-    if (needCreate) {
-        [source createBufferDynamic];
-    }
-    else {
-        [source updateAttributeBuffer];
-    }
+    [source createBufferStatic];
 }
 - (void)doublePointsNum
 {
@@ -65,7 +60,7 @@
     while ((source.vertexAttributeCount + pointNumber) >= maxPointsNum) {
         [self doublePointsNum];
     }
-    GLfloat* vertexBuffer = &(source.vertexAttributes[source.vertexAttributeCount * 2]);
+    GLfloat* vertexBuffer = source.vertexAttributes;
     for(NSUInteger i = source.vertexAttributeCount; i <source.vertexAttributeCount + pointNumber ; ++i) {
         
         GLfloat x,y;
@@ -76,16 +71,9 @@
         vertexBuffer[2 * i + 0] = x;
         vertexBuffer[2 * i + 1] = y;
     }
-    BOOL needCreate = (source.vertexAttributeCount == 0);
-    source.vertexAttributeCount += pointNumber;
-    
-    if (needCreate) {
-        [source createBufferDynamic];
-    }
-    else {
-        [source updateAttributeBuffer];
-    }
 
+    source.vertexAttributeCount += pointNumber;
+    [source createBufferDynamic];
     
     
     

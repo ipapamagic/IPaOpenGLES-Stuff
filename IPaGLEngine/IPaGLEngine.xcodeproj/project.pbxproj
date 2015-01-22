@@ -37,7 +37,6 @@
 		6E5F8F901A70A73F00490CD0 /* IPaGLPoints2DRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E5F8F8E1A70A73F00490CD0 /* IPaGLPoints2DRenderer.h */; };
 		6E5F8F951A70A81C00490CD0 /* IPaGLShader2DRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E5F8F931A70A81C00490CD0 /* IPaGLShader2DRenderer.h */; };
 		6E5F8F961A70A81C00490CD0 /* IPaGLShader2DRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5F8F941A70A81C00490CD0 /* IPaGLShader2DRenderer.m */; };
-		6E5F8F9E1A70FCE700490CD0 /* IPaGLPoints2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5F8F8B1A70A0C300490CD0 /* IPaGLPoints2D.m */; };
 		6E5F8F9F1A70FCE700490CD0 /* IPaGLPoints2DRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5F8F8F1A70A73F00490CD0 /* IPaGLPoints2DRenderer.m */; };
 		6EAAC2111A6CF58C00691292 /* IPaGLPerspectiveSprite2DRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EAAC20F1A6CF58C00691292 /* IPaGLPerspectiveSprite2DRenderer.h */; };
 		6EAAC2121A6CF58C00691292 /* IPaGLPerspectiveSprite2DRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EAAC2101A6CF58C00691292 /* IPaGLPerspectiveSprite2DRenderer.m */; };
@@ -458,7 +457,6 @@
 				6EBD79F41822BD1500A63EDC /* IPaGLRenderSource.m in Sources */,
 				6E4950481A5FE39C00EEE0AD /* IPaGLEntity.m in Sources */,
 				6E2BDA871A64FC5000FE959D /* IPaGLPerspectiveSprite2D.m in Sources */,
-				6E5F8F9E1A70FCE700490CD0 /* IPaGLPoints2D.m in Sources */,
 				6EBD79E61822BD1500A63EDC /* IPaGLEffect.m in Sources */,
 				6EBD7A021822BD1500A63EDC /* IPaGLWaterRippleEffect.m in Sources */,
 				6EBD79E81822BD1500A63EDC /* IPaGLEngine.m in Sources */,

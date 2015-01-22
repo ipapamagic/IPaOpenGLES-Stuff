@@ -16,6 +16,7 @@
 		6E3B0B7516ED93F30013A6C2 /* FramebufferTextureSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3B0B7416ED93F30013A6C2 /* FramebufferTextureSampleViewController.m */; };
 		6E45B2B616E9C14400C14ABA /* TitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E45B2B516E9C14400C14ABA /* TitleViewController.m */; };
 		6E45B2B916E9C3BE00C14ABA /* IPaGLSprite2DSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E45B2B816E9C3BE00C14ABA /* IPaGLSprite2DSampleViewController.m */; };
+		6E5F8FA11A70FDF600490CD0 /* IPaGLPoints2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5F8FA01A70FDF600490CD0 /* IPaGLPoints2D.m */; };
 		6E67FE6A16A3054800E94CFE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E67FE6916A3054800E94CFE /* UIKit.framework */; };
 		6E67FE6C16A3054800E94CFE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E67FE6B16A3054800E94CFE /* Foundation.framework */; };
 		6E67FE6E16A3054800E94CFE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E67FE6D16A3054800E94CFE /* CoreGraphics.framework */; };
@@ -55,6 +56,7 @@
 		6E45B2B516E9C14400C14ABA /* TitleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleViewController.m; sourceTree = "<group>"; };
 		6E45B2B716E9C3BE00C14ABA /* IPaGLSprite2DSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLSprite2DSampleViewController.h; sourceTree = "<group>"; };
 		6E45B2B816E9C3BE00C14ABA /* IPaGLSprite2DSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLSprite2DSampleViewController.m; sourceTree = "<group>"; };
+		6E5F8FA01A70FDF600490CD0 /* IPaGLPoints2D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IPaGLPoints2D.m; path = ../../IPaGLEngine/IPaGLEngine/IPaGLPoints2D.m; sourceTree = "<group>"; };
 		6E67FE6516A3054800E94CFE /* IPaGLSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IPaGLSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E67FE6916A3054800E94CFE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6E67FE6B16A3054800E94CFE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -149,6 +151,7 @@
 			children = (
 				6E3B0B7316ED93F30013A6C2 /* FramebufferTextureSampleViewController.h */,
 				6E3B0B7416ED93F30013A6C2 /* FramebufferTextureSampleViewController.m */,
+				6E5F8FA01A70FDF600490CD0 /* IPaGLPoints2D.m */,
 			);
 			name = "FramebuffetTexture Sample";
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E5F8FA11A70FDF600490CD0 /* IPaGLPoints2D.m in Sources */,
 				6E67FE7A16A3054800E94CFE /* main.m in Sources */,
 				6E67FE7E16A3054800E94CFE /* IPaAppDelegate.m in Sources */,
 				6E67FE8E16A3054800E94CFE /* IPaGLWavefrontObjSampleViewController.m in Sources */,

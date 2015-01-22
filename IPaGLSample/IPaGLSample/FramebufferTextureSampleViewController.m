@@ -146,7 +146,7 @@
     [texture bindFramebuffer];
     
     [points render];
-    [points removeAllPoints];
+//    [points removeAllPoints];
 }
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
