@@ -22,6 +22,8 @@
 @property (nonatomic,assign) GLKVector2 center;
 //
 -(void)setTexture:(IPaGLTexture*)texture;
+-(void)setTexture:(IPaGLTexture*)texture update:(BOOL)update;
+- (instancetype)initWithTexture:(IPaGLTexture*)texture renderer:(IPaGLSprite2DRenderer*) useRenderer;
 -(id)initWithUIImage:(UIImage*)image withName:(NSString*)name renderer:(IPaGLSprite2DRenderer*) useRenderer;
 -(void)setPosition:(GLKVector2)position size:(GLKVector2)size;
 -(void)setCenter:(GLKVector2)center size:(GLKVector2)size;

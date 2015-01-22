@@ -22,17 +22,17 @@
 //{
 //    return nil;
 //}
--(id)initWithUIImage:(UIImage*)image withName:(NSString*)name renderer:(IPaGLSprite2DRenderer*) useRenderer
+- (instancetype)initWithRenderer:(IPaGLSprite2DRenderer*)useRenderer
 {
     self = [super init];
     source = [[IPaGLRenderSource alloc] init];
-//    GLfloat VertexData[] = {
-//        //底
-//        -1,-1,0,0,
-//        1,-1,1,0,
-//        -1,1,0,1,
-//        1,1,1,1,
-//    };
+    //    GLfloat VertexData[] = {
+    //        //底
+    //        -1,-1,0,0,
+    //        1,-1,1,0,
+    //        -1,1,0,1,
+    //        1,1,1,1,
+    //    };
     GLKVector2 displaySize = useRenderer.displaySize;
     GLfloat VertexData[] = {
         //底
@@ -41,30 +41,34 @@
         0,0,0,1,
         displaySize.x,0,1,1,
     };
-
+    
     source.vertexAttributes = malloc(sizeof(VertexData));
     memcpy(source.vertexAttributes, VertexData, sizeof(VertexData));
     source.vertexAttributeCount = 4;
     source.attrHasPosZ = NO;
     source.attrHasNormal = NO;
     source.attrHasTexCoords = YES;
-    [source createBufferDynamic];
+    self.renderer = useRenderer;
     self.material = [[IPaGLMaterial alloc] init];
     self.matrix = GLKMatrix4Identity;
-    self.material.texture = [IPaGLTexture textureFromImage:image withName:name];
-    self.renderer = useRenderer;
-   
-    GLfloat *vertexAttr = source.vertexAttributes;
-    GLKVector2 texCoordRatio = self.material.texture.texCoordRatio;
+    return self;
+}
+- (instancetype)initWithTexture:(IPaGLTexture*)texture renderer:(IPaGLSprite2DRenderer*) useRenderer
+{
+    self = [self initWithRenderer:useRenderer];
     
-    if (!(texCoordRatio.x == 1 && texCoordRatio.y == 1)) {
-        vertexAttr[2] = vertexAttr[10] = 0;
-        vertexAttr[3] = vertexAttr[7] = 0;
-        vertexAttr[6] = vertexAttr[14] = texCoordRatio.x;
-        vertexAttr[11] = vertexAttr[15] = texCoordRatio.y;
-        [source updateAttributeBuffer];
+    
+    [self setTexture:texture update:NO];
+    [source createBufferDynamic]; 
+    return self;
+}
+- (instancetype)initWithUIImage:(UIImage*)image withName:(NSString*)name renderer:(IPaGLSprite2DRenderer*) useRenderer
+{
+    self = [self initWithRenderer:useRenderer];
 
-    }
+    [self setTexture:[IPaGLTexture textureFromImage:image withName:name] update:NO];
+    
+    [source createBufferDynamic];
     return self;
 }
 -(void)setTextureRect:(GLKVector4)rect
@@ -168,12 +172,27 @@
 //    self.matrix = GLKMatrix4Scale(self.matrix,self.size.x * 0.5, self.size.y * 0.5, 1);
 //}
 
-
+-(void)setTexture:(IPaGLTexture*)texture update:(BOOL)update
+{
+    //may need to reset image Rect
+    self.material.texture = texture;
+    GLfloat *vertexAttr = source.vertexAttributes;
+    GLKVector2 texCoordRatio = self.material.texture.texCoordRatio;
+    
+    
+    vertexAttr[2] = vertexAttr[10] = 0;
+    vertexAttr[3] = vertexAttr[7] = 0;
+    vertexAttr[6] = vertexAttr[14] = texCoordRatio.x;
+    vertexAttr[11] = vertexAttr[15] = texCoordRatio.y;
+        //        [source updateAttributeBuffer];
+    
+    if (update) {
+        [source updateAttributeBuffer];
+    }
+}
 -(void)setTexture:(IPaGLTexture*)texture
 {
-    //may need to reset image Rect 
-    self.material.texture = texture;
-    
+    [self setTexture:texture update:YES];
 }
 - (void)render
 {

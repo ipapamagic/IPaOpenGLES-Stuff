@@ -33,6 +33,12 @@
 		6E2E193E1A5FD9530061CB68 /* IPaGLSprite2DRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2E193C1A5FD9530061CB68 /* IPaGLSprite2DRenderer.m */; };
 		6E4950471A5FE39C00EEE0AD /* IPaGLEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E4950451A5FE39C00EEE0AD /* IPaGLEntity.h */; };
 		6E4950481A5FE39C00EEE0AD /* IPaGLEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4950461A5FE39C00EEE0AD /* IPaGLEntity.m */; };
+		6E5F8F8C1A70A0C300490CD0 /* IPaGLPoints2D.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E5F8F8A1A70A0C300490CD0 /* IPaGLPoints2D.h */; };
+		6E5F8F901A70A73F00490CD0 /* IPaGLPoints2DRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E5F8F8E1A70A73F00490CD0 /* IPaGLPoints2DRenderer.h */; };
+		6E5F8F951A70A81C00490CD0 /* IPaGLShader2DRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E5F8F931A70A81C00490CD0 /* IPaGLShader2DRenderer.h */; };
+		6E5F8F961A70A81C00490CD0 /* IPaGLShader2DRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5F8F941A70A81C00490CD0 /* IPaGLShader2DRenderer.m */; };
+		6E5F8F9E1A70FCE700490CD0 /* IPaGLPoints2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5F8F8B1A70A0C300490CD0 /* IPaGLPoints2D.m */; };
+		6E5F8F9F1A70FCE700490CD0 /* IPaGLPoints2DRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5F8F8F1A70A73F00490CD0 /* IPaGLPoints2DRenderer.m */; };
 		6EAAC2111A6CF58C00691292 /* IPaGLPerspectiveSprite2DRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EAAC20F1A6CF58C00691292 /* IPaGLPerspectiveSprite2DRenderer.h */; };
 		6EAAC2121A6CF58C00691292 /* IPaGLPerspectiveSprite2DRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EAAC2101A6CF58C00691292 /* IPaGLPerspectiveSprite2DRenderer.m */; };
 		6EBD79B71822BCBC00A63EDC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6EBD79B51822BCBC00A63EDC /* InfoPlist.strings */; };
@@ -84,6 +90,12 @@
 		6E2E193C1A5FD9530061CB68 /* IPaGLSprite2DRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLSprite2DRenderer.m; sourceTree = "<group>"; };
 		6E4950451A5FE39C00EEE0AD /* IPaGLEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLEntity.h; sourceTree = "<group>"; };
 		6E4950461A5FE39C00EEE0AD /* IPaGLEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLEntity.m; sourceTree = "<group>"; };
+		6E5F8F8A1A70A0C300490CD0 /* IPaGLPoints2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLPoints2D.h; sourceTree = "<group>"; };
+		6E5F8F8B1A70A0C300490CD0 /* IPaGLPoints2D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLPoints2D.m; sourceTree = "<group>"; };
+		6E5F8F8E1A70A73F00490CD0 /* IPaGLPoints2DRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLPoints2DRenderer.h; sourceTree = "<group>"; };
+		6E5F8F8F1A70A73F00490CD0 /* IPaGLPoints2DRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLPoints2DRenderer.m; sourceTree = "<group>"; };
+		6E5F8F931A70A81C00490CD0 /* IPaGLShader2DRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLShader2DRenderer.h; sourceTree = "<group>"; };
+		6E5F8F941A70A81C00490CD0 /* IPaGLShader2DRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLShader2DRenderer.m; sourceTree = "<group>"; };
 		6EAAC20F1A6CF58C00691292 /* IPaGLPerspectiveSprite2DRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLPerspectiveSprite2DRenderer.h; sourceTree = "<group>"; };
 		6EAAC2101A6CF58C00691292 /* IPaGLPerspectiveSprite2DRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLPerspectiveSprite2DRenderer.m; sourceTree = "<group>"; };
 		6EBD79AE1822BCBC00A63EDC /* IPaGLEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IPaGLEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,6 +159,28 @@
 			name = IPaGLCamera;
 			sourceTree = "<group>";
 		};
+		6E5F8F891A70A06600490CD0 /* IPaGLPoints */ = {
+			isa = PBXGroup;
+			children = (
+				6E5F8F8A1A70A0C300490CD0 /* IPaGLPoints2D.h */,
+				6E5F8F8B1A70A0C300490CD0 /* IPaGLPoints2D.m */,
+				6E5F8F8E1A70A73F00490CD0 /* IPaGLPoints2DRenderer.h */,
+				6E5F8F8F1A70A73F00490CD0 /* IPaGLPoints2DRenderer.m */,
+			);
+			name = IPaGLPoints;
+			sourceTree = "<group>";
+		};
+		6E5F8F921A70A74D00490CD0 /* IPaGLWavefrontObjRenderer */ = {
+			isa = PBXGroup;
+			children = (
+				6EBD79E11822BD1500A63EDC /* IPaGLWavefrontObjRenderer.h */,
+				6EBD79E21822BD1500A63EDC /* IPaGLWavefrontObjRenderer.m */,
+				6EBD79E31822BD1500A63EDC /* IPaGLWavefrontObjRenderGroup.h */,
+				6EBD79E41822BD1500A63EDC /* IPaGLWavefrontObjRenderGroup.m */,
+			);
+			name = IPaGLWavefrontObjRenderer;
+			sourceTree = "<group>";
+		};
 		6E612D5B1A6E3C40001420A2 /* IPaGLPerspectiveSprite2D */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +220,7 @@
 				6EBD7A0D1822BF0D00A63EDC /* IPaGLSprite2D */,
 				6EBD7A0F1822BF6900A63EDC /* IPaGLFramebufferTexture */,
 				6EBD7A0B1822BE4C00A63EDC /* IPaGLWavefrontObj */,
+				6E5F8F891A70A06600490CD0 /* IPaGLPoints */,
 				6EBD79B31822BCBC00A63EDC /* Supporting Files */,
 			);
 			path = IPaGLEngine;
@@ -223,6 +258,8 @@
 				6EBD79CD1822BD1500A63EDC /* IPaGLRenderer.h */,
 				6E2E192F1A5FD74B0061CB68 /* IPaGLShaderRenderer.h */,
 				6E2E19301A5FD74B0061CB68 /* IPaGLShaderRenderer.m */,
+				6E5F8F931A70A81C00490CD0 /* IPaGLShader2DRenderer.h */,
+				6E5F8F941A70A81C00490CD0 /* IPaGLShader2DRenderer.m */,
 				6E2E19331A5FD7EB0061CB68 /* IPaGLKitRenderer.h */,
 				6E2E19341A5FD7EB0061CB68 /* IPaGLKitRenderer.m */,
 				6EBD79D91822BD1500A63EDC /* IPaGLToonRenderer.h */,
@@ -236,10 +273,7 @@
 			children = (
 				6EBD79DF1822BD1500A63EDC /* IPaGLWavefrontObj.h */,
 				6EBD79E01822BD1500A63EDC /* IPaGLWavefrontObj.m */,
-				6EBD79E11822BD1500A63EDC /* IPaGLWavefrontObjRenderer.h */,
-				6EBD79E21822BD1500A63EDC /* IPaGLWavefrontObjRenderer.m */,
-				6EBD79E31822BD1500A63EDC /* IPaGLWavefrontObjRenderGroup.h */,
-				6EBD79E41822BD1500A63EDC /* IPaGLWavefrontObjRenderGroup.m */,
+				6E5F8F921A70A74D00490CD0 /* IPaGLWavefrontObjRenderer */,
 			);
 			name = IPaGLWavefrontObj;
 			sourceTree = "<group>";
@@ -306,6 +340,7 @@
 				6EBD79E71822BD1500A63EDC /* IPaGLEngine.h in Headers */,
 				6E2E192D1A5FD1720061CB68 /* IPaGLCamera.h in Headers */,
 				6E2E193D1A5FD9530061CB68 /* IPaGLSprite2DRenderer.h in Headers */,
+				6E5F8F901A70A73F00490CD0 /* IPaGLPoints2DRenderer.h in Headers */,
 				6EBD79EF1822BD1500A63EDC /* IPaGLMaterial.h in Headers */,
 				6EBD79F51822BD1500A63EDC /* IPaGLSprite2D.h in Headers */,
 				6E2E19351A5FD7EB0061CB68 /* IPaGLKitRenderer.h in Headers */,
@@ -313,6 +348,8 @@
 				6EBD79FD1822BD1500A63EDC /* IPaGLToonRenderer.h in Headers */,
 				6EBD79F71822BD1500A63EDC /* IPaGLSprite2DAction.h in Headers */,
 				6EBD7A051822BD1500A63EDC /* IPaGLWavefrontObjRenderer.h in Headers */,
+				6E5F8F8C1A70A0C300490CD0 /* IPaGLPoints2D.h in Headers */,
+				6E5F8F951A70A81C00490CD0 /* IPaGLShader2DRenderer.h in Headers */,
 				6E2E19311A5FD74B0061CB68 /* IPaGLShaderRenderer.h in Headers */,
 				6EBD79EB1822BD1500A63EDC /* IPaGLFramebufferTexture.h in Headers */,
 				6EBD79E51822BD1500A63EDC /* IPaGLEffect.h in Headers */,
@@ -406,7 +443,9 @@
 				6EBD79F81822BD1500A63EDC /* IPaGLSprite2DAction.m in Sources */,
 				6EBD79FE1822BD1500A63EDC /* IPaGLToonRenderer.m in Sources */,
 				6EBD7A041822BD1500A63EDC /* IPaGLWavefrontObj.m in Sources */,
+				6E5F8F9F1A70FCE700490CD0 /* IPaGLPoints2DRenderer.m in Sources */,
 				6EBD79F01822BD1500A63EDC /* IPaGLMaterial.m in Sources */,
+				6E5F8F961A70A81C00490CD0 /* IPaGLShader2DRenderer.m in Sources */,
 				6EBD7A081822BD1500A63EDC /* IPaGLWavefrontObjRenderGroup.m in Sources */,
 				6EBD7A061822BD1500A63EDC /* IPaGLWavefrontObjRenderer.m in Sources */,
 				6EBD79EA1822BD1500A63EDC /* IPaGLFilterSprite2DRenderer.m in Sources */,
@@ -419,6 +458,7 @@
 				6EBD79F41822BD1500A63EDC /* IPaGLRenderSource.m in Sources */,
 				6E4950481A5FE39C00EEE0AD /* IPaGLEntity.m in Sources */,
 				6E2BDA871A64FC5000FE959D /* IPaGLPerspectiveSprite2D.m in Sources */,
+				6E5F8F9E1A70FCE700490CD0 /* IPaGLPoints2D.m in Sources */,
 				6EBD79E61822BD1500A63EDC /* IPaGLEffect.m in Sources */,
 				6EBD7A021822BD1500A63EDC /* IPaGLWaterRippleEffect.m in Sources */,
 				6EBD79E81822BD1500A63EDC /* IPaGLEngine.m in Sources */,

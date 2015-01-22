@@ -10,6 +10,14 @@
 #import "IPaGLPerspectiveSprite2DRenderer.h"
 #import "IPaGLEngine.h"
 #import "IPaGLPerspectiveSprite2D.h"
+#import "IPaGLTexture.h"
+#import "IPaGLFramebufferTexture.h"
+#import "IPaGLSprite2D.h"
+#import "FrameBufferRenderer.h"
+#import "IPaGLRenderSource.h"
+#import "IPaGLSprite2DRenderer.h"
+#define kBrushPixelStep		3
+#define vertexMax 64
 @implementation IPaGLPerspectiveSprite2DSampleViewController
 {
     IPaGLPerspectiveSprite2D* entity;
@@ -22,6 +30,14 @@
     __weak IBOutlet UIView *luView;
     
     __weak IBOutlet UIView *centerView;
+    
+    
+    IPaGLSprite2D *sprite;
+    IPaGLFramebufferTexture* texture;
+    //    IPaGLTexture *ttt;
+    IPaGLSprite2DRenderer *paintRenderer;
+    FrameBufferRenderer *framebufferRenderer;
+    IPaGLRenderSource *paintAttributes;
 }
 - (void)viewDidLoad
 {
@@ -134,7 +150,7 @@
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     [entity render];
-    GLKMatrix4 mat = entity.renderer.modelMatrix;
+   
 }
 
 

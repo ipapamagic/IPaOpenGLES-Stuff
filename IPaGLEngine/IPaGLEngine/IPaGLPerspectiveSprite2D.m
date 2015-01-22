@@ -135,7 +135,7 @@
     _center = GLKVector2Make((c1-c2)/(m2-m1), (m1*c2-m2*c1) / (m1-m2));
     //it's formular.....
     // (uvqi = float3(ui,vi,1) * (di+d(i+2)) / d(i+2) )
-    
+    //http://www.reedbeta.com/blog/2012/05/26/quadrilateral-interpolation-part-1/
     
     GLfloat firstLen = GLKVector2Distance(firstPos, _center);
     GLfloat secondLen = GLKVector2Distance(secondPos, _center);
@@ -160,7 +160,7 @@
     vertexAttr[IPaGLPerspectiveSprite2DCornerBottomLeft * 5 + 4] = d;
     
     
-    
+    NSLog(@"center:%f,%f",_center.x,_center.y);
     
     
     [source updateAttributeBuffer];

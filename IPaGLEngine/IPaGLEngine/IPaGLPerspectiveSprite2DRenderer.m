@@ -12,32 +12,6 @@
 {
     GLint matrixUniform;
 }
--(id)init
-{
-    if (self = [super init]) {
-        CGSize size = [[UIScreen mainScreen] bounds].size;
-        self.displaySize = GLKVector2Make(size.width, size.height);
-        
-    }
-    return self;
-}
--(id)initWithDisplaySize:(GLKVector2)displaySize
-{
-    if (self = [super init]) {
-        self.displaySize = displaySize;
-    }
-    return self;
-}
--(void)setDisplaySize:(GLKVector2)displaySize
-{
-    _displaySize = displaySize;
-    
-    
-    GLKMatrix4 matrix = GLKMatrix4MakeScale( 2/displaySize.x, -2/displaySize.y, 1);
-    matrix = GLKMatrix4Translate(matrix, -displaySize.x * .5, -displaySize.y * .5, 0);
-    
-    self.projectionMatrix = matrix;
-}
 - (void)prepareToRenderSprite2D:(IPaGLPerspectiveSprite2D*)sprite
 {
     self.modelMatrix = sprite.matrix;

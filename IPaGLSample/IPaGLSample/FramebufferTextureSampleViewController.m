@@ -11,9 +11,11 @@
 #import "IPaGLTexture.h"
 #import "IPaGLFramebufferTexture.h"
 #import "IPaGLSprite2D.h"
-#import "FrameBufferRenderer.h"
 #import "IPaGLRenderSource.h"
 #import "IPaGLSprite2DRenderer.h"
+#import "IPaGLPoints2D.h"
+#import "IPaGLPoints2DRenderer.h"
+
 #define kBrushPixelStep		3
 #define vertexMax 64
 @interface FramebufferTextureSampleViewController () 
@@ -26,8 +28,12 @@
     IPaGLFramebufferTexture* texture;
 //    IPaGLTexture *ttt;
     IPaGLSprite2DRenderer *paintRenderer;
-    FrameBufferRenderer *framebufferRenderer;
-    IPaGLRenderSource *paintAttributes;
+//    FrameBufferRenderer *framebufferRenderer;
+//    IPaGLRenderSource *paintAttributes;
+    IPaGLPoints2D *points;
+    IPaGLPoints2DRenderer *pointRenderer;
+    
+    
 }
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -78,23 +84,14 @@
  
     paintRenderer = [[IPaGLSprite2DRenderer alloc] initWithDisplaySize:GLKVector2Make(self.view.bounds.size.width, self.view.bounds.size.height)];
     
-    sprite = [[IPaGLSprite2D alloc] init];
-    [sprite setTexture:texture.texture];
-    sprite.renderer = paintRenderer;
+    sprite = [[IPaGLSprite2D alloc] initWithTexture:texture renderer:paintRenderer];
+
     [sprite setPosition:GLKVector2Make(0, 0) size:GLKVector2Make(size.width, size.height)];
-    
-    
-    framebufferRenderer = [[FrameBufferRenderer alloc] init];
-    framebufferRenderer.penColor = GLKVector4Make(0, 0, 0, 1);
-    framebufferRenderer.penSize = 10;
-    
-    paintAttributes = [[IPaGLRenderSource alloc] init];
-    paintAttributes.vertexAttributes = malloc(vertexMax * 2 * sizeof(GLfloat));
-    paintAttributes.vertexAttributeCount = 0;
-    [paintAttributes setAttrHasNormal:NO];
-    [paintAttributes setAttrHasTexCoords:NO];
-    [paintAttributes setAttrHasPosZ:NO];
-    [paintAttributes createBufferDynamic];
+    pointRenderer = [[IPaGLPoints2DRenderer alloc] initWithDisplaySize:GLKVector2Make(self.view.bounds.size.width, self.view.bounds.size.height)];
+    points = [[IPaGLPoints2D alloc] initWithMaxPointsNumber:vertexMax renderer:pointRenderer];
+
+    points.pointColor = GLKVector4Make(0, 0, 0, 1);
+    points.pointSize = 10;
     
     
     [texture bindFramebuffer];
@@ -115,13 +112,13 @@
 - (IBAction)onSelectWhite:(id)sender {
     [wBtn setSelected:YES];
     [bBtn setSelected:NO];
-  framebufferRenderer.penColor = GLKVector4Make(1, 1, 1, 1);
+    points.pointColor = GLKVector4Make(1, 1, 1, 1);
 }
 
 - (IBAction)onSelectBlack:(id)sender {
     [wBtn setSelected:NO];
     [bBtn setSelected:YES];
-      framebufferRenderer.penColor = GLKVector4Make(0, 0, 0, 1);
+    points.pointColor = GLKVector4Make(0, 0, 0, 1);
 }
 
 - (IBAction)onClear:(id)sender {
@@ -135,56 +132,21 @@
 - (void) renderLineFromPoint:(CGPoint)start toPoint:(CGPoint)end
 {
 	
-	static NSUInteger maxVertex = vertexMax;
-    
+
     GLKView *view = (GLKView *)self.view;
-    CGRect viewFrame = view.frame;
 	[EAGLContext setCurrentContext:view.context];
 
   
 	// Add points to the buffer so there are drawing points every X pixels
-	paintAttributes.vertexAttributeCount = MAX(ceilf(sqrtf((end.x - start.x) * (end.x - start.x) + (end.y - start.y) * (end.y - start.y)) / kBrushPixelStep), 1);
-    GLfloat* vertexBuffer = paintAttributes.vertexAttributes;
-	for(NSUInteger i = 0; i < paintAttributes.vertexAttributeCount; ++i) {
-		if(i == maxVertex) {
-			maxVertex *= 2;
-			paintAttributes.vertexAttributes = realloc(paintAttributes.vertexAttributes, maxVertex * 2 * sizeof(GLfloat));
-            vertexBuffer = paintAttributes.vertexAttributes;
-
-		}
-		CGFloat x,y;
-        x = start.x + (end.x - start.x) * ((GLfloat)i / (GLfloat)paintAttributes.vertexAttributeCount);
-        y = start.y + (end.y - start.y) * ((GLfloat)i / (GLfloat)paintAttributes.vertexAttributeCount);
+    [points addLine:GLKVector2Make(start.x, start.y) endPoint:GLKVector2Make(end.x, end.y) step:kBrushPixelStep];
     
-        //將xy換算成 texture 內的座標
-        x = -1 + x / viewFrame.size.width * 2;
-        y = 1 - y / viewFrame.size.height * 2 ;
-        
-
-//        y = y * texture.framebufferSize.y / itemRect.size.height;
-//        y += (texture.framebufferSize.y - itemRect.size.height) / texture.framebufferSize.y * 2 - 1;
-       
-        
-		vertexBuffer[2 * i + 0] = x;
-		vertexBuffer[2 * i + 1] = y;
-        //   NSLog(@"%f %f",x,y);
-		
-
-	}
+    
     
 	// Render the vertex array
-
-    [paintAttributes createBufferDynamic];
     [texture bindFramebuffer];
     
-    
-    [framebufferRenderer prepareToDraw];
-    [paintAttributes renderWithRenderer:framebufferRenderer];
-
-    
-	glDrawArrays(GL_POINTS, 0, (GLsizei)paintAttributes.vertexAttributeCount);
-    
-    
+    [points render];
+    [points removeAllPoints];
 }
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect

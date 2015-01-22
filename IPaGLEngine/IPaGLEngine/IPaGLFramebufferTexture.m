@@ -43,25 +43,22 @@
 		NSLog(@"Texture frame buffer not complete!");
         return nil;
 	}
-    self.texture = [[IPaGLTexture alloc] init];
-    self.texture.textureName = textureName;
-    self.texture.texTarget = GL_TEXTURE_2D;
-    self.texture.imageSize = GLKVector2Make(size.width, size.height);
-    self.texture.texCoordRatio = GLKVector2Make(1, 1);
+
+    self.textureName = textureName;
+    self.texTarget = GL_TEXTURE_2D;
+    self.imageSize = GLKVector2Make(size.width, size.height);
+    self.texCoordRatio = GLKVector2Make(1, 1);
     return self;
 
 }
 -(void)bindFramebuffer
 {
     glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
-    glViewport(0, 0, self.texture.imageSize.x, self.texture.imageSize.y);
+    glViewport(0, 0, self.imageSize.x, self.imageSize.y);
 }
 -(void)dealloc
 {
     glDeleteFramebuffers(1, &framebuffer);
 }
--(GLKVector2)framebufferSize
-{
-    return self.texture.imageSize;
-}
+
 @end
