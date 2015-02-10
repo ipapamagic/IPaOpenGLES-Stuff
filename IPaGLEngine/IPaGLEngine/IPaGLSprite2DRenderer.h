@@ -9,6 +9,6 @@
 #import "IPaGLShader2DRenderer.h"
 @class IPaGLSprite2D;
 @interface IPaGLSprite2DRenderer : IPaGLShader2DRenderer
-- (void)prepareToRenderSprite2D:(IPaGLSprite2D*)sprite;
+- (void)render:(IPaGLSprite2D*)sprite;
 
 @end

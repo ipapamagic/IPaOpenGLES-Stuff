@@ -9,9 +9,7 @@
 #import "IPaGLShader2DRenderer.h"
 @class IPaGLPoints2D;
 @interface IPaGLPoints2DRenderer : IPaGLShader2DRenderer
-@property (nonatomic,assign) GLfloat penSize;
-@property (nonatomic,assign) GLKVector4 penColor;
 @property (nonatomic,assign) GLfloat radiusFactor;
-- (void)prepareToRenderPoints2D:(IPaGLPoints2D*)points;
+- (void)render:(IPaGLPoints2D*)points;
 -(id)initWithDisplaySize:(GLKVector2)displaySize radiusFactor:(GLfloat)factor;
 @end

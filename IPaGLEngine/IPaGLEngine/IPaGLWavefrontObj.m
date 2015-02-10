@@ -8,18 +8,18 @@
 
 #import "IPaGLWavefrontObj.h"
 #import "IPaGLRenderSource.h"
-#import "IPaGLRenderer.h"
 #import "IPaGLWavefrontObjRenderGroup.h"
+#import "IPaGLWavefrontObjRenderer.h"
 #import "IPaGLVertexIndexes.h"
 #import "IPaGLMaterial.h"
 #import "IPaGLTexture.h"
 #import <GLKit/GLKit.h>
 @implementation IPaGLWavefrontObj
--(IPaGLWavefrontObj*)initWithFilePath:(NSString*)filePath
+-(IPaGLWavefrontObj*)initWithFilePath:(NSString*)filePath renderer:(IPaGLWavefrontObjRenderer*)useRenderer
 {
     self = [super init];
     self.filePath = filePath;
-    
+    self.renderer = useRenderer;
     NSString *basePath = [filePath stringByDeletingLastPathComponent];
     // Get lines
     
@@ -285,21 +285,21 @@
     }
     self.materials = nil;
 }
-
-
--(void)renderWithRenderer:(id <IPaGLRenderer>)renderer
+- (void)render
 {
-    [super renderWithRenderer:renderer];
+    [self.renderer prepareToDraw];
+    [self bindBuffer];
     
-    
+    [self.renderer prepareToRenderWavefrontOject:self];
     for (IPaGLWavefrontObjRenderGroup* group in self.renderGroup) {
         [group.vertexIndexes bindBuffer];
-        [renderer prepareToRenderWithMaterial:group.material];
+        [self.renderer prepareToRenderWithMaterial:group.material];
         
         glDrawElements(GL_TRIANGLES, (int)group.vertexIndexes.indexNumber,GL_UNSIGNED_SHORT, 0);
     }
-    
+
 }
+
 
 +(NSDictionary*)loadIPaGLMaterialsFromMTLFile:(NSString*)fileName withBasePath:(NSString*)basePath
 {

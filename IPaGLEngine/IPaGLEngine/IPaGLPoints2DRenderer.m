@@ -67,20 +67,19 @@
     matrixUniform = glGetUniformLocation(_program, "matrix");
     radiusFactorUniform = glGetUniformLocation(_program, "radiusFactor");
 }
--(void)onBindGLUniforms
+
+- (void)render:(IPaGLPoints2D*)points
 {
-    glUniform1f(penSizeUniform,self.penSize);
-    glUniform4fv(pointColorUniform, 1, self.penColor.v);
-    GLKMatrix4 matrix = GLKMatrix4Multiply(self.projectionMatrix, self.modelMatrix);
+    [self prepareToDraw];
+    glUniform1f(penSizeUniform,points.pointSize);
+    glUniform4fv(pointColorUniform, 1, points.pointColor.v);
+    GLKMatrix4 matrix = GLKMatrix4Multiply(self.projectionMatrix, points.matrix);
     glUniformMatrix4fv(matrixUniform, 1, 0, matrix.m);
     glUniform1f(radiusFactorUniform,self.radiusFactor);
-}
-- (void)prepareToRenderPoints2D:(IPaGLPoints2D *)points
-{
-    self.penSize = points.pointSize;
-    self.penColor = points.pointColor;
-    self.modelMatrix = points.matrix;
     
+    [points.path bindBuffer];
+    //    [source renderWithRenderer:self.renderer];
+    glDrawArrays(GL_POINTS, 0, (GLsizei)points.path.currentPointNum);
 }
 
 

@@ -8,6 +8,7 @@
 
 #import "IPaGLFramebufferTexture.h"
 #import "IPaGLTexture.h"
+#import <OpenGLES/ES2/glext.h>
 @implementation IPaGLFramebufferTexture
 {
     GLuint framebuffer;
@@ -60,5 +61,39 @@
 {
     glDeleteFramebuffers(1, &framebuffer);
 }
-
+- (UIImage*)renderToImage
+{
+    [self bindFramebuffer];
+    GLint backingWidth, backingHeight;
+    
+    glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_WIDTH, &backingWidth);
+    glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_HEIGHT, &backingHeight);
+    
+    GLint x = 0, y = 0;
+    GLint width = self.imageSize.x;
+    GLint height = self.imageSize.y;
+    NSInteger dataLength = width * height * 4;
+    GLubyte *data = (GLubyte*)malloc(dataLength * sizeof(GLubyte));
+    
+    glPixelStorei(GL_PACK_ALIGNMENT, 4);
+    glReadPixels(x, y, width, height, GL_RGBA, GL_UNSIGNED_BYTE, data);
+    
+    CGDataProviderRef ref = CGDataProviderCreateWithData(NULL, data, dataLength, NULL);
+    CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
+    CGImageRef iref = CGImageCreate(width, height, 8, 32, width * 4, colorspace, kCGBitmapByteOrder32Big | kCGImageAlphaPremultipliedLast,
+                                    ref, NULL, true, kCGRenderingIntentDefault);
+    
+    UIGraphicsBeginImageContext(CGSizeMake(width, height));
+    CGContextRef cgcontext = UIGraphicsGetCurrentContext();
+    CGContextSetBlendMode(cgcontext, kCGBlendModeCopy);
+    CGContextDrawImage(cgcontext, CGRectMake(0.0, 0.0, width, height), iref);
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    free(data);
+    CFRelease(ref);
+    CFRelease(colorspace);
+    CGImageRelease(iref);
+    return image;
+}
 @end

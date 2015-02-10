@@ -103,8 +103,7 @@
 }
 -(void)prepareToRenderWithMaterial:(IPaGLMaterial *)material
 {
-    [super prepareToRenderWithMaterial:material];
-   
+    [material bindTexture];
     if (material.texture != nil) {
         glUniform2f(textRatioUniform, material.texture.texCoordRatio.x, material.texture.texCoordRatio.y);
         

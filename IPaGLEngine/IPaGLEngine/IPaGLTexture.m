@@ -51,24 +51,33 @@ static NSMutableDictionary *IPaGLTextureList = nil;
         imageSize.height = temp;
         
         if (!CGSizeEqualToSize(image.size, imageSize)) {
-            texture.texCoordRatio = GLKVector2Make(image.size.width / imageSize.width, image.size.height / imageSize.height);
+            
             UIGraphicsBeginImageContext(imageSize);
-            [image drawAtPoint:CGPointMake(0, imageSize.height - image.size.height)];
-//            [image drawInRect:CGRectMake(0, 0, imageSize.width, imageSize.height)];
+            CGSize newSize = image.size;
+            newSize.width = imageSize.width;
+            newSize.height = image.size.height / image.size.width * newSize.width;
+            
+            if (imageSize.height < newSize.height) {
+                newSize.height = imageSize.height;
+                newSize.width = image.size.width / image.size.height * newSize.height;
+            }
+            [image drawInRect:CGRectMake(0, imageSize.height - newSize.height,newSize.width,newSize.height)];
+            
             image = UIGraphicsGetImageFromCurrentImageContext();
             UIGraphicsEndImageContext();
-            
+            texture.texCoordRatio = GLKVector2Make(newSize.width / imageSize.width, newSize.height / imageSize.height);
             NSLog(@"IPaGLTexture:Image:%@ size is not power of 2",name);
-           
             
-
+            
+            
         }
         else {
             texture.texCoordRatio = GLKVector2Make(1,1);
         }
         
         
-        texture.textureInfo = [GLKTextureLoader textureWithCGImage:image.CGImage options:options error:&error];
+        texture.textureInfo = [GLKTextureLoader textureWithCGImage:image.CGImage options:options error:&
+                               error];
         if (error != nil) {
             NSLog(@"IPaGLTexture:textureFromImage error:%@",error);
         }
@@ -82,23 +91,23 @@ static NSMutableDictionary *IPaGLTextureList = nil;
     if (texture == nil) {
         UIImage *image = [UIImage imageWithContentsOfFile:filePath];
         return [self textureFromImage:image withName:filePath];
-//        
-//        texture = [[IPaGLTexture alloc] initWithName:filePath];
-//        NSDictionary * options = @{ GLKTextureLoaderOriginBottomLeft : @(YES)};
-//        NSError *error;
-//        texture.textureInfo = [GLKTextureLoader textureWithContentsOfFile:filePath options:options error:&error];
-//        if (error != nil) {
-//            NSLog(@"IPaGLTexture:textureFromFile error:%@",error);
-//        }
+        //
+        //        texture = [[IPaGLTexture alloc] initWithName:filePath];
+        //        NSDictionary * options = @{ GLKTextureLoaderOriginBottomLeft : @(YES)};
+        //        NSError *error;
+        //        texture.textureInfo = [GLKTextureLoader textureWithContentsOfFile:filePath options:options error:&error];
+        //        if (error != nil) {
+        //            NSLog(@"IPaGLTexture:textureFromFile error:%@",error);
+        //        }
     }
     return texture;
 }
 -(id)init
 {
     self = [super init];
-  
-
-   
+    
+    
+    
     return self;
 }
 -(IPaGLTexture*)initWithName:(NSString*)name

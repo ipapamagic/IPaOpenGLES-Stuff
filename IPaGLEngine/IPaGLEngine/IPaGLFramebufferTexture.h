@@ -14,4 +14,5 @@
 -(IPaGLFramebufferTexture*)initWithSize:(CGSize)size;
 -(IPaGLFramebufferTexture*)initWithSize:(CGSize)size filter:(GLenum)filter;
 -(void)bindFramebuffer;
+- (UIImage*)renderToImage;
 @end

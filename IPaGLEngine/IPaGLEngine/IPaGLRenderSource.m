@@ -8,7 +8,6 @@
 
 #import "IPaGLRenderSource.h"
 #import <OpenGLES/ES2/glext.h>
-#import "IPaGLRenderer.h"
 #import "IPaGLMaterial.h"
 typedef enum {
     IPaGLAttr_HasNormal = 1,
@@ -25,16 +24,21 @@ typedef enum {
 
 -(void)dealloc
 {
+    [self removeBuffer];
+    if (self.vertexAttributes != nil) {
+        free(self.vertexAttributes);
+    }
+}
+- (void)removeBuffer
+{
     if (vertexBuffer != 0) {
         glDeleteBuffers(1, &vertexBuffer);
     }
     if (vertexArray != 0) {
         glDeleteVertexArraysOES(1, &vertexArray);
     }
-    if (self.vertexAttributes != nil) {
-        free(self.vertexAttributes);
-    }
-  
+
+    
 }
 -(size_t)vertexAttributeSize
 {
@@ -156,10 +160,10 @@ typedef enum {
 //    glBufferData(GL_ARRAY_BUFFER, self.vertexAttributeSize * self.vertexAttributeCount, self.vertexAttributes, GL_STATIC_DRAW);
     glBindVertexArrayOES(0);    
 }
--(void)renderWithRenderer:(id <IPaGLRenderer>)renderer;
-{
-    [renderer prepareToDraw];
-    [self bindBuffer];
-}
+//-(void)renderWithRenderer:(id <IPaGLRenderer>)renderer;
+//{
+//    [renderer prepareToDraw];
+//    [self bindBuffer];
+//}
 
 @end

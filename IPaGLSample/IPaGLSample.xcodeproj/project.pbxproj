@@ -16,7 +16,8 @@
 		6E3B0B7516ED93F30013A6C2 /* FramebufferTextureSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3B0B7416ED93F30013A6C2 /* FramebufferTextureSampleViewController.m */; };
 		6E45B2B616E9C14400C14ABA /* TitleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E45B2B516E9C14400C14ABA /* TitleViewController.m */; };
 		6E45B2B916E9C3BE00C14ABA /* IPaGLSprite2DSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E45B2B816E9C3BE00C14ABA /* IPaGLSprite2DSampleViewController.m */; };
-		6E5F8FA11A70FDF600490CD0 /* IPaGLPoints2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5F8FA01A70FDF600490CD0 /* IPaGLPoints2D.m */; };
+		6E6062D91A79D4AD00BEAE8B /* TrangleFan2DFramebufferTextureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6062D81A79D4AD00BEAE8B /* TrangleFan2DFramebufferTextureViewController.m */; };
+		6E6212031A7B875A0041DFBA /* GL3DSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6212021A7B875A0041DFBA /* GL3DSceneViewController.m */; };
 		6E67FE6A16A3054800E94CFE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E67FE6916A3054800E94CFE /* UIKit.framework */; };
 		6E67FE6C16A3054800E94CFE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E67FE6B16A3054800E94CFE /* Foundation.framework */; };
 		6E67FE6E16A3054800E94CFE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E67FE6D16A3054800E94CFE /* CoreGraphics.framework */; };
@@ -36,7 +37,6 @@
 		6E67FEA416A3087800E94CFE /* uvcube2.obj in Resources */ = {isa = PBXBuildFile; fileRef = 6E67FEA016A3087800E94CFE /* uvcube2.obj */; };
 		6E7C0E101822C4EB0026F3F9 /* IPaGLEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E7C0E0F1822C4EB0026F3F9 /* IPaGLEngine.framework */; };
 		6E8E58A91726F7FD00B0D8FF /* rock.png in Resources */ = {isa = PBXBuildFile; fileRef = 6E8E58A81726F7FD00B0D8FF /* rock.png */; };
-		6EA13150175DCC0900C5194C /* IPaGLToonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA1314F175DCC0900C5194C /* IPaGLToonViewController.m */; };
 		6EB3909D172934850068AF00 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6EB3909C172934850068AF00 /* 1.png */; };
 /* End PBXBuildFile section */
 
@@ -56,7 +56,10 @@
 		6E45B2B516E9C14400C14ABA /* TitleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleViewController.m; sourceTree = "<group>"; };
 		6E45B2B716E9C3BE00C14ABA /* IPaGLSprite2DSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLSprite2DSampleViewController.h; sourceTree = "<group>"; };
 		6E45B2B816E9C3BE00C14ABA /* IPaGLSprite2DSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLSprite2DSampleViewController.m; sourceTree = "<group>"; };
-		6E5F8FA01A70FDF600490CD0 /* IPaGLPoints2D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IPaGLPoints2D.m; path = ../../IPaGLEngine/IPaGLEngine/IPaGLPoints2D.m; sourceTree = "<group>"; };
+		6E6062D71A79D4AD00BEAE8B /* TrangleFan2DFramebufferTextureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrangleFan2DFramebufferTextureViewController.h; sourceTree = "<group>"; };
+		6E6062D81A79D4AD00BEAE8B /* TrangleFan2DFramebufferTextureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrangleFan2DFramebufferTextureViewController.m; sourceTree = "<group>"; };
+		6E6212011A7B875A0041DFBA /* GL3DSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GL3DSceneViewController.h; sourceTree = "<group>"; };
+		6E6212021A7B875A0041DFBA /* GL3DSceneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GL3DSceneViewController.m; sourceTree = "<group>"; };
 		6E67FE6516A3054800E94CFE /* IPaGLSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IPaGLSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E67FE6916A3054800E94CFE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6E67FE6B16A3054800E94CFE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -81,8 +84,6 @@
 		6E67FEA016A3087800E94CFE /* uvcube2.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = uvcube2.obj; sourceTree = "<group>"; };
 		6E7C0E0F1822C4EB0026F3F9 /* IPaGLEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IPaGLEngine.framework; path = ../IPaGLEngine/Products/IPaGLEngine.framework; sourceTree = "<group>"; };
 		6E8E58A81726F7FD00B0D8FF /* rock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rock.png; sourceTree = "<group>"; };
-		6EA1314E175DCC0900C5194C /* IPaGLToonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLToonViewController.h; sourceTree = "<group>"; };
-		6EA1314F175DCC0900C5194C /* IPaGLToonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLToonViewController.m; sourceTree = "<group>"; };
 		6EB3909C172934850068AF00 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,7 +152,6 @@
 			children = (
 				6E3B0B7316ED93F30013A6C2 /* FramebufferTextureSampleViewController.h */,
 				6E3B0B7416ED93F30013A6C2 /* FramebufferTextureSampleViewController.m */,
-				6E5F8FA01A70FDF600490CD0 /* IPaGLPoints2D.m */,
 			);
 			name = "FramebuffetTexture Sample";
 			sourceTree = "<group>";
@@ -172,6 +172,24 @@
 				6E45B2B816E9C3BE00C14ABA /* IPaGLSprite2DSampleViewController.m */,
 			);
 			name = "IPaGLSprite2D Sample";
+			sourceTree = "<group>";
+		};
+		6E6062DA1A79D4B000BEAE8B /* TrangleFan2DFramebufferTextureViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6E6062D71A79D4AD00BEAE8B /* TrangleFan2DFramebufferTextureViewController.h */,
+				6E6062D81A79D4AD00BEAE8B /* TrangleFan2DFramebufferTextureViewController.m */,
+			);
+			name = TrangleFan2DFramebufferTextureViewController;
+			sourceTree = "<group>";
+		};
+		6E6212001A7B872D0041DFBA /* 3D Scene */ = {
+			isa = PBXGroup;
+			children = (
+				6E6212011A7B875A0041DFBA /* GL3DSceneViewController.h */,
+				6E6212021A7B875A0041DFBA /* GL3DSceneViewController.m */,
+			);
+			name = "3D Scene";
 			sourceTree = "<group>";
 		};
 		6E67FE5A16A3054800E94CFE = {
@@ -215,12 +233,13 @@
 				6E45B2B516E9C14400C14ABA /* TitleViewController.m */,
 				6E3AF6E3172693B30013A01C /* Artist */,
 				6E2036C51727E80F0043A035 /* GooViewController */,
-				6EA13151175DCC1400C5194C /* IPaGLToonViewController */,
 				6E3AF6E21726934E0013A01C /* IPaGLWaterRipple Sample */,
 				6E3B0B7C16EDB20D0013A6C2 /* IPaGLWavefrontObj Sample */,
 				6E3B0B7D16EDB21C0013A6C2 /* IPaGLSprite2D Sample */,
 				6E3B0B7716EDB1130013A6C2 /* FramebuffetTexture Sample */,
+				6E6062DA1A79D4B000BEAE8B /* TrangleFan2DFramebufferTextureViewController */,
 				6E2BDA8F1A65169200FE959D /* IPaGLShapeSpriteSampleViewController */,
+				6E6212001A7B872D0041DFBA /* 3D Scene */,
 				6E67FE7416A3054800E94CFE /* Supporting Files */,
 			);
 			path = IPaGLSample;
@@ -238,15 +257,6 @@
 				6E67FE8316A3054800E94CFE /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		6EA13151175DCC1400C5194C /* IPaGLToonViewController */ = {
-			isa = PBXGroup;
-			children = (
-				6EA1314E175DCC0900C5194C /* IPaGLToonViewController.h */,
-				6EA1314F175DCC0900C5194C /* IPaGLToonViewController.m */,
-			);
-			name = IPaGLToonViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,7 +334,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E5F8FA11A70FDF600490CD0 /* IPaGLPoints2D.m in Sources */,
 				6E67FE7A16A3054800E94CFE /* main.m in Sources */,
 				6E67FE7E16A3054800E94CFE /* IPaAppDelegate.m in Sources */,
 				6E67FE8E16A3054800E94CFE /* IPaGLWavefrontObjSampleViewController.m in Sources */,
@@ -332,9 +341,10 @@
 				6E45B2B616E9C14400C14ABA /* TitleViewController.m in Sources */,
 				6E45B2B916E9C3BE00C14ABA /* IPaGLSprite2DSampleViewController.m in Sources */,
 				6E3B0B7516ED93F30013A6C2 /* FramebufferTextureSampleViewController.m in Sources */,
+				6E6212031A7B875A0041DFBA /* GL3DSceneViewController.m in Sources */,
 				6E3AF6E11726934A0013A01C /* IPaGLWaterRippleViewController.m in Sources */,
 				6E2036C41727E5E60043A035 /* GooViewController.m in Sources */,
-				6EA13150175DCC0900C5194C /* IPaGLToonViewController.m in Sources */,
+				6E6062D91A79D4AD00BEAE8B /* TrangleFan2DFramebufferTextureViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

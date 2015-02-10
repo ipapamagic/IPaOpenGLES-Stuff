@@ -7,10 +7,10 @@
 //
 
 #import "IPaGLShaderRenderer.h"
-
+@class IPaGLPath2DContainer;
 @interface IPaGLShader2DRenderer : IPaGLShaderRenderer
 @property (nonatomic,assign) GLKVector2 displaySize;
 @property (nonatomic,assign) GLKMatrix4 projectionMatrix;
-@property (nonatomic,assign) GLKMatrix4 modelMatrix;
 -(id)initWithDisplaySize:(GLKVector2)displaySize;
+- (void)render:(IPaGLPath2DContainer*)pathContainer;
 @end

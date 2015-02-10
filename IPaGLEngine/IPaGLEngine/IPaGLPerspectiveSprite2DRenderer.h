@@ -9,6 +9,6 @@
 #import "IPaGLShader2DRenderer.h"
 @class IPaGLPerspectiveSprite2D;
 @interface IPaGLPerspectiveSprite2DRenderer : IPaGLShader2DRenderer
-- (void)prepareToRenderSprite2D:(IPaGLPerspectiveSprite2D*)sprite;
+- (void)render:(IPaGLPerspectiveSprite2D*)sprite;
 
 @end

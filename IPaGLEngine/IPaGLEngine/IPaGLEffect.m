@@ -137,14 +137,15 @@
 }
 -(GLKVector2)displaySize
 {
-    return texture.framebufferSize;
+    return texture.imageSize;
 }
 
 -(void)render
 {
-    material.texture = texture.texture;
+    material.texture = texture;
 //    material.constantColor = [UIColor blackColor];
-    [source renderWithRenderer:renderer];
+//    [source renderWithRenderer:renderer];
+    [source bindBuffer];
     [vertexIndexes bindBuffer];
     [renderer prepareToRenderWithMaterial:material];
 //    glDrawArrays(GL_POINTS, 0, source.vertexAttributeCount);

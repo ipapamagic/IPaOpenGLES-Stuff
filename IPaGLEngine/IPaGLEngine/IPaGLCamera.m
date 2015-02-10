@@ -8,7 +8,7 @@
 
 #import "IPaGLCamera.h"
 #import "IPaGLEntity.h"
-#import "IPaGLRenderer.h"
+#import "IPaGLEntityRenderer.h"
 @interface IPaGLCamera()
 @property (nonatomic,readonly) GLKMatrix4 inverseMatrix;
 @end
@@ -29,16 +29,19 @@
     
     return self;
 }
-- (GLKMatrix4)inverseMatrix
+- (GLKMatrix4)viewMatrix
 {
     bool isInvertible;
     return GLKMatrix4Invert(self.matrix, &isInvertible);
 }
+- (GLKMatrix4)viewProjectionMatrix
+{
+    return GLKMatrix4Multiply(self.projectionMatrix, self.viewMatrix);
+}
 - (void)renderIPaGLEntity:(IPaGLEntity*)entity
 {
-    
-    [entity.renderer setProjectionMatrix:self.projectionMatrix];
-    GLKMatrix4 modelMatrix = GLKMatrix4Multiply(entity.matrix, self.matrix);
+    [entity.renderer renderEntity:entity withCamera:self];
+
 
 }
 @end

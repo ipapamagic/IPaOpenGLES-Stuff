@@ -32,7 +32,7 @@
     
     
     IPaGLSprite2D *sprite;
-    IPaGLFramebufferTexture* texture;
+//    IPaGLFramebufferTexture* texture;
     //    IPaGLTexture *ttt;
     IPaGLSprite2DRenderer *paintRenderer;
     IPaGLRenderSource *paintAttributes;
@@ -133,6 +133,26 @@
     [entity setCorner:IPaGLPerspectiveSprite2DCornerBottomRight position:GLKVector2Make(point.x, point.y)];
     centerView.center = CGPointMake(entity.center.x,entity.center.y);    
 }
+- (IBAction)onNext:(id)sender {
+    
+    CGFloat width = CGRectGetWidth(self.view.frame);
+    CGFloat y = CGRectGetHeight(self.view.frame) * .5 - width * .5;
+
+    GLKVector2 uv = [entity getUVOfPoint:GLKVector2Make(centerView.center.x,centerView.center.y)];
+
+    [entity setPosition:GLKVector2Make(0, y) size:GLKVector2Make(width, width)];
+    centerView.center = CGPointMake(width * uv.x, (y + width) - width * uv.y);
+
+    luView.center = CGPointMake(0, y);
+    ruView.center = CGPointMake(width, y);
+    lbView.center = CGPointMake(0, y + width);
+    rbView.center = CGPointMake(width, y + width);
+    
+}
+- (IBAction)onTap:(UITapGestureRecognizer*)sender {
+    centerView.center = [sender locationInView:self.view];
+}
+
 
 #pragma mark - GLKView and GLKViewController delegate methods
 

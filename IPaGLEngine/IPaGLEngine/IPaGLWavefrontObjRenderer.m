@@ -9,6 +9,7 @@
 #import "IPaGLWavefrontObjRenderer.h"
 #import "IPaGLMaterial.h"
 #import "IPaGLTexture.h"
+#import "IPaGLWavefrontObj.h"
 @implementation IPaGLWavefrontObjRenderer
 {
     GLint modelViewProjectionMatrixUniform;
@@ -63,14 +64,15 @@
     diffuseColorUniform = glGetUniformLocation(_program,"diffuseColor");
     textRatioUniform = glGetUniformLocation(_program,"textRatio");
 }
--(void)onBindGLUniforms
+
+- (void)prepareToRenderWavefrontOject:(IPaGLWavefrontObj*)wavefrontObj
 {
     glUniformMatrix4fv(modelViewProjectionMatrixUniform, 1, 0, self.modelViewProjectionMatrix.m);
     glUniformMatrix3fv(normalMatrixUniform, 1, 0, self.normalMatrix.m);
 }
 -(void)prepareToRenderWithMaterial:(IPaGLMaterial *)material
 {
-    [super prepareToRenderWithMaterial:material];
+    [material bindTexture];
     if (material.diffuse != nil) {
         CGFloat r,g,b,a;
         [material.diffuse getRed:&r green:&g blue:&b alpha:&a];

@@ -26,7 +26,7 @@
 @implementation IPaGLWavefrontObjSampleViewController
 {
     IPaGLWavefrontObjRenderer *shaderRenderer;
-    IPaGLKitRenderer *glkRenderer;
+//    IPaGLKitRenderer *glkRenderer;
     IPaGLWavefrontObj *object;
     
     GLKMatrix4 modelViewProjectionMatrix;
@@ -35,7 +35,7 @@
 //    GLKMatrix3 normalMatrix2;
     
     
-    GLKMatrix4 modelViewMatrixForGLKit;
+//    GLKMatrix4 modelViewMatrixForGLKit;
 //    GLKMatrix4 modelViewMatrixForGLKit2;
     float rotation;
 }
@@ -89,13 +89,13 @@
     [EAGLContext setCurrentContext:self.context];
     
     shaderRenderer = [[IPaGLWavefrontObjRenderer alloc] init];
-    glkRenderer = [[IPaGLKitRenderer alloc] init];
+//    glkRenderer = [[IPaGLKitRenderer alloc] init];
 
     //create an IPaGLAttributes to record vertex data
     
     
    
-    object = [[IPaGLWavefrontObj alloc] initWithFilePath:[[NSBundle mainBundle] pathForResource:@"uvcube2" ofType:@"obj"]];
+    object = [[IPaGLWavefrontObj alloc] initWithFilePath:[[NSBundle mainBundle] pathForResource:@"uvcube2" ofType:@"obj"] renderer: shaderRenderer];
 
     glEnable(GL_DEPTH_TEST);
     
@@ -113,16 +113,16 @@
     float aspect = fabsf(self.view.bounds.size.width / self.view.bounds.size.height);
     GLKMatrix4 projectionMatrix = GLKMatrix4MakePerspective(GLKMathDegreesToRadians(65.0f), aspect, 0.1f, 100.0f);
 
-    glkRenderer.effect.transform.projectionMatrix = projectionMatrix;
+//    glkRenderer.effect.transform.projectionMatrix = projectionMatrix;
    
     GLKMatrix4 baseModelViewMatrix = GLKMatrix4MakeTranslation(0.0f, 0.0f, -20.0f);
     baseModelViewMatrix = GLKMatrix4Rotate(baseModelViewMatrix, rotation, 0.0f, 1.0f, 0.0f);
     
     // Compute the model view matrix for the object rendered with GLKit
     GLKMatrix4 modelViewMatrix = GLKMatrix4MakeTranslation(0.0f, 0.0f, -1.5f);
-    modelViewMatrix = GLKMatrix4Rotate(modelViewMatrix, rotation, 1.0f, 1.0f, 1.0f);
-    modelViewMatrix = GLKMatrix4Multiply(baseModelViewMatrix, modelViewMatrix);
-    modelViewMatrixForGLKit = modelViewMatrix;
+//    modelViewMatrix = GLKMatrix4Rotate(modelViewMatrix, rotation, 1.0f, 1.0f, 1.0f);
+//    modelViewMatrix = GLKMatrix4Multiply(baseModelViewMatrix, modelViewMatrix);
+//    modelViewMatrixForGLKit = modelViewMatrix;
  
     
     // Compute the model view matrix for the object rendered with ES2
@@ -149,10 +149,11 @@
     shaderRenderer.normalMatrix = normalMatrix;
 
     
-    glkRenderer.effect.transform.modelviewMatrix = modelViewMatrixForGLKit;
-   
-    [object renderWithRenderer:shaderRenderer];
-    [object renderWithRenderer:glkRenderer];
+//    glkRenderer.effect.transform.modelviewMatrix = modelViewMatrixForGLKit;
+    object.renderer = shaderRenderer;
+    [object render];
+//    [object renderWithRenderer:shaderRenderer];
+//    [object renderWithRenderer:glkRenderer];
 }
 
 

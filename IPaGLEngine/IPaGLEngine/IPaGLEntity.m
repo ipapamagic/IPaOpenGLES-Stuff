@@ -7,7 +7,9 @@
 //
 
 #import "IPaGLEntity.h"
-
+#import "IPaGLEntityRenderer.h"
+#import "IPaGLRenderSource.h"
 @implementation IPaGLEntity
+
 
 @end

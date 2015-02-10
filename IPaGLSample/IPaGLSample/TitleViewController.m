@@ -39,34 +39,11 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
--(IBAction)onIPaGLWavefrontObjSampleBack:(UIStoryboardSegue*)sender
+-(IBAction)onBack:(UIStoryboardSegue*)sender
 {
     
 }
--(IBAction)onIPaGLSprite2DSampleBack:(UIStoryboardSegue*)sender
-{
-    
-}
--(IBAction)onFramebufferSampleBack:(UIStoryboardSegue*)sender
-{
-    
-}
--(IBAction)onIPaWaterRippleSampleBack:(UIStoryboardSegue*)sender
-{
-    
-}
--(IBAction)onGooViewControllerBack:(UIStoryboardSegue*)sender
-{
-    
-}
--(IBAction)onIPaGLToonViewControllerBack:(UIStoryboardSegue*)sender
-{
-    
-}
--(IBAction)onIPaGLPerspectiveSprite2DViewControllerBack:(UIStoryboardSegue*)sender
-{
-    
-}
+
 #pragma mark - Table view data source
 
 

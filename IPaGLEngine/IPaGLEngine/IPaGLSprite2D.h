@@ -7,22 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "IPaGLRenderSource.h"
 @import GLKit;
 @class IPaGLTexture;
 @class IPaGLMaterial;
 @class IPaGLSprite2DRenderer;
 
-@interface IPaGLSprite2D : NSObject
+@interface IPaGLSprite2D : IPaGLRenderSource
 @property (nonatomic,assign) GLKVector2 position;
 @property (nonatomic,assign) GLKVector2 size;
 @property (nonatomic,strong) IPaGLMaterial* material;
 @property (nonatomic,assign) GLKMatrix4 matrix;
-@property (nonatomic,weak) IPaGLSprite2DRenderer* renderer;
+@property (nonatomic,assign) GLKMatrix4 projectMatrix;
+@property (nonatomic,strong) IPaGLSprite2DRenderer* renderer;
 @property (nonatomic,assign) CGFloat alpha;
 @property (nonatomic,assign) GLKVector2 center;
 //
 -(void)setTexture:(IPaGLTexture*)texture;
--(void)setTexture:(IPaGLTexture*)texture update:(BOOL)update;
 - (instancetype)initWithTexture:(IPaGLTexture*)texture renderer:(IPaGLSprite2DRenderer*) useRenderer;
 -(id)initWithUIImage:(UIImage*)image withName:(NSString*)name renderer:(IPaGLSprite2DRenderer*) useRenderer;
 -(void)setPosition:(GLKVector2)position size:(GLKVector2)size;

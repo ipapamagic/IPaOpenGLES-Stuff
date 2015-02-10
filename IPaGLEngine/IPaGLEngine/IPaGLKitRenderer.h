@@ -6,12 +6,13 @@
 //  Copyright (c) 2015年 IPaPa. All rights reserved.
 //
 
-#import "IPaGLRenderer.h"
 @import GLKit;
-@interface IPaGLKitRenderer : NSObject <IPaGLRenderer>
+@class IPaGLMaterial;
+@interface IPaGLKitRenderer : NSObject
 @property (nonatomic,strong) GLKBaseEffect* effect;
 -(void)setProjectionMatrix:(GLKMatrix4)projectionMatrix;
 -(GLKMatrix4)projectionMatrix;
 -(void)setModelMatrix:(GLKMatrix4)modelMatrix;
 -(GLKMatrix4)modelMatrix;
+-(void)prepareToRenderWithMaterial:(IPaGLMaterial*)material;
 @end

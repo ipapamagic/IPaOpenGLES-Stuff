@@ -19,11 +19,7 @@
     
     return self;
 }
--(void)prepareToDraw
-{
-    
-    
-}
+
 -(void)prepareToRenderWithMaterial:(IPaGLMaterial*)material
 {
     if (material == nil) {

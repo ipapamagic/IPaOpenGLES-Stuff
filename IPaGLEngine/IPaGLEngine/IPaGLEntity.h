@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "IPaGLEntityRenderer.h"
 @import GLKit;
 @class IPaGLRenderSource;
-@protocol IPaGLRenderer;
 @interface IPaGLEntity : NSObject
-@property (nonatomic,weak) IPaGLRenderSource *source;
-@property (nonatomic,weak) id <IPaGLRenderer> renderer;
+@property (nonatomic,strong) IPaGLRenderSource *source;
+@property (nonatomic,strong) IPaGLEntityRenderer *renderer;
 @property (nonatomic,assign) GLKMatrix4 matrix;
+
 @end

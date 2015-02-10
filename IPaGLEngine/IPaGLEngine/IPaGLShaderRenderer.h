@@ -6,18 +6,18 @@
 //  Copyright (c) 2015年 IPaPa. All rights reserved.
 //
 
-#import "IPaGLRenderer.h"
+@import GLKit;
 
 
-@interface IPaGLShaderRenderer : NSObject <IPaGLRenderer>
+@interface IPaGLShaderRenderer : NSObject
 -(NSString*)vertexShaderFilePath;
 -(NSString*)fragmentShaderFilePath;
 //overwrite theses function , if you want to give shader code with string directly
 -(NSString*)vertexShaderSource;
 -(NSString*)fragmentShaderSource;
-
+-(void)prepareToDraw;
 -(void)onBindGLAttributes:(GLuint)_program;
 -(void)onGetGLUniforms:(GLuint)_program;
--(void)onBindGLUniforms;
--(void)prepareToRenderWithMaterial:(IPaGLMaterial *)material;
+//-(void)onBindGLUniforms;
+
 @end

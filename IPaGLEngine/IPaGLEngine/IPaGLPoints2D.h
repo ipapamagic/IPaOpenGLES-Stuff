@@ -7,17 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "IPaGLPath2DContainer.h"
+#import "IPaGLPoints2DRenderer.h"
 @import GLKit;
-@class IPaGLPoints2DRenderer;
-@interface IPaGLPoints2D : NSObject
-@property (nonatomic,weak) IPaGLPoints2DRenderer* renderer;
+@class IPaGLPath2D;
+@interface IPaGLPoints2D : IPaGLPath2DContainer
+@property (nonatomic,strong) IPaGLPoints2DRenderer* renderer;
 @property (nonatomic,assign) GLfloat pointSize;
 @property (nonatomic,assign) GLKVector4 pointColor;
 @property (nonatomic,assign) GLKMatrix4 matrix;
+@property (nonatomic,strong) IPaGLPath2D *path;
 - (instancetype)initWithMaxPointsNumber:(GLint)maxPointsNumber renderer:(IPaGLPoints2DRenderer*)renderer;
-
-- (void)addPoint:(GLKVector2)point;
-- (void)addLine:(GLKVector2)startPoint endPoint:(GLKVector2)endPoint step:(GLint)step;
-- (void)removeAllPoints;
-- (void)render;
+- (instancetype)initWithPath:(IPaGLPath2D*)path renderer:(IPaGLPoints2DRenderer*)renderer;
 @end

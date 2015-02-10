@@ -8,15 +8,10 @@
 
 #import "IPaGLPerspectiveSprite2DRenderer.h"
 #import "IPaGLPerspectiveSprite2D.h"
+#import "IPaGLMaterial.h"
 @implementation IPaGLPerspectiveSprite2DRenderer
 {
     GLint matrixUniform;
-}
-- (void)prepareToRenderSprite2D:(IPaGLPerspectiveSprite2D*)sprite
-{
-    self.modelMatrix = sprite.matrix;
-    [self prepareToRenderWithMaterial:sprite.material];
-    
 }
 
 -(NSString*)vertexShaderSource
@@ -52,10 +47,16 @@
 {
     matrixUniform = glGetUniformLocation(_program, "matrix");
 }
--(void)onBindGLUniforms
+
+- (void)render:(IPaGLPerspectiveSprite2D*)sprite
 {
-    GLKMatrix4 matrix = GLKMatrix4Multiply(self.projectionMatrix, self.modelMatrix);
+    [self prepareToDraw];
+    [sprite.material bindTexture];
+    GLKMatrix4 matrix = GLKMatrix4Multiply(self.projectionMatrix, sprite.matrix);
     glUniformMatrix4fv(matrixUniform, 1, 0, matrix.m);
+    [sprite bindBuffer];
     
+    glDrawArrays(GL_TRIANGLE_STRIP, 0, (GLsizei)sprite.vertexAttributeCount);
+
 }
 @end

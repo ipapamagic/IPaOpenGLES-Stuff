@@ -8,17 +8,13 @@
 
 #import "IPaGLSprite2DRenderer.h"
 #import "IPaGLSprite2D.h"
+#import "IPaGLMaterial.h"
 @implementation IPaGLSprite2DRenderer
 {
     GLint matrixUniform;
 }
 
-- (void)prepareToRenderSprite2D:(IPaGLSprite2D*)sprite
-{
-    self.modelMatrix = sprite.matrix;
-    [self prepareToRenderWithMaterial:sprite.material];
-    
-}
+
 
 -(NSString*)vertexShaderSource
 {
@@ -36,11 +32,11 @@
 -(NSString*)fragmentShaderSource
 {
     return @"varying lowp vec2 v_texCoord;\
-    uniform sampler2D texture;\
-    void main(void)\
-    {\
-    gl_FragColor = texture2D(texture, v_texCoord);\
-    }";
+            uniform sampler2D texture;\
+            void main(void)\
+            {\
+                gl_FragColor = texture2D(texture, v_texCoord);\
+            }";
 }
 
 -(void)onBindGLAttributes:(GLuint)_program
@@ -53,10 +49,16 @@
 {
     matrixUniform = glGetUniformLocation(_program, "matrix");
 }
--(void)onBindGLUniforms
+- (void)render:(IPaGLSprite2D*)sprite
 {
-    GLKMatrix4 matrix = GLKMatrix4Multiply(self.projectionMatrix, self.modelMatrix);
+    [self prepareToDraw];
+    GLKMatrix4 matrix = GLKMatrix4Multiply(self.projectionMatrix, sprite.matrix);
     glUniformMatrix4fv(matrixUniform, 1, 0, matrix.m);
-    
+    self.projectionMatrix = sprite.projectMatrix;
+    [sprite.material bindTexture];
+    [sprite bindBuffer];
+
+    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+
 }
 @end

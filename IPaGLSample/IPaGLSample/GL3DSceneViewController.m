@@ -1,21 +1,24 @@
 //
-//  IPaGLSprite2DSampleViewController.m
-//  IPaGLObjectSample
+//  GL3DSceneViewController.m
+//  IPaGLSample
 //
-//  Created by IPaPa on 13/3/8.
-//  Copyright (c) 2013 IPaPa. All rights reserved.
+//  Created by IPa Chen on 2015/1/30.
+//  Copyright (c) 2015年 IPaPa. All rights reserved.
 //
 
-#import "IPaGLSprite2DSampleViewController.h"
-#import "IPaGLSprite2D.h"
-#import "IPaGLSprite2DRenderer.h"
+#import "GL3DSceneViewController.h"
 #import "IPaGLEngine.h"
-@implementation IPaGLSprite2DSampleViewController
+#import "IPaGLCamera.h"
+#import "IPaGLSprite3D.h"
+#import "IPaGLSprite3DRenderer.h"
+@interface GL3DSceneViewController ()
+
+@end
+
+@implementation GL3DSceneViewController
 {
-    IPaGLSprite2D* entity;
-    IPaGLSprite2DRenderer *renderer;
-    
-    
+    IPaGLCamera *camera;
+    IPaGLSprite3D *entity;
 }
 - (void)viewDidLoad
 {
@@ -31,9 +34,8 @@
     view.context = context;
     view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
     
-
+    
 }
-
 - (void)dealloc
 {
     [self tearDownGL];
@@ -69,24 +71,26 @@
 {
     GLKView *view = (GLKView *)self.view;
     [EAGLContext setCurrentContext:view.context];
+    IPaGLSprite3DRenderer *renderer = [[IPaGLSprite3DRenderer alloc] init];
+    entity = [[IPaGLSprite3D alloc] initWithUIImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"texture" ofType:@"png"]] withName:@"texture" renderer:renderer] ;
     
-    renderer = [[IPaGLSprite2DRenderer alloc] initWithDisplaySize:GLKVector2Make(self.view.frame.size.width, self.view.frame.size.height)];
-    entity = [[IPaGLSprite2D alloc] initWithUIImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"texture" ofType:@"png"]] withName:@"texture" renderer:renderer] ;
-
-    [entity setPosition:GLKVector2Make(100, self.view.frame.size.height / 2) size:GLKVector2Make(self.view.frame.size.width / 2, self.view.frame.size.height / 2)];
-    entity.matrix = GLKMatrix4MakeScale(0.5, 0.5, 1);
+    entity.size = GLKVector2Make(self.view.frame.size.width / 2, self.view.frame.size.height / 2);
+    
+    
+    
 }
 
 - (void)tearDownGL
 {
     entity = nil;
+    camera = nil;
 }
 
 #pragma mark - GLKView and GLKViewController delegate methods
 
 - (void)update
 {
- 
+    
 }
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
@@ -95,9 +99,8 @@
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    [entity render];
+    [camera renderIPaGLEntity:entity];
 }
-
 
 
 @end

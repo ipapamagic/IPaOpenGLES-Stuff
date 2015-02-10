@@ -8,10 +8,8 @@
 
 #import "FramebufferTextureSampleViewController.h"
 
-#import "IPaGLTexture.h"
 #import "IPaGLFramebufferTexture.h"
 #import "IPaGLSprite2D.h"
-#import "IPaGLRenderSource.h"
 #import "IPaGLSprite2DRenderer.h"
 #import "IPaGLPoints2D.h"
 #import "IPaGLPoints2DRenderer.h"
@@ -146,15 +144,16 @@
     [texture bindFramebuffer];
     
     [points render];
-//    [points removeAllPoints];
+    [points.path removeAllPoints];
 }
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
 {
-   // glClearColor(0.65f, 0.65f, 0.65f, 1.0f);
-   // glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    
+//    glClearColor(0.65f, 0.65f, 0.65f, 1.0f);
+//    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+//    [points render];
     [sprite render];
+    
 }
 - (void)viewDidUnload {
     bBtn = nil;

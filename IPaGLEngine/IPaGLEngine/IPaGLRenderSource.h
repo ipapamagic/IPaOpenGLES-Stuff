@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@protocol IPaGLRenderer;
+
 @interface IPaGLRenderSource : NSObject
 @property (nonatomic,assign) void *vertexAttributes;
 @property (nonatomic,assign) NSUInteger vertexAttributeCount;
@@ -17,6 +17,7 @@
 -(void)createBufferStatic;
 //create buffer with GL_DYNAMIC_DRAW
 -(void)createBufferDynamic;
+- (void)removeBuffer;
 -(void)bindBuffer;
 -(void)updateAttributeBuffer;
 -(size_t)vertexAttributeSize;
@@ -28,6 +29,6 @@
 -(void)setAttrHasNormal:(BOOL)hasNormal;
 -(void)setAttrHasTexCoords:(BOOL)hasTexCoords;
 - (void)setAttrHasTexCoords3D:(BOOL)hasTexCoords3D;
--(void)renderWithRenderer:(id <IPaGLRenderer>)renderer;
+
 
 @end

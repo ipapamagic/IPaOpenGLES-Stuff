@@ -60,8 +60,8 @@
 {
     glUniform1f(brightnessUniform, self.brightness);
     glUniform1f(contrastUniform, self.contrast);
-    GLKMatrix4 matrix = GLKMatrix4Multiply(self.projectionMatrix, self.modelMatrix);
-    glUniformMatrix4fv(matrixUniform, 1, 0, matrix.m);
+//    GLKMatrix4 matrix = GLKMatrix4Multiply(self.projectionMatrix, self.modelMatrix);
+//    glUniformMatrix4fv(matrixUniform, 1, 0, matrix.m);
 
 }
 

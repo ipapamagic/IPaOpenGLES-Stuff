@@ -9,10 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "IPaGLRenderSource.h"
 #import <GLKit/GLKit.h>
+@class IPaGLWavefrontObjRenderer;
 @interface IPaGLWavefrontObj : IPaGLRenderSource
 @property (nonatomic,copy) NSString *filePath;
 @property (nonatomic,strong) NSDictionary *materials;
 @property (nonatomic,strong) NSMutableArray *renderGroup;
--(IPaGLWavefrontObj*)initWithFilePath:(NSString*)filePath;
+@property (nonatomic,strong) IPaGLWavefrontObjRenderer *renderer;
+-(IPaGLWavefrontObj*)initWithFilePath:(NSString*)filePath renderer:(IPaGLWavefrontObjRenderer*)useRenderer;
+- (void)render;
 @end
 

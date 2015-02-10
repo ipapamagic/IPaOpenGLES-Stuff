@@ -32,12 +32,9 @@
 -(void)prepareToDraw
 {
     glUseProgram(program);
-    [self onBindGLUniforms];
+//    [self onBindGLUniforms];
 }
--(void)prepareToRenderWithMaterial:(IPaGLMaterial*)material
-{
-    [material bindTexture];
-}
+
 - (void)setProjectionMatrix:(GLKMatrix4)projectionMatrix
 {
     
@@ -72,9 +69,9 @@
 -(void)onGetGLUniforms:(GLuint)_program
 {
 }
--(void)onBindGLUniforms
-{
-}
+//-(void)onBindGLUniforms
+//{
+//}
 #pragma mark -  OpenGL ES 2 shader compilation
 
 - (void)loadShaders
