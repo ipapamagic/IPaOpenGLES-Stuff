@@ -107,7 +107,7 @@
     
     sprite = [[IPaGLSprite2D alloc] initWithTexture:texture renderer:paintRenderer];
     
-    [sprite setPosition:GLKVector2Make(0, 0) size:GLKVector2Make(size.width, size.height)];
+    [sprite setOrigin:GLKVector2Make(0, 0) size:GLKVector2Make(size.width, size.height)];
     IPaGLTrangleFan2DRenderer *fanRenderer = [[IPaGLTrangleFan2DRenderer alloc] initWithDisplaySize:GLKVector2Make(self.view.bounds.size.width, self.view.bounds.size.height)];
     trangleFan = [[IPaGLTrangleFan2D alloc] initWithMaxPointsNumber:64 renderer:fanRenderer];
     

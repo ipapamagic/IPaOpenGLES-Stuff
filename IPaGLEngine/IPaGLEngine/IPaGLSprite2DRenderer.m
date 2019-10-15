@@ -52,9 +52,10 @@
 - (void)render:(IPaGLSprite2D*)sprite
 {
     [self prepareToDraw];
-    GLKMatrix4 matrix = GLKMatrix4Multiply(self.projectionMatrix, sprite.matrix);
-    glUniformMatrix4fv(matrixUniform, 1, 0, matrix.m);
-    self.projectionMatrix = sprite.projectMatrix;
+//    GLKMatrix4 matrix = GLKMatrix4Multiply(self.projectionMatrix, sprite.matrix);
+//    glUniformMatrix4fv(matrixUniform, 1, 0, matrix.m);
+    glUniformMatrix4fv(matrixUniform, 1, 0, sprite.matrix.m);
+//    self.projectionMatrix = sprite.projectMatrix;
     [sprite.material bindTexture];
     [sprite bindBuffer];
 

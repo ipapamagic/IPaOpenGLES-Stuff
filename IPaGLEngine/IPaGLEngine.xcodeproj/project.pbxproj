@@ -21,6 +21,11 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		6E0481D11AEE165C0047EA6B /* IPaGLPerspectiveSprite2DAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E0481CF1AEE165C0047EA6B /* IPaGLPerspectiveSprite2DAction.h */; };
+		6E0481D21AEE165C0047EA6B /* IPaGLPerspectiveSprite2DAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0481D01AEE165C0047EA6B /* IPaGLPerspectiveSprite2DAction.m */; };
+		6E0481D61AEE17190047EA6B /* IPaGLPerspectiveSprite2DScaleAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E0481D41AEE17190047EA6B /* IPaGLPerspectiveSprite2DScaleAction.h */; };
+		6E0481D71AEE17190047EA6B /* IPaGLPerspectiveSprite2DScaleAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0481D51AEE17190047EA6B /* IPaGLPerspectiveSprite2DScaleAction.m */; };
+		6E0481DC1AEE21E30047EA6B /* IPaGL2DActionTarget.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E0481DB1AEE21E30047EA6B /* IPaGL2DActionTarget.h */; };
 		6E2BDA861A64FC5000FE959D /* IPaGLPerspectiveSprite2D.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E2BDA841A64FC5000FE959D /* IPaGLPerspectiveSprite2D.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6E2BDA871A64FC5000FE959D /* IPaGLPerspectiveSprite2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2BDA851A64FC5000FE959D /* IPaGLPerspectiveSprite2D.m */; };
 		6E2E192D1A5FD1720061CB68 /* IPaGLCamera.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E2E192B1A5FD1720061CB68 /* IPaGLCamera.h */; };
@@ -54,6 +59,14 @@
 		6E64EE021A78D26C00A99C05 /* IPaGLTrangleFan2DRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E64EE001A78D26C00A99C05 /* IPaGLTrangleFan2DRenderer.m */; };
 		6EAAC2111A6CF58C00691292 /* IPaGLPerspectiveSprite2DRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EAAC20F1A6CF58C00691292 /* IPaGLPerspectiveSprite2DRenderer.h */; };
 		6EAAC2121A6CF58C00691292 /* IPaGLPerspectiveSprite2DRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EAAC2101A6CF58C00691292 /* IPaGLPerspectiveSprite2DRenderer.m */; };
+		6EB46A031ADFAA5F00929B2C /* IPaGL2DMoveAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EB46A011ADFAA5F00929B2C /* IPaGL2DMoveAction.h */; };
+		6EB46A041ADFAA5F00929B2C /* IPaGL2DMoveAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB46A021ADFAA5F00929B2C /* IPaGL2DMoveAction.m */; };
+		6EB46A071ADFAAEB00929B2C /* IPaGL2DVelocityAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EB46A051ADFAAEB00929B2C /* IPaGL2DVelocityAction.h */; };
+		6EB46A081ADFAAEB00929B2C /* IPaGL2DVelocityAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB46A061ADFAAEB00929B2C /* IPaGL2DVelocityAction.m */; };
+		6EB46A0B1ADFAB3B00929B2C /* IPaGL2DAlphaAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EB46A091ADFAB3B00929B2C /* IPaGL2DAlphaAction.h */; };
+		6EB46A0C1ADFAB3B00929B2C /* IPaGL2DAlphaAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB46A0A1ADFAB3B00929B2C /* IPaGL2DAlphaAction.m */; };
+		6EB46A0F1ADFABAC00929B2C /* IPaGL2DScaleAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EB46A0D1ADFABAC00929B2C /* IPaGL2DScaleAction.h */; };
+		6EB46A101ADFABAC00929B2C /* IPaGL2DScaleAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EB46A0E1ADFABAC00929B2C /* IPaGL2DScaleAction.m */; };
 		6EBB8ECE1A7597AD0034F0C9 /* IPaGLPoints2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E5F8F8B1A70A0C300490CD0 /* IPaGLPoints2D.m */; };
 		6EBD79B71822BCBC00A63EDC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6EBD79B51822BCBC00A63EDC /* InfoPlist.strings */; };
 		6EBD79E51822BD1500A63EDC /* IPaGLEffect.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EBD79C11822BD1500A63EDC /* IPaGLEffect.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -72,8 +85,8 @@
 		6EBD79F41822BD1500A63EDC /* IPaGLRenderSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EBD79D01822BD1500A63EDC /* IPaGLRenderSource.m */; };
 		6EBD79F51822BD1500A63EDC /* IPaGLSprite2D.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EBD79D11822BD1500A63EDC /* IPaGLSprite2D.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6EBD79F61822BD1500A63EDC /* IPaGLSprite2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EBD79D21822BD1500A63EDC /* IPaGLSprite2D.m */; };
-		6EBD79F71822BD1500A63EDC /* IPaGLSprite2DAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EBD79D31822BD1500A63EDC /* IPaGLSprite2DAction.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6EBD79F81822BD1500A63EDC /* IPaGLSprite2DAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EBD79D41822BD1500A63EDC /* IPaGLSprite2DAction.m */; };
+		6EBD79F71822BD1500A63EDC /* IPaGL2DAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EBD79D31822BD1500A63EDC /* IPaGL2DAction.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6EBD79F81822BD1500A63EDC /* IPaGL2DAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EBD79D41822BD1500A63EDC /* IPaGL2DAction.m */; };
 		6EBD79FB1822BD1500A63EDC /* IPaGLTexture.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EBD79D71822BD1500A63EDC /* IPaGLTexture.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6EBD79FC1822BD1500A63EDC /* IPaGLTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EBD79D81822BD1500A63EDC /* IPaGLTexture.m */; };
 		6EBD79FD1822BD1500A63EDC /* IPaGLToonRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EBD79D91822BD1500A63EDC /* IPaGLToonRenderer.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -91,6 +104,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6E0481CF1AEE165C0047EA6B /* IPaGLPerspectiveSprite2DAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLPerspectiveSprite2DAction.h; sourceTree = "<group>"; };
+		6E0481D01AEE165C0047EA6B /* IPaGLPerspectiveSprite2DAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLPerspectiveSprite2DAction.m; sourceTree = "<group>"; };
+		6E0481D41AEE17190047EA6B /* IPaGLPerspectiveSprite2DScaleAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLPerspectiveSprite2DScaleAction.h; sourceTree = "<group>"; };
+		6E0481D51AEE17190047EA6B /* IPaGLPerspectiveSprite2DScaleAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLPerspectiveSprite2DScaleAction.m; sourceTree = "<group>"; };
+		6E0481DB1AEE21E30047EA6B /* IPaGL2DActionTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGL2DActionTarget.h; sourceTree = "<group>"; };
 		6E2BDA841A64FC5000FE959D /* IPaGLPerspectiveSprite2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLPerspectiveSprite2D.h; sourceTree = "<group>"; };
 		6E2BDA851A64FC5000FE959D /* IPaGLPerspectiveSprite2D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLPerspectiveSprite2D.m; sourceTree = "<group>"; };
 		6E2E192B1A5FD1720061CB68 /* IPaGLCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLCamera.h; sourceTree = "<group>"; };
@@ -125,6 +143,14 @@
 		6E64EE001A78D26C00A99C05 /* IPaGLTrangleFan2DRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLTrangleFan2DRenderer.m; sourceTree = "<group>"; };
 		6EAAC20F1A6CF58C00691292 /* IPaGLPerspectiveSprite2DRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLPerspectiveSprite2DRenderer.h; sourceTree = "<group>"; };
 		6EAAC2101A6CF58C00691292 /* IPaGLPerspectiveSprite2DRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLPerspectiveSprite2DRenderer.m; sourceTree = "<group>"; };
+		6EB46A011ADFAA5F00929B2C /* IPaGL2DMoveAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGL2DMoveAction.h; sourceTree = "<group>"; };
+		6EB46A021ADFAA5F00929B2C /* IPaGL2DMoveAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGL2DMoveAction.m; sourceTree = "<group>"; };
+		6EB46A051ADFAAEB00929B2C /* IPaGL2DVelocityAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGL2DVelocityAction.h; sourceTree = "<group>"; };
+		6EB46A061ADFAAEB00929B2C /* IPaGL2DVelocityAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGL2DVelocityAction.m; sourceTree = "<group>"; };
+		6EB46A091ADFAB3B00929B2C /* IPaGL2DAlphaAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGL2DAlphaAction.h; sourceTree = "<group>"; };
+		6EB46A0A1ADFAB3B00929B2C /* IPaGL2DAlphaAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGL2DAlphaAction.m; sourceTree = "<group>"; };
+		6EB46A0D1ADFABAC00929B2C /* IPaGL2DScaleAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGL2DScaleAction.h; sourceTree = "<group>"; };
+		6EB46A0E1ADFABAC00929B2C /* IPaGL2DScaleAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGL2DScaleAction.m; sourceTree = "<group>"; };
 		6EBD79AE1822BCBC00A63EDC /* IPaGLEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IPaGLEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EBD79B41822BCBC00A63EDC /* IPaGLEngine-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IPaGLEngine-Info.plist"; sourceTree = "<group>"; };
 		6EBD79B61822BCBC00A63EDC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -145,8 +171,8 @@
 		6EBD79D01822BD1500A63EDC /* IPaGLRenderSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLRenderSource.m; sourceTree = "<group>"; };
 		6EBD79D11822BD1500A63EDC /* IPaGLSprite2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLSprite2D.h; sourceTree = "<group>"; };
 		6EBD79D21822BD1500A63EDC /* IPaGLSprite2D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLSprite2D.m; sourceTree = "<group>"; };
-		6EBD79D31822BD1500A63EDC /* IPaGLSprite2DAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLSprite2DAction.h; sourceTree = "<group>"; };
-		6EBD79D41822BD1500A63EDC /* IPaGLSprite2DAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLSprite2DAction.m; sourceTree = "<group>"; };
+		6EBD79D31822BD1500A63EDC /* IPaGL2DAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGL2DAction.h; sourceTree = "<group>"; };
+		6EBD79D41822BD1500A63EDC /* IPaGL2DAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGL2DAction.m; sourceTree = "<group>"; };
 		6EBD79D71822BD1500A63EDC /* IPaGLTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLTexture.h; sourceTree = "<group>"; };
 		6EBD79D81822BD1500A63EDC /* IPaGLTexture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPaGLTexture.m; sourceTree = "<group>"; };
 		6EBD79D91822BD1500A63EDC /* IPaGLToonRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPaGLToonRenderer.h; sourceTree = "<group>"; };
@@ -174,6 +200,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E0481D31AEE16620047EA6B /* IPaGLPerspectiveSprite2DAction */ = {
+			isa = PBXGroup;
+			children = (
+				6E0481CF1AEE165C0047EA6B /* IPaGLPerspectiveSprite2DAction.h */,
+				6E0481D01AEE165C0047EA6B /* IPaGLPerspectiveSprite2DAction.m */,
+				6E0481D41AEE17190047EA6B /* IPaGLPerspectiveSprite2DScaleAction.h */,
+				6E0481D51AEE17190047EA6B /* IPaGLPerspectiveSprite2DScaleAction.m */,
+			);
+			name = IPaGLPerspectiveSprite2DAction;
+			sourceTree = "<group>";
+		};
 		6E2E192A1A5FCECE0061CB68 /* IPaGLCamera */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +277,7 @@
 				6E2BDA851A64FC5000FE959D /* IPaGLPerspectiveSprite2D.m */,
 				6EAAC20F1A6CF58C00691292 /* IPaGLPerspectiveSprite2DRenderer.h */,
 				6EAAC2101A6CF58C00691292 /* IPaGLPerspectiveSprite2DRenderer.m */,
+				6E0481D31AEE16620047EA6B /* IPaGLPerspectiveSprite2DAction */,
 			);
 			name = IPaGLPerspectiveSprite2D;
 			sourceTree = "<group>";
@@ -269,6 +307,7 @@
 		6EAF83041A77941B003A9D67 /* IPaGL2D */ = {
 			isa = PBXGroup;
 			children = (
+				6EB46A001ADFAA2D00929B2C /* IPaGL2DAction */,
 				6EBD7A0C1822BE9600A63EDC /* IPaGLEffect */,
 				6E5F8F931A70A81C00490CD0 /* IPaGLShader2DRenderer.h */,
 				6E5F8F941A70A81C00490CD0 /* IPaGLShader2DRenderer.m */,
@@ -277,6 +316,24 @@
 				6E6062DF1A79E60400BEAE8B /* IPaGLPath2D */,
 			);
 			name = IPaGL2D;
+			sourceTree = "<group>";
+		};
+		6EB46A001ADFAA2D00929B2C /* IPaGL2DAction */ = {
+			isa = PBXGroup;
+			children = (
+				6E0481DB1AEE21E30047EA6B /* IPaGL2DActionTarget.h */,
+				6EBD79D31822BD1500A63EDC /* IPaGL2DAction.h */,
+				6EBD79D41822BD1500A63EDC /* IPaGL2DAction.m */,
+				6EB46A011ADFAA5F00929B2C /* IPaGL2DMoveAction.h */,
+				6EB46A021ADFAA5F00929B2C /* IPaGL2DMoveAction.m */,
+				6EB46A051ADFAAEB00929B2C /* IPaGL2DVelocityAction.h */,
+				6EB46A061ADFAAEB00929B2C /* IPaGL2DVelocityAction.m */,
+				6EB46A091ADFAB3B00929B2C /* IPaGL2DAlphaAction.h */,
+				6EB46A0A1ADFAB3B00929B2C /* IPaGL2DAlphaAction.m */,
+				6EB46A0D1ADFABAC00929B2C /* IPaGL2DScaleAction.h */,
+				6EB46A0E1ADFABAC00929B2C /* IPaGL2DScaleAction.m */,
+			);
+			name = IPaGL2DAction;
 			sourceTree = "<group>";
 		};
 		6EBD79A41822BCBC00A63EDC = {
@@ -375,8 +432,6 @@
 			children = (
 				6EBD79D11822BD1500A63EDC /* IPaGLSprite2D.h */,
 				6EBD79D21822BD1500A63EDC /* IPaGLSprite2D.m */,
-				6EBD79D31822BD1500A63EDC /* IPaGLSprite2DAction.h */,
-				6EBD79D41822BD1500A63EDC /* IPaGLSprite2DAction.m */,
 				6EBD7A0E1822BF2100A63EDC /* IPaGLSprite2DRenderer */,
 			);
 			name = IPaGLSprite2D;
@@ -413,6 +468,7 @@
 				6EBD7A011822BD1500A63EDC /* IPaGLWaterRippleEffect.h in Headers */,
 				6E64EDFD1A78D25100A99C05 /* IPaGLTrangleFan2D.h in Headers */,
 				6EBD79FF1822BD1500A63EDC /* IPaGLVertexIndexes.h in Headers */,
+				6EB46A031ADFAA5F00929B2C /* IPaGL2DMoveAction.h in Headers */,
 				6EBD7A071822BD1500A63EDC /* IPaGLWavefrontObjRenderGroup.h in Headers */,
 				6E6211FD1A7B3F1A0041DFBA /* IPaGLSprite3DRenderer.h in Headers */,
 				6E6062E21A79EA4700BEAE8B /* IPaGLPath2DContainer.h in Headers */,
@@ -425,20 +481,26 @@
 				6E2E193D1A5FD9530061CB68 /* IPaGLSprite2DRenderer.h in Headers */,
 				6E6062E71A7A3D3100BEAE8B /* IPaGLEntityRenderer.h in Headers */,
 				6E6062DD1A79E5FA00BEAE8B /* IPaGLPath2D.h in Headers */,
+				6E0481D61AEE17190047EA6B /* IPaGLPerspectiveSprite2DScaleAction.h in Headers */,
+				6EB46A0F1ADFABAC00929B2C /* IPaGL2DScaleAction.h in Headers */,
+				6E0481DC1AEE21E30047EA6B /* IPaGL2DActionTarget.h in Headers */,
 				6E5F8F901A70A73F00490CD0 /* IPaGLPoints2DRenderer.h in Headers */,
 				6EBD79EF1822BD1500A63EDC /* IPaGLMaterial.h in Headers */,
 				6EBD79F51822BD1500A63EDC /* IPaGLSprite2D.h in Headers */,
 				6E2E19351A5FD7EB0061CB68 /* IPaGLKitRenderer.h in Headers */,
 				6EAAC2111A6CF58C00691292 /* IPaGLPerspectiveSprite2DRenderer.h in Headers */,
 				6EBD79FD1822BD1500A63EDC /* IPaGLToonRenderer.h in Headers */,
-				6EBD79F71822BD1500A63EDC /* IPaGLSprite2DAction.h in Headers */,
+				6EBD79F71822BD1500A63EDC /* IPaGL2DAction.h in Headers */,
 				6EBD7A051822BD1500A63EDC /* IPaGLWavefrontObjRenderer.h in Headers */,
 				6E5F8F8C1A70A0C300490CD0 /* IPaGLPoints2D.h in Headers */,
+				6EB46A0B1ADFAB3B00929B2C /* IPaGL2DAlphaAction.h in Headers */,
 				6E5F8F951A70A81C00490CD0 /* IPaGLShader2DRenderer.h in Headers */,
 				6E2E19311A5FD74B0061CB68 /* IPaGLShaderRenderer.h in Headers */,
 				6EBD79EB1822BD1500A63EDC /* IPaGLFramebufferTexture.h in Headers */,
 				6EBD79E51822BD1500A63EDC /* IPaGLEffect.h in Headers */,
+				6E0481D11AEE165C0047EA6B /* IPaGLPerspectiveSprite2DAction.h in Headers */,
 				6EBD7A031822BD1500A63EDC /* IPaGLWavefrontObj.h in Headers */,
+				6EB46A071ADFAAEB00929B2C /* IPaGL2DVelocityAction.h in Headers */,
 				6E64EE011A78D26C00A99C05 /* IPaGLTrangleFan2DRenderer.h in Headers */,
 				6EBD79F31822BD1500A63EDC /* IPaGLRenderSource.h in Headers */,
 				6E2BDA861A64FC5000FE959D /* IPaGLPerspectiveSprite2D.h in Headers */,
@@ -525,9 +587,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EB46A101ADFABAC00929B2C /* IPaGL2DScaleAction.m in Sources */,
 				6E6211FE1A7B3F1A0041DFBA /* IPaGLSprite3DRenderer.m in Sources */,
 				6E6062E81A7A3D3100BEAE8B /* IPaGLEntityRenderer.m in Sources */,
-				6EBD79F81822BD1500A63EDC /* IPaGLSprite2DAction.m in Sources */,
+				6EBD79F81822BD1500A63EDC /* IPaGL2DAction.m in Sources */,
+				6E0481D21AEE165C0047EA6B /* IPaGLPerspectiveSprite2DAction.m in Sources */,
 				6EBD79FE1822BD1500A63EDC /* IPaGLToonRenderer.m in Sources */,
 				6EBD7A041822BD1500A63EDC /* IPaGLWavefrontObj.m in Sources */,
 				6E5F8F9F1A70FCE700490CD0 /* IPaGLPoints2DRenderer.m in Sources */,
@@ -540,12 +604,16 @@
 				6EBD79EA1822BD1500A63EDC /* IPaGLFilterSprite2DRenderer.m in Sources */,
 				6EBD79FC1822BD1500A63EDC /* IPaGLTexture.m in Sources */,
 				6EAAC2121A6CF58C00691292 /* IPaGLPerspectiveSprite2DRenderer.m in Sources */,
+				6EB46A0C1ADFAB3B00929B2C /* IPaGL2DAlphaAction.m in Sources */,
 				6E2E193E1A5FD9530061CB68 /* IPaGLSprite2DRenderer.m in Sources */,
 				6E2E192E1A5FD1720061CB68 /* IPaGLCamera.m in Sources */,
 				6EBD79EE1822BD1500A63EDC /* IPaGLGooEffect.m in Sources */,
 				6EBD79F61822BD1500A63EDC /* IPaGLSprite2D.m in Sources */,
+				6EB46A041ADFAA5F00929B2C /* IPaGL2DMoveAction.m in Sources */,
 				6EBD79F41822BD1500A63EDC /* IPaGLRenderSource.m in Sources */,
+				6EB46A081ADFAAEB00929B2C /* IPaGL2DVelocityAction.m in Sources */,
 				6E4950481A5FE39C00EEE0AD /* IPaGLEntity.m in Sources */,
+				6E0481D71AEE17190047EA6B /* IPaGLPerspectiveSprite2DScaleAction.m in Sources */,
 				6E2BDA871A64FC5000FE959D /* IPaGLPerspectiveSprite2D.m in Sources */,
 				6EBB8ECE1A7597AD0034F0C9 /* IPaGLPoints2D.m in Sources */,
 				6EBD79E61822BD1500A63EDC /* IPaGLEffect.m in Sources */,

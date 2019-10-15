@@ -11,6 +11,7 @@
 #import "IPaGLMaterial.h"
 #import "IPaGLTexture.h"
 @implementation IPaGLSprite3D
+@dynamic renderer;
 - (instancetype)initWithRenderer:(IPaGLSprite3DRenderer*)useRenderer
 {
     self = [super init];

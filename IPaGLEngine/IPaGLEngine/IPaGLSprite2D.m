@@ -10,13 +10,15 @@
 #import "IPaGLSprite2DRenderer.h"
 #import "IPaGLMaterial.h"
 #import "IPaGLTexture.h"
-
 @interface IPaGLSprite2D ()
+@property (nonatomic,strong) NSMutableArray *actions;
 @end
 @implementation IPaGLSprite2D
 {
 //    GLKMatrix4 matrix;
 }
+@synthesize size = _size;
+@synthesize origin = _origin;
 //-(id)init
 //{
 //    return nil;
@@ -40,7 +42,7 @@
 //        0,0,0,1,
 //        displaySize.x,0,1,1,
 //    };
-    self.projectMatrix = GLKMatrix4MakeOrtho(-1, 1, -1, 1, 0, 1);
+//    self.projectMatrix = GLKMatrix4MakeOrtho(-1, 1, -1, 1, 0, 1);
     
     self.vertexAttributes = malloc(sizeof(VertexData));
     memcpy(self.vertexAttributes, VertexData, sizeof(VertexData));
@@ -117,65 +119,83 @@
         self.material.constantColor = [self.material.constantColor colorWithAlphaComponent:alpha];
     }
 }
+- (void)setOrigin:(GLKVector2)origin
+{
+    _origin = origin;
+    [self updateSourceAttributes];
+}
 -(void)setPosition:(GLKVector2)position
 {
-    _position = position;
-//    [self updateSourceAttributes];
-    [self updateProjectMatrix];
+    [self setCenter:position];
+}
+- (GLKVector2)position
+{
+    return self.center;
 }
 -(GLKVector2)center
 {
-    return GLKVector2Make(self.position.x + self.size.x * 0.5, self.position.y + self.size.y * 0.5);
+    return GLKVector2Make(_origin.x + _size.x * 0.5, _origin.y + _size.y * 0.5);
 }
 -(void)setCenter:(GLKVector2)center
 {
-    self.position = GLKVector2Make(center.x - self.size.x * 0.5, center.y - self.size.y * 0.5);
+    self.origin = GLKVector2Make(center.x - _size.x * 0.5, center.y - _size.y * 0.5);
 }
 -(void)setSize:(GLKVector2)size
 {
     _size = size;
-//    [self updateSourceAttributes];
-    [self updateProjectMatrix];
+    [self updateSourceAttributes];
+//    [self updateProjectMatrix];
 }
--(void)setPosition:(GLKVector2)position size:(GLKVector2)size
+-(void)setOrigin:(GLKVector2)origin size:(GLKVector2)size
 {
-    _position = position;
+    _origin = origin;
     _size = size;
-//    [self updateSourceAttributes];
-    [self updateProjectMatrix];
+    [self updateSourceAttributes];
+//    [self updateProjectMatrix];
 }
 -(void)setCenter:(GLKVector2)center size:(GLKVector2)size
 {
     _size = size;
-    _position = GLKVector2Make(center.x - self.size.x * 0.5, center.y - self.size.y * 0.5);
-//    [self updateSourceAttributes];
-    [self updateProjectMatrix];
+    _origin = GLKVector2Make(center.x - _size.x * 0.5, center.y - _size.y * 0.5);
+    [self updateSourceAttributes];
+//    [self updateProjectMatrix];
 }
-//- (void)updateSourceAttributes
-//{
-////    GLKVector2 displaySize = self.renderer.displaySize;
-////    GLKVector2 displaySizeRatio =  GLKVector2Make(2/displaySize.x, 2/displaySize.y) ;
-//    GLfloat *vertexAttr = source.vertexAttributes;
-//
-////    vertexAttr[0] = vertexAttr[8] = -1 + (self.position.x * displaySizeRatio.x);
-////    vertexAttr[1] = vertexAttr[5] = 1 - ((self.position.y + self.size.y)* displaySizeRatio.y);
-////    vertexAttr[4] = vertexAttr[12] = -1 + (self.position.x + self.size.x) * displaySizeRatio.x;
-////    vertexAttr[9] = vertexAttr[13] = 1 - (self.position.y * displaySizeRatio.y);
+- (GLKVector2)size
+{
+    GLKVector2 transformSize = GLKVector2Make(_size.x * self.matrix.m00, _size.y * self.matrix.m11);
+    return transformSize;
+}
+- (GLKVector2)origin
+{
+    GLKVector2 size = self.size;
+    GLKVector2 transformPosition = GLKVector2Make(self.center.x - size.x * 0.5, self.center.y - size.y * 0.5);
+    return transformPosition;
+}
+- (void)updateSourceAttributes
+{
+    GLKVector2 displaySize = self.renderer.displaySize;
+    GLKVector2 displaySizeRatio =  GLKVector2Make(2/displaySize.x, 2/displaySize.y) ;
+    GLfloat *vertexAttr = self.vertexAttributes;
+
+    vertexAttr[0] = vertexAttr[8] = -1 + (_origin.x * displaySizeRatio.x);
+    vertexAttr[1] = vertexAttr[5] = 1 - ((_origin.y + _size.y)* displaySizeRatio.y);
+    vertexAttr[4] = vertexAttr[12] = -1 + (_origin.x + _size.x) * displaySizeRatio.x;
+    vertexAttr[9] = vertexAttr[13] = 1 - (_origin.y * displaySizeRatio.y);
 //    vertexAttr[0] = vertexAttr[8] = self.position.x;
 //    vertexAttr[1] = vertexAttr[5] = self.position.y + self.size.y;
 //    vertexAttr[4] = vertexAttr[12] = self.position.x + self.size.x;
 //    vertexAttr[9] = vertexAttr[13] = self.position.y;
-//    
-//    [source updateAttributeBuffer];
-//
-//}
-- (void)updateProjectMatrix
-{
-    GLKVector2 displaySize = self.renderer.displaySize;
-    GLKVector2 displaySizeRatio =  GLKVector2Make(2/displaySize.x, 2/displaySize.y) ;
+    
+    [self updateAttributeBuffer];
 
-    self.projectMatrix = GLKMatrix4MakeOrtho(-1 - (self.position.x * displaySizeRatio.x), 1 + (displaySize.x - (self.position.x + self.size.x)) * displaySizeRatio.x,-1 - (displaySize.y - (self.position.y + self.size.y))* displaySizeRatio.y, 1 + (self.position.y * displaySizeRatio.y), 0, 1);
 }
+//- (void)updateProjectMatrix
+//{
+//    GLKVector2 displaySize = self.renderer.displaySize;
+//    GLKVector2 displaySizeRatio =  GLKVector2Make(2/displaySize.x, 2/displaySize.y) ;
+//
+//    self.projectMatrix = GLKMatrix4MakeOrtho(-1 - (_position.x * displaySizeRatio.x), 1 + (displaySize.x - (_position.x + _size.x)) * displaySizeRatio.x,-1 - (displaySize.y - (_position.y + _size.y))* displaySizeRatio.y, 1 + (_position.y * displaySizeRatio.y), 0, 1);
+//}
 //-(void)updateMatrix
 //{
 //    self.matrix = GLKMatrix4MakeTranslation(self.size.x * 0.5 + self.position.x, -self.size.y * 0.5 - self.position.y, 0);
@@ -207,6 +227,32 @@
 - (void)render
 {
 //    renderer.projectionMatrix = self.projectionMatrix;
+    NSMutableIndexSet *indexSet = [NSMutableIndexSet indexSet];
+    NSUInteger index = 0;
+    for (IPaGL2DAction *action in self.actions) {
+        [action update];
+        if ([action isComplete]) {
+            [indexSet addIndex:index];
+        }
+        index++;
+    }
+    if ([indexSet count] > 0) {
+        [self.actions removeObjectsAtIndexes:indexSet];
+    }
     [self.renderer render:self];
 }
+- (NSMutableArray*)actions
+{
+    if (_actions == nil) {
+        _actions = [@[] mutableCopy];
+    }
+    return _actions;
+}
+
+- (void)addAction:(IPaGL2DAction*)action
+{
+    action.target = self;
+    [self.actions addObject:action];
+}
+
 @end

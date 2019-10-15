@@ -73,7 +73,7 @@
     renderer = [[IPaGLSprite2DRenderer alloc] initWithDisplaySize:GLKVector2Make(self.view.frame.size.width, self.view.frame.size.height)];
     entity = [[IPaGLSprite2D alloc] initWithUIImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"texture" ofType:@"png"]] withName:@"texture" renderer:renderer] ;
 
-    [entity setPosition:GLKVector2Make(100, self.view.frame.size.height / 2) size:GLKVector2Make(self.view.frame.size.width / 2, self.view.frame.size.height / 2)];
+    [entity setOrigin:GLKVector2Make(100, self.view.frame.size.height / 2) size:GLKVector2Make(self.view.frame.size.width / 2, self.view.frame.size.height / 2)];
     entity.matrix = GLKMatrix4MakeScale(0.5, 0.5, 1);
 }
 

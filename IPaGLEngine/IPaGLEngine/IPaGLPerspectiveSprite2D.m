@@ -11,6 +11,9 @@
 #import "IPaGLMaterial.h"
 #import "IPaGLTexture.h"
 #import "IPaGLPerspectiveSprite2DRenderer.h"
+@interface IPaGLPerspectiveSprite2D()
+@property (nonatomic,strong) NSMutableArray *actions;
+@end
 @implementation IPaGLPerspectiveSprite2D
 {
 }
@@ -111,6 +114,17 @@
         self.material.constantColor = [self.material.constantColor colorWithAlphaComponent:alpha];
     }
 }
+- (GLKVector2)positionForCorner:(IPaGLPerspectiveSprite2DCorner)corner
+{
+    GLfloat *vertexAttr = self.vertexAttributes;
+    GLint cornerOffset = corner*5;
+    GLKVector2 position = GLKVector2Make(vertexAttr[cornerOffset], vertexAttr[cornerOffset+1]);
+    GLKVector2 displaySize = self.renderer.displaySize;
+    position.x = (position.x + 1) * displaySize.x * 0.5;
+    position.y = (1 - position.y) * displaySize.y * 0.5;
+    
+    return position;
+}
 - (void)setCorner:(IPaGLPerspectiveSprite2DCorner)corner position:(GLKVector2)position;
 {
 
@@ -184,8 +198,14 @@
     vertexAttr[11] = vertexAttr[16] = 1 - position.y * displaySizeRatio.y ;
 
     vertexAttr[2] = vertexAttr[3] = vertexAttr[8] = vertexAttr[12] = 0;
-    vertexAttr[4] = vertexAttr[7] = vertexAttr[9] = vertexAttr[13] = vertexAttr[14] = vertexAttr[17] = vertexAttr[18] = vertexAttr[19] = 1;
+    vertexAttr[4] = vertexAttr[9] = vertexAttr[14] = vertexAttr[19] = 1;
     
+    GLKVector2 texCoordRatio = self.material.texture.texCoordRatio;
+    
+
+    vertexAttr[7] = vertexAttr[17] = texCoordRatio.x;
+    vertexAttr[13] = vertexAttr[18] = texCoordRatio.y;
+
     [self updateAttributeBuffer];
     
    
@@ -200,6 +220,19 @@
 
 - (void)render
 {
+    NSMutableIndexSet *indexSet = [NSMutableIndexSet indexSet];
+    NSUInteger index = 0;
+    for (IPaGL2DAction *action in self.actions) {
+        [action update];
+        if ([action isComplete]) {
+            [indexSet addIndex:index];
+        }
+        index++;
+    }
+    if ([indexSet count] > 0) {
+        [self.actions removeObjectsAtIndexes:indexSet];
+    }
+
     //    renderer.projectionMatrix = self.projectionMatrix;
     [self.renderer render:self];
 
@@ -209,36 +242,61 @@
 - (GLKVector2)getUVOfPoint:(GLKVector2)point
 {
     GLfloat *vertexAttr = self.vertexAttributes;
-    GLKVector2 target = GLKVector2Make( point.x,point.y);
+    GLKVector2 displaySize = self.renderer.displaySize;
+    GLKVector2 displaySizeRatio =  GLKVector2Make(2/displaySize.x, 2/displaySize.y) ;
+    
+    GLKVector2 targetPoint = GLKVector2Make(-1 + point.x * displaySizeRatio.x,1 - point.y * displaySizeRatio.y);
     GLint blOffset = IPaGLPerspectiveSprite2DCornerBottomLeft * 5;
-    GLKVector2 origin = GLKVector2Make(vertexAttr[blOffset], vertexAttr[blOffset+1]);
-
-    GLfloat m1 = (target.y - origin.y) / (target.x - origin.x);
-    GLfloat c1 = origin.y - origin.x * m1;
-    
     GLint ulOffset = IPaGLPerspectiveSprite2DCornerUpperLeft * 5;
-    GLKVector2 luPos = GLKVector2Make(vertexAttr[ulOffset], vertexAttr[ulOffset+1]);
-    GLint ruOffset = IPaGLPerspectiveSprite2DCornerUpperRight * 5;
-    GLKVector2 ruPos = GLKVector2Make(vertexAttr[ruOffset], vertexAttr[ruOffset+1]);
-    GLfloat m2 = (ruPos.y - luPos.y) / (ruPos.x - luPos.x);
-    GLfloat c2 = ruPos.y - ruPos.x * m2;
+    GLint urOffset = IPaGLPerspectiveSprite2DCornerUpperRight * 5;
+    GLint brOffset = IPaGLPerspectiveSprite2DCornerBottomRight * 5;
+    GLKVector2 blPoint = GLKVector2Make(vertexAttr[blOffset], vertexAttr[blOffset+1]);
+    GLKVector2 ulPoint = GLKVector2Make(vertexAttr[ulOffset], vertexAttr[ulOffset+1]);
+    GLKVector2 brPoint = GLKVector2Make(vertexAttr[brOffset], vertexAttr[brOffset+1]);
+    GLKVector2 urPoint = GLKVector2Make(vertexAttr[urOffset], vertexAttr[urOffset+1]);
+    GLKVector2 crossPoint;
+
+//    GLfloat m = (urPoint.y - blPoint.y ) / (urPoint.x - blPoint.x);
+//    GLfloat m2 = (targetPoint.y - blPoint.y ) / (targetPoint.x - blPoint.x);
+    GLKVector2 point1 = ulPoint;
+    GLKVector2 point2 = urPoint;
+    GLint offset1 = ulOffset;
+    GLint offset2 = urOffset;
+    BOOL result = [self crossPointOfLineStartP:blPoint endP:targetPoint Line2StartP:point1 end2P:point2 result:&crossPoint];
     
-    GLKVector2 crossPoint = GLKVector2Make((c1-c2)/(m2-m1), (m1*c2-m2*c1) / (m1-m2));
-    
-    GLfloat ratio = GLKVector2Distance(crossPoint, luPos) / GLKVector2Distance(luPos, ruPos);
-    
-    
-    
-    GLfloat crossS = vertexAttr[ulOffset+2] + ratio * (vertexAttr[ruOffset+2] - vertexAttr[ulOffset+2]);
-    GLfloat crossT = vertexAttr[ulOffset+3] + ratio * (vertexAttr[ruOffset+3] - vertexAttr[ulOffset+3]);
-    GLfloat crossQ = vertexAttr[ulOffset+4] + ratio * (vertexAttr[ruOffset+4] - vertexAttr[ulOffset+4]);
+    if (!result) {
+        point1 = urPoint;
+        point2 = brPoint;
+        offset1 = urOffset;
+        offset2 = brOffset;
+        [self crossPointOfLineStartP:blPoint endP:targetPoint Line2StartP:point1 end2P:point2 result:&crossPoint];
+    }
     
     
-     ratio = GLKVector2Distance(target, origin) / GLKVector2Distance(crossPoint, origin);
+    GLfloat ratio = GLKVector2Distance(crossPoint, point1) / GLKVector2Distance(point1, point2);
+    GLKVector2 vector = GLKVector2Normalize(GLKVector2Subtract(crossPoint, point1));
+    GLKVector2 vector2 = GLKVector2Normalize(GLKVector2Subtract(point2, point1));
+    if (GLKVector2Length(GLKVector2Add(vector,vector2)) == 0)
+    {
+        ratio = -ratio;
+    }
     
+    GLfloat crossS = vertexAttr[offset1+2] + ratio * (vertexAttr[offset2+2] - vertexAttr[offset1+2]);
+    GLfloat crossT = vertexAttr[offset1+3] + ratio * (vertexAttr[offset2+3] - vertexAttr[offset1+3]);
+    GLfloat crossQ = vertexAttr[offset1+4] + ratio * (vertexAttr[offset2+4] - vertexAttr[offset1+4]);
+    
+    
+    ratio = GLKVector2Distance(targetPoint, blPoint) / GLKVector2Distance(crossPoint, blPoint);
+    vector = GLKVector2Normalize(GLKVector2Subtract(targetPoint, blPoint));
+    vector2 = GLKVector2Normalize(GLKVector2Subtract(crossPoint, blPoint));
+    if (GLKVector2Length(GLKVector2Add(vector,vector2)) == 0)
+    {
+        ratio = -ratio;
+    }
     GLfloat targetS = vertexAttr[blOffset+2] + ratio * (crossS - vertexAttr[blOffset+2]);
     GLfloat targetT = vertexAttr[blOffset+3] + ratio * (crossT - vertexAttr[blOffset+3]);
     GLfloat targetQ = vertexAttr[blOffset+4] + ratio * (crossQ - vertexAttr[blOffset+4]);
+    
     
     GLfloat u = targetS / targetQ;
     GLfloat v = targetT / targetQ;
@@ -246,5 +304,46 @@
     return GLKVector2Make(u, v);
     
     
+}
+
+- (BOOL)crossPointOfLineStartP:(GLKVector2)startP endP:(GLKVector2)endP Line2StartP:(GLKVector2)start2P end2P:(GLKVector2)end2P result:(GLKVector2*)resultPoint
+{
+    
+    GLfloat m1 = (startP.x == endP.x)?0:(startP.y - endP.y) / (startP.x - endP.x);
+    GLfloat m2 = (start2P.x == end2P.x)?0:(start2P.y - end2P.y) / (start2P.x - end2P.x);
+    
+    
+    GLfloat c1 = endP.y - endP.x * m1;
+    
+    
+    GLfloat c2 = end2P.y - end2P.x * m2;
+    
+    if (m2 == m1 && c1 != c2) {
+        return NO;
+    }
+    *resultPoint = GLKVector2Make((c1-c2)/(m2-m1), (m1*c2-m2*c1) / (m1-m2));
+    return YES;
+}
+
+- (NSMutableArray*)actions
+{
+    if (_actions == nil) {
+        _actions = [@[] mutableCopy];
+    }
+    return _actions;
+}
+
+- (void)addAction:(IPaGL2DAction*)action
+{
+    action.target = self;
+    [self.actions addObject:action];
+}
+- (GLKVector2)position
+{
+    return self.center;
+}
+- (void)setPosition:(GLKVector2)position
+{
+    [self setCenter:position];
 }
 @end

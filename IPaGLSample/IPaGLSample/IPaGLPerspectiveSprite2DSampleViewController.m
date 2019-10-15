@@ -30,6 +30,7 @@
     
     __weak IBOutlet UIView *centerView;
     
+
     
     IPaGLSprite2D *sprite;
 //    IPaGLFramebufferTexture* texture;

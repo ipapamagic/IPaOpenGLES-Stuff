@@ -84,7 +84,7 @@
     IPaGLSprite2DRenderer *renderer = [[IPaGLSprite2DRenderer alloc] initWithDisplaySize:GLKVector2Make(self.view.frame.size.width, self.view.frame.size.height)];
     IPaGLSprite2D* entity = [[IPaGLSprite2D alloc] initWithUIImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"rock" ofType:@"png"]] withName:@"texture" renderer:renderer];
     entity.renderer = renderer;
-    [entity setPosition:GLKVector2Make(0, 0) size:GLKVector2Make(self.view.frame.size.width , self.view.frame.size.height )];
+    [entity setOrigin:GLKVector2Make(0, 0) size:GLKVector2Make(self.view.frame.size.width , self.view.frame.size.height )];
     rippleEffect = [[IPaGLWaterRippleEffect alloc] initWithSize:GLKVector2Make(self.view.frame.size.width, self.view.frame.size.height) meshFactor:4 rippleRadius:5];
     
     [rippleEffect bindFrameBuffer];

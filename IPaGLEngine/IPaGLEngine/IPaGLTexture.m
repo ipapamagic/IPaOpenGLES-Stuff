@@ -20,6 +20,11 @@ static NSMutableDictionary *IPaGLTextureList = nil;
 }
 +(IPaGLTexture*)textureFromImage:(UIImage*)image withName:(NSString*)name
 {
+    if (name == nil) {
+        name = [image description];
+    }
+    int MAX_TEXTURE_SIZE;
+    glGetIntegerv(GL_MAX_TEXTURE_SIZE, &MAX_TEXTURE_SIZE);
     IPaGLTexture *texture = IPaGLTextureList[name];
     if (texture == nil) {
         texture = [[IPaGLTexture alloc] initWithName:name];
@@ -33,8 +38,8 @@ static NSMutableDictionary *IPaGLTextureList = nil;
         while(temp < imageSize.width)
         {
             temp *= 2;
-            if (temp >= MAX_TEXTURE_WIDTH) {
-                temp = MAX_TEXTURE_WIDTH;
+            if (temp >= MAX_TEXTURE_SIZE) {
+                temp = MAX_TEXTURE_SIZE;
                 break;
             }
         }
@@ -43,8 +48,8 @@ static NSMutableDictionary *IPaGLTextureList = nil;
         while(temp < imageSize.height)
         {
             temp *= 2;
-            if (temp >= MAX_TEXTURE_HEIGHT) {
-                temp = MAX_TEXTURE_HEIGHT;
+            if (temp >= MAX_TEXTURE_SIZE) {
+                temp = MAX_TEXTURE_SIZE;
                 break;
             }
         }

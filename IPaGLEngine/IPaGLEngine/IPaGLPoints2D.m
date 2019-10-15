@@ -12,6 +12,9 @@
 @implementation IPaGLPoints2D
 {
 }
+@dynamic renderer;
+@dynamic matrix;
+@dynamic path;
 - (instancetype)initWithMaxPointsNumber:(GLint)maxPointsNumber renderer:(IPaGLPoints2DRenderer*)renderer
 {
     return  [super initWithPath:[[IPaGLPath2D alloc] initWithMaxPointsNumber:maxPointsNumber] renderer:renderer];

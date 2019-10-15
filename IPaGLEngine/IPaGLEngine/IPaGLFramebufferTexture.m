@@ -12,23 +12,42 @@
 @implementation IPaGLFramebufferTexture
 {
     GLuint framebuffer;
+    CGSize textureSize;
 }
 -(IPaGLFramebufferTexture*)initWithSize:(CGSize)size
 {
     return [self initWithSize:size filter:GL_NEAREST];
 }
--(IPaGLFramebufferTexture*)initWithSize:(CGSize)size filter:(GLenum)filter
+-(IPaGLFramebufferTexture*)initWithSize:(CGSize)texSize filter:(GLenum)filter
 {
     self = [super init];
+    //  NSInteger temp = 2;
+    //  CGSize size  = texSize;
+    ////  GLKVector2 texRatio = GLKVector2Make(1, 1);
+    int MAX_TEXTURE_SIZE;
+    glGetIntegerv(GL_MAX_TEXTURE_SIZE, &MAX_TEXTURE_SIZE);
+    if (texSize.width > MAX_TEXTURE_SIZE || texSize.height > MAX_TEXTURE_SIZE) {
+        if (texSize.width > texSize.height) {
+            textureSize.width = MAX_TEXTURE_SIZE;
+            textureSize.height = texSize.height / texSize.width * MAX_TEXTURE_SIZE;
+        }
+        else {
+            textureSize.height = MAX_TEXTURE_SIZE;
+            textureSize.width = texSize.width / texSize.height * MAX_TEXTURE_SIZE;
+        }
+    }
+    else {
+        textureSize = texSize;
+    }
+    //    texRatio = GLKVector2Make(textureSize.width / size.width, textureSize.height / size.height);
+    
     glGenFramebuffers(1, &framebuffer);
     glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
-    //    glGenRenderbuffers(1, &baseDepthBuffer);
-    //    glBindRenderbuffer(GL_RENDERBUFFER, baseDepthBuffer);
-    //    glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT16, self.bounds.size.width, self.bounds.size.height);
+    
     GLuint textureName;
     glGenTextures(1, &textureName);
     glBindTexture(GL_TEXTURE_2D, textureName);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, size.width, size.height,
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, textureSize.width, textureSize.height,
                  0, GL_RGBA, GL_UNSIGNED_SHORT_4_4_4_4, NULL);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
@@ -39,23 +58,42 @@
                            GL_TEXTURE_2D, textureName, 0);
     
     //    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, baseDepthBuffer);
-    if(glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
-	{
-		NSLog(@"Texture frame buffer not complete!");
+    int status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
+    if(status != GL_FRAMEBUFFER_COMPLETE)
+    {
+        switch (status) {
+            case GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT:
+                NSLog(@"GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT");
+                break;
+            case GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT:
+                NSLog(@"GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT");
+                break;
+            case GL_FRAMEBUFFER_INCOMPLETE_DIMENSIONS:
+                NSLog(@"GL_FRAMEBUFFER_INCOMPLETE_DIMENSIONS");
+                break;
+            case GL_FRAMEBUFFER_UNSUPPORTED:
+                NSLog(@"GL_FRAMEBUFFER_UNSUPPORTED");
+                break;
+                
+            default:
+                NSLog(@"unknown status");
+                break;
+        }
         return nil;
-	}
-
+    }
+    
     self.textureName = textureName;
     self.texTarget = GL_TEXTURE_2D;
-    self.imageSize = GLKVector2Make(size.width, size.height);
+    self.imageSize = GLKVector2Make(texSize.width, texSize.height);
     self.texCoordRatio = GLKVector2Make(1, 1);
     return self;
-
+    
 }
 -(void)bindFramebuffer
 {
     glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
-    glViewport(0, 0, self.imageSize.x, self.imageSize.y);
+//    glViewport(0, 0, self.imageSize.x, self.imageSize.y);
+    glViewport(0, 0, textureSize.width, textureSize.height);
 }
 -(void)dealloc
 {
@@ -64,14 +102,14 @@
 - (UIImage*)renderToImage
 {
     [self bindFramebuffer];
-    GLint backingWidth, backingHeight;
-    
-    glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_WIDTH, &backingWidth);
-    glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_HEIGHT, &backingHeight);
+    //  GLint backingWidth, backingHeight;
+    //
+    //  glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_WIDTH, &backingWidth);
+    //  glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_HEIGHT, &backingHeight);
     
     GLint x = 0, y = 0;
-    GLint width = self.imageSize.x;
-    GLint height = self.imageSize.y;
+    GLint width = textureSize.width;
+    GLint height = textureSize.height;
     NSInteger dataLength = width * height * 4;
     GLubyte *data = (GLubyte*)malloc(dataLength * sizeof(GLubyte));
     
@@ -82,7 +120,8 @@
     CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
     CGImageRef iref = CGImageCreate(width, height, 8, 32, width * 4, colorspace, kCGBitmapByteOrder32Big | kCGImageAlphaPremultipliedLast,
                                     ref, NULL, true, kCGRenderingIntentDefault);
-    
+    width = self.imageSize.x;
+    height = self.imageSize.y;
     UIGraphicsBeginImageContext(CGSizeMake(width, height));
     CGContextRef cgcontext = UIGraphicsGetCurrentContext();
     CGContextSetBlendMode(cgcontext, kCGBlendModeCopy);
